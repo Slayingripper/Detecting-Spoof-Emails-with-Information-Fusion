@@ -1,6 +1,8 @@
 #imports 
 import pandas as pd
 import re
+import enchant
+from nltk.corpus import brown
 from datetime import datetime
 startTime = datetime.now()
 
@@ -42,6 +44,10 @@ if df[df.SUBJECT.str.contains('XXX', regex= True, na=False)] is not None :
     spamlevel = spamlevel+1 #increment spam level 
 else :
     print(spamlevel)
-
 print(spamlevel)
 print datetime.now() - startTime 
+
+
+
+
+#check spelling
