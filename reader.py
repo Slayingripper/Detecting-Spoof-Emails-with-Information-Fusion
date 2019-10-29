@@ -4,6 +4,15 @@ import re
 import enchant
 from nltk.corpus import brown
 from datetime import datetime
+from nltk.tokenize import word_tokenize
+from nltk.corpus import brown
+import nltk
+import grammar
+from spellchecker import SpellChecker
+
+
+
+
 startTime = datetime.now()
 
 spamlevel = 0 
@@ -24,13 +33,15 @@ else:
 
 print("\n---- Filter DataFrame using & ----\n")
  
-searchme = df.query('SUBJECT == "XXX"')
+searchme = df.query('"SEX" in SUBJECT')
+searchme = df[df.SUBJECT.str.contains("SEX")]
+#searchme = df["sex" in df.SUBJECT.str.lower()]
  
 print(searchme)
 
 print("\n --- search string  ---\n")
 
-if df[df.SUBJECT.str.contains('MONEY', regex= True, na=False)] is not None :
+if df[df.SUBJECT.str.contains('bacon', regex= True, na=False)] is not None :
     spamlevel = spamlevel+1 #increment spam level
 else :
     print(spamlevel)
@@ -39,15 +50,16 @@ if df[df.SENDER.str.contains('.xyz', regex= True, na=False)] is not None :
     spamlevel = spamlevel+1 #increment spam level 
 else :
     print(spamlevel)
-
-if df[df.SUBJECT.str.contains('XXX', regex= True, na=False)] is not None :
+#check for special characters
+if df[df.SUBJECT.str.contains('[(+*!.,<>/?|\@)]', regex= True, na=False)] is not None :
     spamlevel = spamlevel+1 #increment spam level 
 else :
     print(spamlevel)
+
 print(spamlevel)
 print datetime.now() - startTime 
 
-
-
-
 #check spelling
+
+grammar.speller()
+print datetime.now() - startTime 
