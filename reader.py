@@ -31,7 +31,7 @@ if 'SUBJECT' in df.columns:
 else:
     print("No")
 
-print("\n---- Filter DataFrame using & ----\n")
+print("\n---- Filter DataFrame using a query ----\n")
  
 searchme = df.query('"SEX" in SUBJECT')
 searchme = df[df.SUBJECT.str.contains("SEX")]
