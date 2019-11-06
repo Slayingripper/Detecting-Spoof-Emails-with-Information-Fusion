@@ -40,9 +40,9 @@ To combat such attacks, Google have set up two-factor authentication to allow us
 into their accounts. However, the onus is on the user to enable this form of two-factor
 authentication. A simple download of the Google Authenticator app solves the problem.
 
-{https://www.wired.com/2017/05/dont-open-google-doc-unless-youre-positive-legit/}
-{https://www.cnet.com/how-to/why-the-google-docs-scam-was-a-different-kind-of-phishing/}
-{https://gizmodo.com/a-huge-and-dangerously-convincing-google-docs-phishin-1794888973}
+[https://www.wired.com/2017/05/dont-open-google-doc-unless-youre-positive-legit/]
+[https://www.cnet.com/how-to/why-the-google-docs-scam-was-a-different-kind-of-phishing/]
+[https://gizmodo.com/a-huge-and-dangerously-convincing-google-docs-phishin-1794888973]
 
 
 
@@ -55,7 +55,7 @@ Phishing often takes advantage of such individual services.
 Attackers create fake sign-in pages for Dropbox as a part of credential harvesting. They
 then use the stolen credentials to log in to legitimate sites and steal user data.
 
-{https://help.dropbox.com/accounts-billing/security/phishing-virus-protection}
+[https://help.dropbox.com/accounts-billing/security/phishing-virus-protection]
 
 
 
@@ -102,7 +102,7 @@ into Bayes' theorem.
 
 
 ### Code
-
+```
 def train:
 	total = 0
 	numSpam = 0
@@ -112,7 +112,7 @@ def train:
 		total += 1
 	pA = numSpam/(float)total
 	pNotA = (total — numSpam)/(float)total
-
+```
 
 ## Naive Bayes Complexity 
 The most difficult part is calculating P(B|A) and P(B|¬A). In order to calculate these, we
@@ -127,7 +127,8 @@ following code:
 
 
 runs once on training data
-'''
+
+```
 def train:
 	total = 0
 	numSpam = 0
@@ -137,9 +138,9 @@ def train:
 		total += 1
 	pA = numSpam/(float)total
 	pNotA = (total — numSpam)/(float)total
-'''	
+```	
 #counts the words in a specific email
-'''
+```
 def processEmail(body, label):
 	for word in body:
 		if label == SPAM:
@@ -148,15 +149,15 @@ def processEmail(body, label):
 	else:
 		trainNegative[word] = trainNegative.get(word, 0) + 1
 		negativeTotal += 1
-'''		
+```	
 #gives the conditional probability p(B_i | A_x)
-'''
+```
 def conditionalWord(word, spam):
 	if spam:
 		return trainPositive[word]/(float)positiveTotal
 	return trainNegative[word]/(float)negativeTotal
 
-'''
+```
 
 
 
