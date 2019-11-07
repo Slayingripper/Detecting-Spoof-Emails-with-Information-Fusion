@@ -80,7 +80,7 @@ servers. They help with sending emails to and fro, from the server to the user.
 The following diagram illustrates the SMTP process:
 
 
-{insert image}
+![alt text](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbestemailsolutions.files.wordpress.com%2F2014%2F04%2Fsmtp-server.jpg&f=1&nofb=1)
 
 
 
@@ -90,9 +90,12 @@ The Naive Bayes theorem is a classification technique. The basis of this algorit
 theorem; the basic assumption is that the predictor variables are independent of each other.
 Bayes' theorem is mathematically expressed as follows:
 
+![alt text](https://wikimedia.org/api/rest_v1/media/math/render/svg/52bd0ca5938da89d7f9bf388dc7edcbd546c118e)
 
-{instert equation}
 
+or more simply 
+
+![alt text](https://wikimedia.org/api/rest_v1/media/math/render/svg/d0d9f596ba491384422716b01dbe74472060d0d7)
 
 It essentially gives us a trick for calculating conditional probabilities, in situations where it
 wouldn't be feasible to directly measure them. For instance, if you wanted to calculate
