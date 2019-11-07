@@ -23,6 +23,24 @@ The prototype for now reads the dataset COlumn by column which means although it
 It not practical to do so as we want to read each row individially for analysis
 Need to study python more.
 
+## Structure and modularity of the framework
+
+The framework will be split up into smalled modules to allow for modularity and expandability of the framework.
+This means that troubleshooting and debuging the framework as time goes one will trivial.
+Since I would like this framework to keep on expanding I want other developers to be able to read it.
+
+The figure bellow shows how the overall framework will be modularised:
+
+
+![Figure of Framework](https://raw.githubusercontent.com/Slayingripper/Detecting-Spoof-Emails-with-Information-Fusion/master/Diagrams/modular.png?token=ACYOY6WMWMYEZ3CULFPHTY25YQNEQ)
+
+
+Furthermore the this diagram shows a more analytical representations of the framework and how the modules will work together to produce a result:
+
+
+![Figure of modules](https://raw.githubusercontent.com/Slayingripper/Detecting-Spoof-Emails-with-Information-Fusion/master/Diagrams/71691021_2061637450604366_31862610022367232_n.png?token=ACYOY6QFDJQ5ZKBGYCQ5KFK5YQNIM)
+
+
 ## Definitions
 
 Decision trees : Some systems acquire decision trees to discriminate among classes of objects. The nodes in a decision tree correspond to selected object attributes , and the edges correspond to predetermined alternative values for these attributes . Leaves of the tree correspond to sets of objects with an identical classification.
