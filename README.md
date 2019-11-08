@@ -32,13 +32,13 @@ Since I would like this framework to keep on expanding I want other developers t
 The figure bellow shows how the overall framework will be modularised:
 
 
-![Figure of Framework](https://raw.githubusercontent.com/Slayingripper/Detecting-Spoof-Emails-with-Information-Fusion/master/Diagrams/modular.png?token=ACYOY6WMWMYEZ3CULFPHTY25YQNEQ)
+![alt text](https://raw.githubusercontent.com/Slayingripper/Detecting-Spoof-Emails-with-Information-Fusion/master/Diagrams/modular.png?token=ACYOY6WMWMYEZ3CULFPHTY25YQNEQ)
 
 
 Furthermore the this diagram shows a more analytical representations of the framework and how the modules will work together to produce a result:
 
 
-![Figure of modules](https://raw.githubusercontent.com/Slayingripper/Detecting-Spoof-Emails-with-Information-Fusion/master/Diagrams/71691021_2061637450604366_31862610022367232_n.png?token=ACYOY6QFDJQ5ZKBGYCQ5KFK5YQNIM)
+![alt text](https://raw.githubusercontent.com/Slayingripper/Detecting-Spoof-Emails-with-Information-Fusion/master/Diagrams/71691021_2061637450604366_31862610022367232_n.png?token=ACYOY6QFDJQ5ZKBGYCQ5KFK5YQNIM)
 
 
 ## Definitions
