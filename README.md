@@ -180,6 +180,23 @@ def conditionalWord(word, spam):
 
 ```
 
+## Logistic Regression 
 
+
+
+
+
+
+## Naive Bayes VS Logistic Regression 
+
+|   | Naive Bayes                                                                                                                                                | Logistic Regression                                                                                                         |
+|---|------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| 1 | For the given features (x) and the  label y, it estimates a joint probability from the training data. Hence  this is a Generative model                    |  Estimates the probability(y/x) directly from the training data by minimizing error.   Hence this is a Discriminative model |
+| 2 |  It assumes that all components of the dataset are autonomous.    Which means that if there is a chance of is something is not it will skue   the results. | It works well even if some components are correlated                                                                        |
+| 3 | Works well with small training data, since it is based on the joint density function                                                                       | Not suitable with small sets of data as it may over fit the data                                                            |
+
+
+
+##
 
 

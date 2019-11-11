@@ -37,7 +37,7 @@ def dataFrameFromDirectory(path, classification):
     return DataFrame(rows, index=index)
 
 #An empty dataframe with 'message' and 'class' headers
-data = DataFrame({'message': [], 'class': []})
+data = DataFrame({'message': [], 'class': [],'Email':[]})
 
 #Including the email details with the spam/ham classification in the dataframe
 data = data.append(dataFrameFromDirectory('/home/blackfalcon/gitstuff/Email-Spam-Classifier-Using-Naive-Bayes/emails/spam/', 'spam'))
