@@ -182,12 +182,29 @@ def conditionalWord(word, spam):
 
 ## Logistic Regression 
 
+Logistic Regression is not a common method of spam filtering but that does not mean it cant be used.
+It will assist us in understanding the relationship between the variables and make a distiction between dependant and 
+independant ones. It is an analysis methodology used when there has to be a destiction between a dichotomous variable (binary vriable).By design and like all of its predecesors like Linear and non-linear regression, it is a predictice analysis method.
+
+
+The equation of logistic regression is : 
+
+
+{insert figure}
+
+and can be represented by this illustration:
+
+
+
+{insert figure}
 
 
 
 
 
-## Naive Bayes VS Logistic Regression 
+
+
+## Naive Bayes VS Logistic Regression  
 
 |   | Naive Bayes                                                                                                                                                | Logistic Regression                                                                                                         |
 |---|------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
@@ -197,6 +214,10 @@ def conditionalWord(word, spam):
 
 
 
-##
+## Which one to pick ? 
+
+As both of them have pros and cons Naive Bayes is the simplest but is limited to small amounts of data this means that as the data increases our acurracy will drastically decrease. In contrast Logistic regression might be appropriate but will increase the complexity of the overall project so an implementation of Naive bayes that splits large data into smaller chunks might be better idea.
+
+
 
 
