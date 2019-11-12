@@ -257,11 +257,3 @@ P(Spam|w1,w2,..wn)=.20
 Now if we introduce a an email with exactly the same content as the one above but with one word difference it will might change the result because the word count for that specific word will be 0. This means that our accuracy will drastically decrease as we increase the number of emails we classify .
 
 Laplace smoothing can solve this since it will give the last word a small nonzero probability for both classifications so the posterior probabilities don't get a value of zero. 
- 
-
-
-
-
-
-
-
