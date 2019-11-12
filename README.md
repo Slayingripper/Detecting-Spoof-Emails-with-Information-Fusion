@@ -7,26 +7,26 @@ I’ve found a few sources of spam email headers more specifically I’m using t
 
 ## Data manipulation
 
-Using Visual Basic to script An exel macro i was able to remove the unneeded data from the dataset but had to manualy rerun the script to fish out any false positives that popped up. This took some time but was necessary to minimise useless data such as message ID which was automatically alocated by Outlook. A big issue was that I was unable to find a way to automatically filter and create a table so I ended up just filtering the data manualy using the script and manualy pasting into an new worksheet where i created a table with two columns FROM and Subject. Some Emails had no subject and that is perfectly fine since that will give some variation to the dataset.
+Using Visual Basic to script An excel macro i was able to remove the unneeded data from the data set but had to manually rerun the script to fish out any false positives that popped up. This took some time but was necessary to minimise useless data such as message ID which was automatically allocated by Outlook. A big issue was that I was unable to find a way to automatically filter and create a table so I ended up just filtering the data manually using the script and manually pasting into an new worksheet where i created a table with two columns FROM and Subject. Some Emails had no subject and that is perfectly fine since that will give some variation to the dataset.
 
 ## Why Python ? 
-With python's ever growing popularity as a programing language it has become an "easy"
-and straight forward way to implement things like machiine learning which make it perfect for this use
+With python's ever growing popularity as a programming language it has become an "easy"
+and straight forward way to implement things like machine learning which make it perfect for this use
 further more 
 
 ## PYTHON PERFOMANCE AND LIBRARIES
 
-TO read the CSV file ive used the PANDAS library which is faster and more flexible than the embeded libraries of python , futher more although regex is a powerful tool to use it is slow compared to other methods.
+TO read the CSV file I've used the PANDAS library which is faster and more flexible than the embeded libraries of python , further more although regex is a powerful tool to use it is slow compared to other methods.
 At this time I am using NLTK (Natural Language Toolkit) to tokenize each word 
 so they can be checked for spelling mistakes which is will up the spam counter
-The prototype for now reads the dataset COlumn by column which means although it does detect if something is spam
-It not practical to do so as we want to read each row individially for analysis
+The prototype for now reads the data set Column by column which means although it does detect if something is spam
+It not practical to do so as we want to read each row individually for analysis
 Need to study python more.
 
 ## Structure and modularity of the framework
 
-The framework will be split up into smalled modules to allow for modularity and expandability of the framework.
-This means that troubleshooting and debuging the framework as time goes one will trivial.
+The framework will be split up into smaller modules to allow for modularity and expand ability of the framework.
+This means that troubleshooting and debugging the framework as time goes one will trivial.
 Since I would like this framework to keep on expanding I want other developers to be able to read it.
 
 The figure bellow shows how the overall framework will be modularised:
@@ -45,7 +45,7 @@ Furthermore the this diagram shows a more analytical representations of the fram
 
 Decision trees : Some systems acquire decision trees to discriminate among classes of objects. The nodes in a decision tree correspond to selected object attributes , and the edges correspond to predetermined alternative values for these attributes . Leaves of the tree correspond to sets of objects with an identical classification.
 
-monkey and bannas problem
+monkey and bananas problem
 
 
 ## Examples of attacks
@@ -88,8 +88,8 @@ of the email is then deleted from the remote server.
 ### IMAP email servers: 
 Internet Message Access Protocol (IMAP) is a variation of
 a POP3 type of server. IMAP email servers are mainly used for business
-purposes, and allow for organizing, previewing, and deleting emails. After the
-emails are organized, they can be transferred to the user's computer. A copy of
+purposes, and allow for organising, previewing, and deleting emails. After the
+emails are organised, they can be transferred to the user's computer. A copy of
 the email will still reside in the external server, unless the business user decides
 to explicitly delete it.
 ### SMTP email servers: 
@@ -114,6 +114,12 @@ Bayes' theorem is mathematically expressed as follows:
 or more simply 
 
 ![alt text](https://wikimedia.org/api/rest_v1/media/math/render/svg/d0d9f596ba491384422716b01dbe74472060d0d7)
+
+
+
+p(f_1,..., f_n|c) = \prod_{i=1}^n p(f_i|c)
+
+
 
 It essentially gives us a trick for calculating conditional probabilities, in situations where it
 wouldn't be feasible to directly measure them. For instance, if you wanted to calculate
@@ -180,11 +186,29 @@ def conditionalWord(word, spam):
 
 ```
 
+
+
+### Variations of Naive Bayes
+
+#### Multinomial Naive Bayes model
+
+Multinomian Naive Bayes takes into account the frequency of occurance of some variable. This is primarily used with topic categorisation of articles,documents etc. or can be used for word counting. With the variation of emails this method will not be appropriate for use for this project.
+
+
+[alt text!](https://s0.wp.com/latex.php?latex=P%28f_x%5C%2C+%7C+%5C%2Cc%29+%3D+%5Cfrac%7BP%28c%5C%2C+%7C+%5C%2Cf_x%29+%2A+P%28f_x%29%7D%7BP%28c%29%7D+&bg=f1f1f1&fg=666666&s=2)
+
+
+A simplified version of this equation is 
+
+[alt text!] (https://s0.wp.com/latex.php?latex=P%28word_i%7Cclass%29+%3D+%5Cfrac%7Bcount%28word_%7Bi%2Cclass%7D%29%7D%7Bcount%28word_%7Bclass%7D%29%7D+&bg=f1f1f1&fg=666666&s=2)
+
+
+{Stuart J. Russell and Peter Norvig. 2003. Artificial Intelligence: A Modern Approach (2 ed.).}
 ## Logistic Regression 
 
 Logistic Regression is not a common method of spam filtering but that does not mean it cant be used.
-It will assist us in understanding the relationship between the variables and make a distiction between dependant and 
-independant ones. It is an analysis methodology used when there has to be a destiction between a dichotomous variable (binary vriable).By design and like all of its predecesors like Linear and non-linear regression, it is a predictice analysis method.
+It will assist us in understanding the relationship between the variables and make a distinction between dependant and 
+independent ones. It is an analysis methodology used when there has to be a distinction between a dichotomous variable (binary variable).By design and like all of its predecessors like Linear and nonlinear regression, it is a predictive analysis method.
 
 
 The equation of logistic regression is : 
@@ -208,15 +232,35 @@ and can be represented by this illustration:
 
 |   | Naive Bayes                                                                                                                                                | Logistic Regression                                                                                                         |
 |---|------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| 1 | For the given features (x) and the  label y, it estimates a joint probability from the training data. Hence  this is a Generative model                    |  Estimates the probability(y/x) directly from the training data by minimizing error.   Hence this is a Discriminative model |
-| 2 |  It assumes that all components of the dataset are autonomous.    Which means that if there is a chance of is something is not it will skue   the results. | It works well even if some components are correlated                                                                        |
+| 1 | For the given features (x) and the  label y, it estimates a joint probability from the training data. Hence  this is a Generative model                    |  Estimates the probability(y/x) directly from the training data by minimising error.   Hence this is a Discriminative model |
+| 2 |  It assumes that all components of the data-set are autonomous.    Which means that if there is a chance of is something is not it will skue   the results. | It works well even if some components are correlated                                                                        |
 | 3 | Works well with small training data, since it is based on the joint density function                                                                       | Not suitable with small sets of data as it may over fit the data                                                            |
 
 
 
 ## Which one to pick ? 
 
-As both of them have pros and cons Naive Bayes is the simplest but is limited to small amounts of data this means that as the data increases our acurracy will drastically decrease. In contrast Logistic regression might be appropriate but will increase the complexity of the overall project so an implementation of Naive bayes that splits large data into smaller chunks might be better idea.
+As both of them have pros and cons Naive Bayes is the simplest but is limited to small amounts of data this means that as the data increases our accuracy will drastically decrease. In contrast Logistic regression might be appropriate but will increase the complexity of the overall project so an implementation of Naive bayes that splits large data into smaller chunks might be better idea.
+
+
+## Laplace Smoothing
+
+Lets say we have an email where naive Bayes will conclude that it is not spam with a probability of 80%.
+
+Therefor in mathematical terms it would be
+P(Ham|w1,w2,...wn)=.80
+
+and 
+
+P(Spam|w1,w2,..wn)=.20
+
+Now if we introduce a an email with exactly the same content as the one above but with one word difference it will might change the result because the word count for that specific word will be 0. This means that our accuracy will drastically decrease as we increase the number of emails we classify .
+
+Laplace smoothing can solve this since it will give the last word a small nonzero probability for both classifications so the posterior probabilities don't get a value of zero. 
+ 
+
+
+
 
 
 

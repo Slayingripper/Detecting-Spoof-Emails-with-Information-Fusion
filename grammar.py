@@ -3,12 +3,17 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import brown
 import nltk
 from spellchecker import SpellChecker
+import pandas as pd
+import csv
 
 def speller():
 #opens CSV FILE
 	with open ('/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/CSVDATA.csv') as fin:
 #SPLITS UP THE WORDS  
-		  
+		#reader = csv.reader(fin, delimiter=",")
+    		csv_reader = csv.DictReader(fin, delimiter=',')
+    		for lines in csv_reader:
+      			print(lines[0])
 		tokens = word_tokenize(fin.read())
 #PRINTS THE WORDS
 	#print(tokens)
