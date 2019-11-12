@@ -14,7 +14,7 @@ With python's ever growing popularity as a programming language it has become an
 and straight forward way to implement things like machine learning which make it perfect for this use
 further more 
 
-## PYTHON PERFOMANCE AND LIBRARIES
+## PYTHON PERFORMANCE AND LIBRARIES
 
 TO read the CSV file I've used the PANDAS library which is faster and more flexible than the embeded libraries of python , further more although regex is a powerful tool to use it is slow compared to other methods.
 At this time I am using NLTK (Natural Language Toolkit) to tokenize each word 
@@ -195,12 +195,12 @@ def conditionalWord(word, spam):
 Multinomian Naive Bayes takes into account the frequency of occurance of some variable. This is primarily used with topic categorisation of articles,documents etc. or can be used for word counting. With the variation of emails this method will not be appropriate for use for this project.
 
 
-[alt text!](https://s0.wp.com/latex.php?latex=P%28f_x%5C%2C+%7C+%5C%2Cc%29+%3D+%5Cfrac%7BP%28c%5C%2C+%7C+%5C%2Cf_x%29+%2A+P%28f_x%29%7D%7BP%28c%29%7D+&bg=f1f1f1&fg=666666&s=2)
+![alt text](https://s0.wp.com/latex.php?latex=P%28f_x%5C%2C+%7C+%5C%2Cc%29+%3D+%5Cfrac%7BP%28c%5C%2C+%7C+%5C%2Cf_x%29+%2A+P%28f_x%29%7D%7BP%28c%29%7D+&bg=f1f1f1&fg=666666&s=2)
 
 
 A simplified version of this equation is 
 
-[alt text!] (https://s0.wp.com/latex.php?latex=P%28word_i%7Cclass%29+%3D+%5Cfrac%7Bcount%28word_%7Bi%2Cclass%7D%29%7D%7Bcount%28word_%7Bclass%7D%29%7D+&bg=f1f1f1&fg=666666&s=2)
+![alt text] (https://s0.wp.com/latex.php?latex=P%28word_i%7Cclass%29+%3D+%5Cfrac%7Bcount%28word_%7Bi%2Cclass%7D%29%7D%7Bcount%28word_%7Bclass%7D%29%7D+&bg=f1f1f1&fg=666666&s=2)
 
 
 {Stuart J. Russell and Peter Norvig. 2003. Artificial Intelligence: A Modern Approach (2 ed.).}
