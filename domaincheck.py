@@ -54,4 +54,5 @@ print("there are: "+str(abs(result))+" probable spam emails")
 resultfinal = result * 100 
 accuracy = (abs(resultfinal) / numberofemails)
 print(str(accuracy)+"%"+" of accuracy")
+print datetime.now() - startTime
 
