@@ -18,29 +18,40 @@ import cPickle
 # domains used + some extras are from https://www.godaddy.com/garage/what-are-the-five-most-common-domain-extensions-and-which-one-should-i-use/
 startTime = datetime.now()
 
-
-dict = {
-  "aol.com", "att.net", "comcast.net", "facebook.com", "gmail.com", "gmx.com", "googlemail.com",
-  "google.com", "hotmail.com", "hotmail.co.uk", "mac.com", "me.com", "mail.com", "msn.com",
-  "live.com", "sbcglobal.net", "verizon.net", "yahoo.com", "yahoo.co.uk",}
-
-
-
-
 spamlevel = 0 
 
 #open CSV FILE and replace empty spaces with ""
 df = pd.read_csv (r'/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/CSVDATA.csv')
 
-print("\n --- search for domain extensions ---\n")
+print("\n --- search for domains ---\n")
 
-if df[df.SUBJECT.str.contains("aol.com", "att.net", "comcast.net", "facebook.com", "gmail.com", "gmx.com", "googlemail.com",
-  "google.com", "hotmail.com", "hotmail.co.uk", "mac.com", "me.com", "mail.com", "msn.com",
-  "live.com", "sbcglobal.net", "verizon.net", "yahoo.com", "yahoo.co.uk",regex= True, na=False)] is not None :
-    spamlevel = spamlevel+1 #increment spam level
-else :
-    print(spamlevel)
+for I,J in df.iterrows():
+    #print (J ['SENDER'],J ['SUBJECT'])
+    #if re.search('.com$',J['SENDER']) is None:
+     #   spamlevel = spamlevel+1
+        
+    if re.search('@gmail$',J['SENDER']) is  None:
+        spamlevel = spamlevel + 1 
+    if re.search('@hotmail$',J['SENDER']) is  None:
+        spamlevel = spamlevel + 1 
+    if re.search('@outlook$',J['SENDER']) is  None:
+        spamlevel = spamlevel + 1
+    if re.search('@live$',J['SENDER']) is  None:
+        spamlevel = spamlevel + 1   
+    if re.search('@protonmail$',J['SENDER']) is  None:
+        spamlevel = spamlevel + 1
+    if re.search('@yahoo$',J['SENDER']) is  None:
+        spamlevel = spamlevel + 1
+    if re.search('@$',J['SENDER']) is not None:
+        spamlevel = spamlevel + 1
+    
+print (df.index)  
+numberofemails = len(df.index)
 
-print(spamlevel)
+#print out the accuracy and the number of emails 
+result = spamlevel/7 -  len(df.index)       
+print("there are: "+str(abs(result))+" probable spam emails")
+resultfinal = result * 100 
+accuracy = (abs(resultfinal) / numberofemails)
+print(str(accuracy)+"%"+" of accuracy")
 
-#check spelling

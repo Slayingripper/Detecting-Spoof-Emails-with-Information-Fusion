@@ -38,8 +38,9 @@ for I,J in df.iterrows():
     if re.search('.co$',J['SENDER']) is not None:
         spamlevel = spamlevel + 1
         
-print(spamlevel)
-#print(df)
-#check spelling
-
-#my sta
+print (df.index)  
+#since there are 398 emails in the dataset we are assuming that the one containing these values (.net,.com etc) 
+#will have a lower probability of them being spam so we assume that the rest are spam.      
+result = spamlevel -  len(df.index)       
+print("there are: "+str(abs(result))+" probable spam emails")
+print datetime.now() - startTime
