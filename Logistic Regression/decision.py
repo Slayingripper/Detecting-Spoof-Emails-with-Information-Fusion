@@ -24,6 +24,7 @@ def get_data():
     spam_train = lines[0:1000]
     ham_train = lines[1002:2002]
     test_mix = lines[2004:]
+    #ten fold cross validation here 
     return (spam_train, ham_train, test_mix)
 
 def create_dataframe(input_array):    

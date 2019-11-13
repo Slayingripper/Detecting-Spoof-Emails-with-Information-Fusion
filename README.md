@@ -11,7 +11,7 @@ Using Visual Basic to script An excel macro i was able to remove the unneeded da
 
 ## Why Python ? 
 With python's ever growing popularity as a programming language it has become an "easy"
-and straight forward way to implement things like machine learning which make it perfect for this use
+and straight forward way to implement things like machine learning which make it perfect for this use.
 further more 
 
 ## PYTHON PERFORMANCE AND LIBRARIES
