@@ -1,7 +1,7 @@
 # imports
-import pandas as pd
 import re
 from nltk.corpus import brown
+import pandas as pd
 from datetime import datetime
 from nltk.tokenize import word_tokenize
 from nltk.corpus import brown
@@ -11,7 +11,6 @@ import os
 import sys
 from threading import Thread
 import subprocess
-import cPickle
 import time
 
 
