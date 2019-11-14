@@ -9,11 +9,16 @@ import csv
 def speller():
 #opens CSV FILE
 	with open ('/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/CSVDATA.csv') as fin:
+	#df = pd.read_csv (r'/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/CSVDATA.csv')
+
+	#for I,J in df.iterrows():
+	#	tokens = word_tokenize(df.read()
+	
 #SPLITS UP THE WORDS  
 		#reader = csv.reader(fin, delimiter=",")
-    		csv_reader = csv.DictReader(fin, delimiter=',')
-    		for lines in csv_reader:
-      			print(lines[0])
+    		#csv_reader = csv.DictReader(fin, delimiter=',')
+    		#for lines in csv_reader:
+      		#	print(lines[0])
 		tokens = word_tokenize(fin.read())
 #PRINTS THE WORDS
 	#print(tokens)
