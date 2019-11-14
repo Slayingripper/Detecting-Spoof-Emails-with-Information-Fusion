@@ -16,8 +16,10 @@ jobs:
     - name: Install dependencies
       run: |
         pip freeze > requirements.txt
-        python -m pip install --upgrade pip
+        python3 -m pip install --upgrade pip
         pip install -r requirements.txt
+        pip install pandas
+        pip install nltk
     - name: Lint with flake8
       run: |
         pip install flake8
@@ -25,7 +27,7 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
+    - name: Test with py
       run: |
-        pip install pytest
-        pytest -q tester.py
+         python3 tester.py
+         
