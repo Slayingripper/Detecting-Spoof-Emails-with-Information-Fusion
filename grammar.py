@@ -5,6 +5,9 @@ import nltk
 from spellchecker import SpellChecker
 import pandas as pd
 import csv
+import time
+
+start_time = time.time()
 
 def speller():
 #opens CSV FILE
@@ -42,3 +45,4 @@ def main():
 
 	speller()
 main()
+print("--- %s seconds ---" % (time.time() - start_time))

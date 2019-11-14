@@ -1,5 +1,6 @@
 #imports 
 import pandas as pd
+import time
 import re
 from nltk.corpus import brown
 from datetime import datetime
@@ -11,7 +12,7 @@ import nltk
 
 # this is module is used to check the extensions of the domain not the domains themselves
 # domains used + some extras are from https://www.godaddy.com/garage/what-are-the-five-most-common-domain-extensions-and-which-one-should-i-use/
-startTime = datetime.now()
+start_time = time.time()
 
 spamlevel = 0 
 
@@ -47,4 +48,4 @@ print("there are: "+str(abs(result))+" probable spam emails")
 resultfinal = result * 100 
 accuracy = (abs(resultfinal) / numberofemails)
 print(str(accuracy)+"%"+" of accuracy")
-print datetime.now() - startTime
+print("--- %s seconds ---" % (time.time() - start_time))

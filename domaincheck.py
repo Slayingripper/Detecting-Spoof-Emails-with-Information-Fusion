@@ -12,11 +12,12 @@ import sys
 from threading import  Thread
 import subprocess
 import cPickle
+import time
 
 
 # this is module is used to check the domains if they exist ex. gmail,hotmail,outlook etc
 # domains used + some extras are from https://www.godaddy.com/garage/what-are-the-five-most-common-domain-extensions-and-which-one-should-i-use/
-startTime = datetime.now()
+start_time = time.time()
 
 spamlevel = 0 
 
@@ -54,5 +55,5 @@ print("there are: "+str(abs(result))+" probable spam emails")
 resultfinal = result * 100 
 accuracy = (abs(resultfinal) / numberofemails)
 print(str(accuracy)+"%"+" of accuracy")
-print datetime.now() - startTime
+print("--- %s seconds ---" % (time.time() - start_time))
 

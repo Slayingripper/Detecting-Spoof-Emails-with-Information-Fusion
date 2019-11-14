@@ -3,17 +3,18 @@ import pandas as pd
 import re
 import enchant
 from nltk.corpus import brown
-from datetime import datetime
 from nltk.tokenize import word_tokenize
 from nltk.corpus import brown
 import nltk
 import grammar
 from spellchecker import SpellChecker
+import time
 
 
 
 
-startTime = datetime.now()
+start_time = time.time()
+
 
 spamlevel = 0 
 
@@ -57,9 +58,9 @@ else :
     print(spamlevel)
 
 print(spamlevel)
-print datetime.now() - startTime 
+print("--- %s seconds ---" % (time.time() - start_time))
 
 #check spelling
 
 grammar.speller()
-print datetime.now() - startTime 
+print("--- %s seconds ---" % (time.time() - start_time))
