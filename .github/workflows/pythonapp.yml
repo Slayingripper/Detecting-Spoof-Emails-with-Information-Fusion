@@ -18,6 +18,7 @@ jobs:
         pip freeze > requirements.txt
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+        pip install pandas
     - name: Lint with flake8
       run: |
         pip install flake8
