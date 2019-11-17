@@ -12,16 +12,14 @@ start_time = time.time()
 def speller():
 #opens CSV FILE
 	with open ('/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/CSVDATA.csv') as fin:
-	#df = pd.read_csv (r'/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/CSVDATA.csv')
-
-	#for I,J in df.iterrows():
-	#	tokens = word_tokenize(df.read()
 	
+	#df = pd.read_csv(r'/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/CSVDATA.csv')
+	
+	#checkme = df['SUBJECT']
+
+
 #SPLITS UP THE WORDS  
-		#reader = csv.reader(fin, delimiter=",")
-    		#csv_reader = csv.DictReader(fin, delimiter=',')
-    		#for lines in csv_reader:
-      		#	print(lines[0])
+		
 		tokens = word_tokenize(fin.read())
 #PRINTS THE WORDS
 	#print(tokens)
@@ -39,10 +37,13 @@ def speller():
 #spell.correction(word)
 	
 #prints out spam level
+	#print(badwords)
 	print(spamlevel)
+	
 	
 def main():
 
 	speller()
 main()
+
 print("--- %s seconds ---" % (time.time() - start_time))
