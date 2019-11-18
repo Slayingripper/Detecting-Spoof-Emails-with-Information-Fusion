@@ -19,7 +19,7 @@ import numpy as np
 import re
 # %matplotlib inline
 
-mails = pd.read_csv('/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Logistic Regression/spam.csv', encoding = 'latin-1')
+mails = pd.read_csv('/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Logistic Regression/spam.csv', encoding = 'latin-1',error_bad_lines=False)
 mails.head()
 
 mails.drop(['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4'], axis = 1, inplace = True)
@@ -35,6 +35,10 @@ mails.head()
 
 mails.drop(['labels'], axis = 1, inplace = True)
 mails.head()
+
+
+
+# needs optimising very infecient 
 
 totalMails = 4825 + 747
 trainIndex, testIndex = list(), list()
