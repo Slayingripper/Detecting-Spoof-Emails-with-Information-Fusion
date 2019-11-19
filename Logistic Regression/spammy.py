@@ -24,7 +24,7 @@ print(therest)
 #using stop words causes a massive INCREASE in import time so we have to use 
 #a specific one to reduce the time taken , for example "english"
 #if left blank the stopwords function of NLTK searches all of its dictionaries
-#around 24! so if on average it takes 11 seconds to check it will take 264s 
+#around 24! so if on average it takes 15 seconds to check it will take 245s 
 #to check all of them not including sorting them into tuples
 def get_list_tuples(read_file):
 	list_tuples = []
@@ -38,8 +38,8 @@ def get_list_tuples(read_file):
 			except:
 				continue
 			for word in words:
-				if word not in stopwords.words("english") and not word.isdigit():
-					list_tuples.append((word.upper(),tabsep[0]))
+				if word not in stopwords.words('english') and not word.isdigit():
+					list_tuples.append((word.lower(),tabsep[0]))
 			c+=1
 			if c== row_count:
 				break
@@ -50,14 +50,16 @@ a = time.time()
 entire_data = get_list_tuples("/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/SMSSpamCollection")
 print ("It took "+str(time.time()-a)+" seconds to import data")
 print ('data imported')
+print("shuffle the data")
 random.seed(1)
 random.shuffle(entire_data)
 
 train = entire_data[:trainamount]
 test = entire_data[therest:row_count]
 
-print ('training data')
 
+
+print ('training data')
 a = time.time()
 cl = NaiveBayesClassifier(train)
 
@@ -67,6 +69,9 @@ accuracy = cl.accuracy(test)
 print ("accuracy: "+str(accuracy))
 print (cl.classify("Oops, I'll let you know when my roommate's done")) #ham
 print (cl.classify("Get a brand new mobile phone by being an agent of The Mob! Plus loads more goodies! For more info just text MAT to 87021")) #spam
+print (cl.classify("Doctors hate him, see how this man grew his dick upto six inches with this new method!")) #spam
+
+
 
 
 

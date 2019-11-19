@@ -58,7 +58,7 @@ def domaincheck():
     accuracy = (abs(resultfinal) / numberofemails)
     print(str(accuracy)+"%"+" of accuracy")
     print("--- %s seconds ---" % (time.time() - start_time))
-
+    
 
 def main():
     domaincheck()
