@@ -2,20 +2,17 @@ import random
 import time
 import nltk
 import csv
-import multiprocessing as mp
+import threading
 from textblob import TextBlob
 from nltk.corpus import stopwords
 from textblob.classifiers import NaiveBayesClassifier
 
-
-# output = mp.Queue()
-
 #we calculate the row count and and the training amount we are going to use for 
 #our classifier the current dataset current has around 6k or spam and ham (mixed)
-row_count = len(list(csv.reader(open('/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/SMSSpamCollection'))))
+row_count = len(list(csv.reader(open('/content/drive/My Drive/SMSSpamCollectionextra'))))
 print(row_count)
 #using int to round the train amount (Lower BOUND)
-trainamount = int(row_count/4)
+trainamount = int(row_count/2)
 print(trainamount)
 #Since the train amount is going to be 1/4 of the data set we need to increment
 # by 1 so that we start classifying the next row and until the end of the file
@@ -24,12 +21,19 @@ print(therest)
 
 
 
+
+#bigchungas 55k unclassified 
+big_count = len(list(csv.reader(open('/content/bigchungas.csv'))))
+big_counter = big_count - 1
+print(big_count)
+
+
+
 #using stop words causes a massive INCREASE in import time so we have to use 
 #a specific one to reduce the time taken , for example "english"
 #if left blank the stopwords function of NLTK searches all of its dictionaries
 #around 24! so if on average it takes 15 seconds to check it will take 245s 
 #to check all of them not including sorting them into tuples
-
 def get_list_tuples(read_file):
 	list_tuples = []
 	with open(read_file,"r") as r:
@@ -50,32 +54,46 @@ def get_list_tuples(read_file):
 		return list_tuples
 
 
+#used for the super extreme case
+def get_list_spam(read_file):
+	list_tuples = []
+	with open(read_file,"r") as r:
+		c=0
+		for line in r:
+			tabsep = line.strip().split(',')
+			msg = TextBlob(tabsep[1])
+			try:
+				words=msg.words
+			except:
+				continue
+			for word in words:
+				if word not in stopwords.words('english') and not word.isdigit():
+					list_tuples.append((word.lower(),tabsep[0]))
+			c+=1
+			if c== 5972:
+				break
+		return list_tuples
 
-
-# processes = [mp.Process(target=get_list_tuples, args=(5,x,output)) for x in range(4)]
-
-# for p in processes:
-#     p.start()
-    
-# for p in processes:
-#     p.join()
-    
-    
-    
-# results = [output.get() for p in processes]
 
 
 print ('importing data...')
 a = time.time()
-entire_data = get_list_tuples("/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/SMSSpamCollection")
+entire_data = get_list_tuples("/content/drive/My Drive/SMSSpamCollectionextra")
+unknown_data = get_list_spam("/content/bigchungas.csv")
+
 print ("It took "+str(time.time()-a)+" seconds to import data")
 print ('data imported')
 print("shuffle the data")
 random.seed(1)
 random.shuffle(entire_data)
+random.shuffle(unknown_data)
 
-train = entire_data[:trainamount]
-test = entire_data[therest:row_count]
+#train = entire_data[:trainamount]
+#test = entire_data[therest:row_count]
+
+
+train = entire_data[:row_count]
+test = unknown_data[:big_count]
 
 
 
