@@ -7,12 +7,22 @@ from textblob import TextBlob
 from nltk.corpus import stopwords
 from textblob.classifiers import NaiveBayesClassifier
 
+
+#add file paths here
+file1 = '/content/drive/My Drive/Dataset/SMSSpamCollection'
+file2 =  '/content/drive/My Drive/Dataset/SMSSpamCollectionextra'
+
+
+
 #we calculate the row count and and the training amount we are going to use for 
 #our classifier the current dataset current has around 6k or spam and ham (mixed)
-row_count = len(list(csv.reader(open('/content/drive/My Drive/SMSSpamCollectionextra'))))
+row_count = len(list(csv.reader(open(file1))))
 print(row_count)
+
+
+dothis = row_count - 1 
 #using int to round the train amount (Lower BOUND)
-trainamount = int(row_count/2)
+trainamount = int(row_count/4)
 print(trainamount)
 #Since the train amount is going to be 1/4 of the data set we need to increment
 # by 1 so that we start classifying the next row and until the end of the file
@@ -23,7 +33,7 @@ print(therest)
 
 
 #bigchungas 55k unclassified 
-big_count = len(list(csv.reader(open('/content/bigchungas.csv'))))
+big_count = len(list(csv.reader(open(file2))))
 big_counter = big_count - 1
 print(big_count)
 
@@ -36,7 +46,7 @@ print(big_count)
 #to check all of them not including sorting them into tuples
 def get_list_tuples(read_file):
 	list_tuples = []
-	with open(read_file,"r") as r:
+	with open(read_file,"r",encoding='utf-8', errors='ignore') as r:
 		c=0
 		for line in r:
 			tabsep = line.strip().split('\t')
@@ -49,7 +59,8 @@ def get_list_tuples(read_file):
 				if word not in stopwords.words('english') and not word.isdigit():
 					list_tuples.append((word.lower(),tabsep[0]))
 			c+=1
-			if c== row_count:
+			print(c)
+			if c == row_count:
 				break
 		return list_tuples
 
@@ -57,10 +68,10 @@ def get_list_tuples(read_file):
 #used for the super extreme case
 def get_list_spam(read_file):
 	list_tuples = []
-	with open(read_file,"r") as r:
+	with open(read_file,"r",encoding='utf-8', errors='ignore') as r:
 		c=0
 		for line in r:
-			tabsep = line.strip().split(',')
+			tabsep = line.strip().split('\t')
 			msg = TextBlob(tabsep[1])
 			try:
 				words=msg.words
@@ -70,7 +81,8 @@ def get_list_spam(read_file):
 				if word not in stopwords.words('english') and not word.isdigit():
 					list_tuples.append((word.lower(),tabsep[0]))
 			c+=1
-			if c== 5972:
+			print(c)
+			if c == row_count:
 				break
 		return list_tuples
 
@@ -78,8 +90,10 @@ def get_list_spam(read_file):
 
 print ('importing data...')
 a = time.time()
-entire_data = get_list_tuples("/content/drive/My Drive/SMSSpamCollectionextra")
-unknown_data = get_list_spam("/content/bigchungas.csv")
+entire_data = get_list_tuples(file2)
+unknown_data = get_list_spam(file1)
+
+
 
 print ("It took "+str(time.time()-a)+" seconds to import data")
 print ('data imported')
@@ -88,27 +102,31 @@ random.seed(1)
 random.shuffle(entire_data)
 random.shuffle(unknown_data)
 
-#train = entire_data[:trainamount]
-#test = entire_data[therest:row_count]
+
+#train = entire_data[:row_count]
+#test = entire_data[:row_count]
 
 
 train = entire_data[:row_count]
-test = unknown_data[:big_count]
+#train = unknown_data[1:2000]
+test = unknown_data[:big_counter]
 
 
 
 print ('training data')
 a = time.time()
 cl = NaiveBayesClassifier(train)
-
+#Timing and calculate accuracy 
 print ("It took "+str(time.time()-a)+" seconds to train data")
 print ('data trained, now checking accuracy:')
+a = time.time()
 accuracy = cl.accuracy(test)
 print ("accuracy: "+str(accuracy))
+print ("It took "+str(time.time()-a)+"to calculate the accuracy")
 print (cl.classify("Oops, I'll let you know when my roommate's done")) #ham
 print (cl.classify("Get a brand new mobile phone by being an agent of The Mob! Plus loads more goodies! For more info just text MAT to 87021")) #spam
 print (cl.classify("Doctors hate him, see how this man grew his dick upto six inches with this new method!")) #spam
-
+print(cl.classify("You just won $32432840928432 zimbabewewewewew dolla "))
 
 
 

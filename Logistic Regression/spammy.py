@@ -12,7 +12,7 @@ from textblob.classifiers import NaiveBayesClassifier
 
 #we calculate the row count and and the training amount we are going to use for 
 #our classifier the current dataset current has around 6k or spam and ham (mixed)
-row_count = len(list(csv.reader(open('/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/SMSSpamCollection'))))
+row_count = len(list(csv.reader(open('/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/SMSSpamCollectionextra'))))
 print(row_count)
 #using int to round the train amount (Lower BOUND)
 trainamount = int(row_count/4)
@@ -67,15 +67,15 @@ def get_list_tuples(read_file):
 
 print ('importing data...')
 a = time.time()
-entire_data = get_list_tuples("/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/SMSSpamCollection")
+entire_data = get_list_tuples("/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/SMSSpamCollectionextra")
 print ("It took "+str(time.time()-a)+" seconds to import data")
 print ('data imported')
 print("shuffle the data")
 random.seed(1)
 random.shuffle(entire_data)
 
-train = entire_data[:trainamount]
-test = entire_data[therest:row_count]
+train = entire_data[:row_count]
+test = entire_data[:row_count]
 
 
 
