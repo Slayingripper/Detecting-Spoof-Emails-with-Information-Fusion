@@ -1,3 +1,4 @@
+
 # Detecting-Spoof-Emails-with-Information-Fusion
 A framework for detecting Spoofed Emails using python 
 
@@ -257,3 +258,34 @@ P(Spam|w1,w2,..wn)=.20
 Now if we introduce a an email with exactly the same content as the one above but with one word difference it will might change the result because the word count for that specific word will be 0. This means that our accuracy will drastically decrease as we increase the number of emails we classify .
 
 Laplace smoothing can solve this since it will give the last word a small nonzero probability for both classifications so the posterior probabilities don't get a value of zero. 
+
+
+## Neural Networks
+
+Neural Networks are a sequence of algorithms that try to mimic the way a human brain operates. They used to recognise
+the relationships of a dataset that is provided to it. 
+Neural networks are adaptive and can change themselves depeding on the training data they are provided with.
+Neural networks have a kind of universality , they can compute almost any function assuming we use the right type of 
+neural network. Accord to the theorem of Universiality even if we restrict a neural network to only have one single "hidden" layer
+it can still produce a results meaning that even the most simplistic of neural netowrks can be extremely powerful.
+
+### Mnev's universality theorem 
+The theorem can be used to represnt algebraic varieties as realisations of oreiented matroid , a notion combinatorics.
+Or in other words can be used to represent anything in the form of vectors.
+### Convolutional neural network
+CNN are made up neurons that have learnable weights and biases. Each neuron has some inputs and perfoms a  dot product and
+can follow up with a with non-linearity. They make treat their input as images , this allows us to encode some properties into the 
+neural network. This way the forward funciton of the neural network can be more efficient during implementation and can greatly 
+reduce the amount of parameters in the network.
+
+### Recurrent Networks
+Recurrent Networks are made up on drected cycles which means that cycles can sometimes go back to the starting possition where
+it started off. They are fundamentally the most difficult to train as they are the most biologically realistic.
+### Feed - forward neural networks 
+The most simplist neural network is a FFNN which uses one input layer , some hidden layers in between, the final layer 
+as an output layer . If the neural network has more than one hidden layer it is called a deep neural network.  
+### Symmetrically connected network: 
+SCNN funciton in all most the same way as RNN with the main difference being that it uses symetric weights in both directions.
+
+
+
