@@ -303,11 +303,43 @@ Since neurons do not know the bound of a value we need to implement these activa
 
 #### Linear function
 
+A linear activation function is proportional to its input.
+
+Represented as :
+
+A = cx
+
+This function can give us a range of activations , so it is not a binary activation. 
+
+Although this is method activating the neurons there is a serious flaw. 
+Since A = cx , the derivative with respect to X is C. This consiquentily means that the gradient has no relationship with X.Thus the gradient will be constant so if there is an error in prediciton during backpropagation which is constant it will not depend on the input. 
+Expanding no since the function is linear that mean that the final actiavtion of the last layer will also a linear function just like the first layer. This means that N layers can be replaced by a single layer so the ability of stacking layer is lost.
+
 
 #### Sigmoid Function
-
-
-#### ReLu
-
+The sigmoid function is a non linear function which in contrast to the previous function gives us the ability to stack layers and allows for non binary activtions.
+A sigmoid function is used as a classifier since small changes in the valus of X cause the values of Y to change significantly  by bringing them to either side of the curve. 
+An advatage of this funciton is that the range is going to be between 0 and 1 or in our case (spam or ham).
+A disadvantage of the sigmoid function is that as we move toward the limits of Y it responds very little to the changes of X which gives rise to the "vanishing gradients" problem. This means that the netowrk will start to refuse to learn more  or will start to slow down its learning rate.
 
 #### Tanh Function
+
+The Tanh function is similar to sigmoid in fact is a scaled version of it. It has similar charactiristics but one of its main characteristics is that its gradient is steeper so derivatives are steeper. Like Sigmoind it suffers form the vanishing gradient problem .
+#### ReLu
+A(x) = max(0,x)
+
+The Relu activation funciton is a non linear function just like Sigmoid and  Tanh. Therefor we can stack layers but since the range of the function is (0,inf) it can blow up the activation. 
+
+Both Sigmoid and Tanh are computationally expensive as they are densly activated. Relu gives as the advanatage of not activating all neurons by making them sparse and efficient. 
+
+As a side effect due to the horizontal line of Relu the gradient can go toward 0 . For activations in the region of 0 the weights will not get adjusted,this means that those neurons withing that state will stop repsonding to changes ( since the gradient will be 0 ). This is conviniently named the dying Relu problem. 
+This can cause neurons to die and not respond making a large part of the neural netowork unresponsive.  
+
+There are ways to fix this by making the line non-horizintontal with a slight inclination of 0.01x for x<0. This method is called leaky Relu. The idea behind this is to to let the gradient not be zero and allow it to recover during training "eventually"
+
+ReLu is less computationally expensive than tanh and sigmoid because it involves simpler mathematical operations. That is  why is a good option to consider it when we are creating deep neural networks.
+
+#### which one to use
+
+Relu for the layers sigmoid for the classification
+
