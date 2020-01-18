@@ -24,7 +24,7 @@ def domaincheck():
     spamlevel = 0
 # open CSV FILE and replace empty spaces with ""
     df = pd.read_csv(
-        r'/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/CSVDATA.csv')
+        r'/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/CSVDATA.csv')
 
     print("\n --- search for domains ---\n")
 
