@@ -260,7 +260,7 @@ Now if we introduce a an email with exactly the same content as the one above bu
 Laplace smoothing can solve this since it will give the last word a small nonzero probability for both classifications so the posterior probabilities don't get a value of zero. 
 
 
-## Neural Networks
+# Neural Networks
 
 Neural Networks are a sequence of algorithms that try to mimic the way a human brain operates. They used to recognise
 the relationships of a dataset that is provided to it. 
@@ -269,23 +269,45 @@ Neural networks have a kind of universality , they can compute almost any functi
 neural network. Accord to the theorem of Universiality even if we restrict a neural network to only have one single "hidden" layer
 it can still produce a results meaning that even the most simplistic of neural netowrks can be extremely powerful.
 
-### Mnev's universality theorem 
+## Mnev's universality theorem 
 The theorem can be used to represnt algebraic varieties as realisations of oreiented matroid , a notion combinatorics.
 Or in other words can be used to represent anything in the form of vectors.
-### Convolutional neural network
+## Convolutional neural network
 CNN are made up neurons that have learnable weights and biases. Each neuron has some inputs and perfoms a  dot product and
 can follow up with a with non-linearity. They make treat their input as images , this allows us to encode some properties into the 
 neural network. This way the forward funciton of the neural network can be more efficient during implementation and can greatly 
 reduce the amount of parameters in the network.
 
-### Recurrent Networks
+## Recurrent Networks
 Recurrent Networks are made up on drected cycles which means that cycles can sometimes go back to the starting possition where
 it started off. They are fundamentally the most difficult to train as they are the most biologically realistic.
-### Feed - forward neural networks 
+## Feed - forward neural networks 
 The most simplist neural network is a FFNN which uses one input layer , some hidden layers in between, the final layer 
 as an output layer . If the neural network has more than one hidden layer it is called a deep neural network.  
-### Symmetrically connected network: 
+## Symmetrically connected network: 
 SCNN funciton in all most the same way as RNN with the main difference being that it uses symetric weights in both directions.
 
+### Epoch(εποχή)
+
+Epoch are a measure of iritations the training vectors are used to update the weights. 
+
+When batch training all the samples pass through the alogorithm at the same time in one "epoch" before they are updated. When using sequential training all the weights in the neural network are updated after each taining vector after they are sequentially passed through the algorithm.
+
+### Activation Functions
+An activation function is used to calculate a weighted sum of input data by adding a bias so it can decide if it is accepted or not.
+
+Neurons can be represented like this:
+Y =  \Sigma (weight * input) + bias
+
+Since neurons do not know the bound of a value we need to implement these activation functions to check whether the value of Y is within its bounds.
+
+#### Linear function
 
 
+#### Sigmoid Function
+
+
+#### ReLu
+
+
+#### Tanh Function
