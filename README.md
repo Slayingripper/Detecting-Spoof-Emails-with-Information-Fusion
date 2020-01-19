@@ -341,5 +341,26 @@ ReLu is less computationally expensive than tanh and sigmoid because it involves
 
 #### which one to use
 
-Relu for the layers sigmoid for the classification
+Relu for the layers sigmoid for the classification. Why ? 
+Because we can use Relu for training as its much faster and also it works well as a general approximator. Since Sigmoid's approximation functions are easier to implelemnt we can use it just for classification. 
 
+
+## Optimisation Algorithms
+
+Optimisation Algorithms are used to help us minimise or maximise an Error funciton. This is a function that depends on our chosen models internal learnable parameters which purpose is to compute the target values from a set of predictors (also known as Weights and Biases). These algorithms minimise the losses during the training process.
+
+### Types of Optimisation Algorithms
+
+#### First Order Optimisation Algorithms
+
+/* Insert Figure */
+
+First Order Optimisation Algorithms(FOOA!) try to minimise or maximise the loss function using the gradient values of parameters. One of the most widely used First order optimisation alogrithm is Gradient decent. We use the first order derivative to indicate if the function is increasing or decreasing at any given point. It gives a tangential line on its error surface.
+
+##### Gradient Functions
+
+
+
+##### Second Order Optimisation Algorithms
+
+These methods use the second order derivative (the rate of change of a quantity is it self changing )
