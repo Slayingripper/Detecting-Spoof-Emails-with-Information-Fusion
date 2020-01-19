@@ -363,4 +363,27 @@ First Order Optimisation Algorithms(FOOA!) try to minimise or maximise the loss 
 
 ##### Second Order Optimisation Algorithms
 
-These methods use the second order derivative (the rate of change of a quantity is it self changing )
+These methods use the second order derivative (measures the rate of change of a quantity is itself changing) that also try to minimise or maximise the loss function. This is also referd to as Hessian. Hessian is a matrix that is made up of second order partial derivatives. The second derivative is very taxing to compute as the second order is not used as much. The secord order can give us an estimate if the first derivative is increasing or decreaing that can give us a hint on how the function will curve . 
+
+Advantages over first order : 
+
+1.Does not ignore the curvature of the surface.
+2.It performs better in terms of step wise perfomance.
+
+Disadvantages :
+
+1. Harder to compute and more time consuming
+2. Faster only if the second order derivative is known 
+3. slower overall and costly to compute in both time and memory
+
+
+#### SGD
+
+
+#### ADAM
+
+#### Adagrad
+
+
+#### Adadelta
+https://arxiv.org/pdf/1412.6980v8.pdf
