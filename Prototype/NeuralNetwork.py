@@ -9,7 +9,7 @@ numpy.random.seed(2)
 
 #Number of Attributes: 58 (57 continuous, 1 nominal class label)
 # loading spambase dataset
-dataset = numpy.loadtxt("/content/drive/My Drive/Dataset/spambase.csv", delimiter=",")
+dataset = numpy.loadtxt("/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/spambase.csv", delimiter=",")
 
 # split into input (X) and output (Y) variables, splitting csv data
 X = dataset[:,0:57]
@@ -33,4 +33,4 @@ model.compile(loss="binary_crossentropy", optimizer="adam", metrics=['accuracy']
 model.fit(x_train, y_train, epochs = 1000, batch_size=100, validation_data=(x_test, y_test))
 
 # save the model
-model.save('/content/drive/My Drive/Dataset/weights.h5')
+model.save('/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/weights.h5')
