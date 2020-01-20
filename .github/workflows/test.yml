@@ -13,7 +13,8 @@ jobs:
       run: echo Hello, world!
     - name: Run a multi-line script
       run: |
-    
+    - name: Python Syntax Checker
+      uses: cclauss/Find-Python-syntax-errors-action@v0.2.0
         echo Add other actions to build,
         echo test, and deploy your project.
         echo success
