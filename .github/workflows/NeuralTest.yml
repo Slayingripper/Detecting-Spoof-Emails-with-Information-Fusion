@@ -16,4 +16,4 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           architecture: x64
-      - run: python /Prototype/NeuralNetworkwithkfold.py
+      - run: ls
