@@ -18,37 +18,38 @@ def domainextcheck():
 
     # open CSV FILE and replace empty spaces with ""
     df = pd.read_csv(
-        r'/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/CSVDATA.csv')
+        r"/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/CSVDATA.csv"
+    )
 
     print("\n --- search for domain extensions ---\n")
 
     # na = False removes NA / NaN values from consideration; otherwise a ValueError may be returned.
 
     for I, J in df.iterrows():
-        #print (J ['SENDER'],J ['SUBJECT'])
+        # print (J ['SENDER'],J ['SUBJECT'])
         # if re.search('.com$',J['SENDER']) is None:
-         #   spamlevel = spamlevel+1
+        #   spamlevel = spamlevel+1
 
-        if re.search('.net$', J['SENDER']) is not None:
+        if re.search(".net$", J["SENDER"]) is not None:
             spamlevel = spamlevel + 1
-        if re.search('.com$', J['SENDER']) is not None:
+        if re.search(".com$", J["SENDER"]) is not None:
             spamlevel = spamlevel + 1
-        if re.search('.us$', J['SENDER']) is not None:
+        if re.search(".us$", J["SENDER"]) is not None:
             spamlevel = spamlevel + 1
-        if re.search('.org$', J['SENDER']) is not None:
+        if re.search(".org$", J["SENDER"]) is not None:
             spamlevel = spamlevel + 1
-        if re.search('.co$', J['SENDER']) is not None:
+        if re.search(".co$", J["SENDER"]) is not None:
             spamlevel = spamlevel + 1
 
-    print (df.index)
+    print(df.index)
     numberofemails = len(df.index)
     # since there are 398 emails in the dataset we are assuming that the one containing these values (.net,.com etc)
     # will have a lower probability of them being spam so we assume that the rest are spam.
     result = spamlevel - len(df.index)
-    print("there are: "+str(abs(result))+" probable spam emails")
+    print("there are: " + str(abs(result)) + " probable spam emails")
     resultfinal = result * 100
-    accuracy = (abs(resultfinal) / numberofemails)
-    print(str(accuracy)+"%"+" of accuracy")
+    accuracy = abs(resultfinal) / numberofemails
+    print(str(accuracy) + "%" + " of accuracy")
     print("--- %s seconds ---" % (time.time() - start_time))
 
 

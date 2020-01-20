@@ -1,4 +1,4 @@
-#imports 
+# imports
 import pandas as pd
 import re
 import enchant
@@ -11,56 +11,56 @@ from spellchecker import SpellChecker
 import time
 
 
-
-
 start_time = time.time()
 
 
-spamlevel = 0 
+spamlevel = 0
 
-#open CSV FILE and replace empty spaces with ""
-df = pd.read_csv (r'/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/CSVDATA.csv')
+# open CSV FILE and replace empty spaces with ""
+df = pd.read_csv(
+    r"/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/CSVDATA.csv"
+)
 
-#check if SENDER COLUMN is present
-if 'SENDER' in df.columns:
+# check if SENDER COLUMN is present
+if "SENDER" in df.columns:
     print("Sender Exists")
 else:
     print("No")
- 
-if 'SUBJECT' in df.columns:
+
+if "SUBJECT" in df.columns:
     print("Subject Exists")
 else:
     print("No")
 
 print("\n---- Filter DataFrame using a query ----\n")
- 
+
 searchme = df.query('"SEX" in SUBJECT')
 searchme = df[df.SUBJECT.str.contains("SEX")]
-#searchme = df["sex" in df.SUBJECT.str.lower()]
- 
+# searchme = df["sex" in df.SUBJECT.str.lower()]
+
 print(searchme)
 
 print("\n --- search string  ---\n")
 
-if df[df.SUBJECT.str.contains('bacon', regex= True, na=False)] is not None :
-    spamlevel = spamlevel+1 #increment spam level
-else :
+if df[df.SUBJECT.str.contains("bacon", regex=True, na=False)] is not None:
+    spamlevel = spamlevel + 1  # increment spam level
+else:
     print(spamlevel)
 
-if df[df.SENDER.str.contains('.xyz', regex= True, na=False)] is not None :
-    spamlevel = spamlevel+1 #increment spam level 
-else :
+if df[df.SENDER.str.contains(".xyz", regex=True, na=False)] is not None:
+    spamlevel = spamlevel + 1  # increment spam level
+else:
     print(spamlevel)
-#check for special characters
-if df[df.SUBJECT.str.contains('[(+*!.,<>/?|\@)]', regex= True, na=False)] is not None :
-    spamlevel = spamlevel+1 #increment spam level 
-else :
+# check for special characters
+if df[df.SUBJECT.str.contains("[(+*!.,<>/?|\@)]", regex=True, na=False)] is not None:
+    spamlevel = spamlevel + 1  # increment spam level
+else:
     print(spamlevel)
 
 print(spamlevel)
 print("--- %s seconds ---" % (time.time() - start_time))
 
-#check spelling
+# check spelling
 
 grammar.speller()
 print("--- %s seconds ---" % (time.time() - start_time))

@@ -6,15 +6,17 @@ import time
 
 start_time = time.time()
 
-class TestClass:
 
+class TestClass:
     def test_function_1(self):
         domaincheck()
 
     def test_function_2(self):
-        domainextcheck()      
+        domainextcheck()
 
     def test_function_3(self):
         grammar()
+
+
 start_time = time.time()
 print("--- %s seconds ---" % (time.time() - start_time))
