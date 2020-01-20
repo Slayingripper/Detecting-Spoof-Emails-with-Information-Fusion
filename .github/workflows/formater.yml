@@ -14,7 +14,7 @@ jobs:
     - name: Black Code Formatter
       uses: lgeiger/black-action@v1.0.1
     - name: Run a multi-line script
-      run: black /Prototype
-        echo Successful formating,
+      run: black /Prototype ,
+        echo Successful formating
         
       
