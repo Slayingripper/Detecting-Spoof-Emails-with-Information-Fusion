@@ -14,7 +14,8 @@ jobs:
     - name: Black Code Formatter
       uses: lgeiger/black-action@v1.0.1
     - name: Run a multi-line script
-      run: black /Prototype ,
+      run: sudo pip install black ,
+          black /Prototype ,
         echo Successful formating
         
       
