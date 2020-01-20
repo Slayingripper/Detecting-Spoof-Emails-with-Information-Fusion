@@ -8,7 +8,7 @@ jobs:
       - name: Black Code Formatter
         uses: lgeiger/black-action@master
         with:
-          args: ". --diff"
+          args: ". --verbose"
 
 
 
