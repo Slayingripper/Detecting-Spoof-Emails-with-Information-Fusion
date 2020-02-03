@@ -361,7 +361,7 @@ wandb==0.8.21
 wapiti3==3.0.2
 watchdog==0.9.0
 wcwidth==0.1.7
-webargs==5.1.2
+webargs==5.1.3
 webencodings==0.5.1
 webob==1.8.5
 websocket-client==0.53.0
