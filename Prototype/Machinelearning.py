@@ -16,7 +16,7 @@ row_count = len(
     list(
         csv.reader(
             open(
-                "/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/SMSSpamCollectionextra"
+                "/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/SMSSpamCollectionextra"
             )
         )
     )
@@ -73,7 +73,7 @@ def get_list_tuples(read_file):
 print("importing data...")
 a = time.time()
 entire_data = get_list_tuples(
-    "/home/blackfalcon/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/SMSSpamCollectionextra"
+    "/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/SMSSpamCollectionextra"
 )
 print("It took " + str(time.time() - a) + " seconds to import data")
 print("data imported")
