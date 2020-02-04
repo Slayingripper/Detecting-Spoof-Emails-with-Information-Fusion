@@ -382,7 +382,7 @@ venusian==1.2.0
 video-to-ascii==1.2.8
 vinetto==0.8.0
 wafw00f==2.0.0
-waitress==1.4.2
+waitress==1.4.3
 wandb==0.8.21
 wapiti3==3.0.2
 wasabi==0.6.0
