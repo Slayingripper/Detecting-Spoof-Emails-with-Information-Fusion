@@ -1,0 +1,16 @@
+[34m[1mwandb[0m: [33mWARNING[0m wandb.init() arguments ignored because wandb magic has already been initialized
+5574
+1393
+1394
+5574
+importing data...
+It took 21.207061767578125 seconds to import data
+data imported
+shuffle the data
+training data
+Traceback (most recent call last):
+  File "start.py", line 26, in <module>
+    import Machinelearning
+  File "/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Prototype/Machinelearning.py", line 128, in <module>
+    accuracy = cl.accuracy(test)
+NameError: name 'cl' is not defined

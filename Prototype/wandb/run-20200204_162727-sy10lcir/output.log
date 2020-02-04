@@ -1,0 +1,24 @@
+[34m[1mwandb[0m: [33mWARNING[0m wandb.init() arguments ignored because wandb magic has already been initialized
+5574
+1393
+1394
+5574
+importing data...
+It took 20.319984436035156 seconds to import data
+data imported
+shuffle the data
+training data
+It took 6.773968935012817 seconds to train data
+data trained, now checking accuracy:
+accuracy: 0.8627556512378902
+It took 51.48817586898804to calculate the accuracy
+ham
+spam
+spam
+spam
+Traceback (most recent call last):
+  File "start.py", line 26, in <module>
+    import Machinelearning
+  File "/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Prototype/Machinelearning.py", line 138, in <module>
+    from google.colab import output
+ModuleNotFoundError: No module named 'google.colab'

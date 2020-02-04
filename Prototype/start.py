@@ -3,10 +3,14 @@
 #import  domaincheck
 #import  domainextcheck
 #import  grammar
-
+import argparse
 import inquirer
 import time
 from tqdm import tqdm
+
+parser = argparse.ArgumentParser(description='This is my help')
+
+args = parser.parse_args()
 #ask user for Method to use
 questions = [
   inquirer.List('Method',
@@ -19,8 +23,7 @@ answers = inquirer.prompt(questions)
 
 if answers["Method"] == "Machine Learning" :
     print("This might take a while.....")
-    import Machinelearning
-    from Machinelearning import NaiveBayesClassifier
+    from Machinelearning import *
     
     #NaiveBayesClassifier()
     MLquestions = [
@@ -39,22 +42,38 @@ if answers["Method"] == "Machine Learning" :
        
        spamsubject = input("Type something to test this out: ")
        print(cl.classify(spamsubject))
+       answers = inquirer.prompt(MLquestions)
 
     elif answers["MLquestions"] == "Test a Heading and continue with process" :
        
        spamsubject = input("Type something to test this out: ")
        print(cl.classify(spamsubject))
-       from domaincheck import domaincheck
-       from domainextcheck import domainextcheck
-       from grammar import SpellChecker
+       from domaincheck import *
+       from domainextcheck import *
+       from grammar import *
        SpellChecker(spamsubject)
        domaincheck(spamsubject)
        domainextcheck(spamsubject)
+       answers = inquirer.prompt(MLquestions)
 
 elif answers["Method"] == "Neural Network" :
     print("This might take a while.....")
     time.sleep(2)
-    for i in tqdm(range(10)):
+    from NeuralNetworkwithkfold import * 
+    
+    
+    NNquestions = [
+  inquirer.List('NNquestions',
+                message="What else would you like to do?",
+                choices=['Show Summary of network','Test a Subject heading','Test a Heading and continue with process']
+            ),
+]
+    answers = inquirer.prompt(NNquestions)
+    if answers["NNquestions"] =="Show Summary of network" :
+         model.summary()
+         answers = inquirer.prompt(NNquestions)
+
+    for i in tqdm(range(10)):  
         time.sleep(1)
         SpellChecker
         domaincheck
