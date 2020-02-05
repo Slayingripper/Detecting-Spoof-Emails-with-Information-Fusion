@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # coding: utf-8
-#Naive Bayes
+# Naive Bayes
 import os
 import io
 import numpy
@@ -8,7 +8,7 @@ from pandas import DataFrame
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 
-#Function to read files (emails) from the local directory
+# Function to read files (emails) from the local directory
 def readFiles(path):
     for root, dirnames, filenames in os.walk(path):
         for filename in filenames:
@@ -16,14 +16,14 @@ def readFiles(path):
 
             inBody = False
             lines = []
-            f = io.open(path, 'r', encoding='latin1')
+            f = io.open(path, "r", encoding="latin1")
             for line in f:
                 if inBody:
                     lines.append(line)
-                elif line == '\n':
+                elif line == "\n":
                     inBody = True
             f.close()
-            message = '\n'.join(lines)
+            message = "\n".join(lines)
             yield path, message
 
 
@@ -31,34 +31,49 @@ def dataFrameFromDirectory(path, classification):
     rows = []
     index = []
     for filename, message in readFiles(path):
-        rows.append({'message': message, 'class': classification})
+        rows.append({"message": message, "class": classification})
         index.append(filename)
 
     return DataFrame(rows, index=index)
 
-#An empty dataframe with 'message' and 'class' headers
-data = DataFrame({'message': [], 'class': []})
 
-#Including the email details with the spam/ham classification in the dataframe
-data = data.append(dataFrameFromDirectory('/home/blackfalcon/gitstuff/Email-Spam-Classifier-Using-Naive-Bayes/emails/spam/', 'spam'))
-data = data.append(dataFrameFromDirectory('/home/blackfalcon/gitstuff/Email-Spam-Classifier-Using-Naive-Bayes/emails/ham/', 'ham'))
+# An empty dataframe with 'message' and 'class' headers
+data = DataFrame({"message": [], "class": []})
 
-#Head and the Tail of 'data'
+# Including the email details with the spam/ham classification in the dataframe
+data = data.append(
+    dataFrameFromDirectory(
+        "/home/blackfalcon/gitstuff/Email-Spam-Classifier-Using-Naive-Bayes/emails/spam/",
+        "spam",
+    )
+)
+data = data.append(
+    dataFrameFromDirectory(
+        "/home/blackfalcon/gitstuff/Email-Spam-Classifier-Using-Naive-Bayes/emails/ham/",
+        "ham",
+    )
+)
+
+# Head and the Tail of 'data'
 data.head()
 print(data.tail())
 
 vectoriser = CountVectorizer()
-count = vectoriser.fit_transform(data['message'].values)
+count = vectoriser.fit_transform(data["message"].values)
 print(count)
 
-target = data['class'].values
+target = data["class"].values
 print(target)
 
 classifier = MultinomialNB()
 classifier.fit(count, target)
 print(classifier)
 
-exampleInput = ["Hey. This is John Cena. You can't see me", "Free Viagra boys!!", "Please reply to get this offer"]
+exampleInput = [
+    "Hey. This is John Cena. You can't see me",
+    "Free Viagra boys!!",
+    "Please reply to get this offer",
+]
 excount = vectoriser.transform(exampleInput)
 print(excount)
 

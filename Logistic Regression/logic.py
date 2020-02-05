@@ -1,21 +1,21 @@
 import pickledb
 import nltk
-import  math
-import  re
+import math
+import re
 
-db = pickledb.load('dataset.txt', False)
+db = pickledb.load("dataset.txt", False)
 
 
 def addClass(label):
     classes = getClasses()
     if label not in classes:
         classes.append(label)
-        db.set('bayes_classes', classes)
+        db.set("bayes_classes", classes)
     return True
 
 
 def getClasses():
-    classes = db.get('bayes_classes')
+    classes = db.get("bayes_classes")
     if classes is None:
         classes = []
     return classes
@@ -27,8 +27,8 @@ def tokenize(text):
 
 
 def incrementWordCount(word, classLabel):
-    update('bayes_wordCount::' + word)
-    update('bayes_word_' + word + '_class_' + classLabel)
+    update("bayes_wordCount::" + word)
+    update("bayes_word_" + word + "_class_" + classLabel)
 
 
 def update(key):
@@ -39,39 +39,37 @@ def update(key):
     return count + 1
 
 
-def getInverseWordClassCount(word,label):
+def getInverseWordClassCount(word, label):
     classes = getClasses()
     inverseCount = 0
     for i in classes:
         if i == label:
             continue
-        inverseCount = inverseCount + getwordclasscount(word,i)
+        inverseCount = inverseCount + getwordclasscount(word, i)
     return inverseCount
 
-def getwordclasscount(word,label):
-    count = db.get('bayes_word_' + word + '_class_' + label)
+
+def getwordclasscount(word, label):
+    count = db.get("bayes_word_" + word + "_class_" + label)
     if count is None:
         return 0
     return count
 
+
 def getwordcount(word):
-    count = db.get('bayes_wordCount::' + word)
+    count = db.get("bayes_wordCount::" + word)
     if count is None:
         return 0
     return count
 
 
 def incrementTotalCount(label):
-    return update('bayes_total_count_' + label)
+    return update("bayes_total_count_" + label)
 
 
 def class_dictionary_count(classLabel):
-    count = db.get('bayes_total_count_' + classLabel)
+    count = db.get("bayes_total_count_" + classLabel)
     return count
-
-
-
-
 
 
 def bayes_learn(text, label):
@@ -82,6 +80,7 @@ def bayes_learn(text, label):
         incrementWordCount(words[x], label)
     incrementTotalCount(label)
 
+
 def bayes_predict(text):
     words = tokenize(text)
     length = len(words)
@@ -91,16 +90,16 @@ def bayes_predict(text):
     scores = {}
     classProbability = {}
     totalCount = 0
-    for x in range(0,len(classes)):
+    for x in range(0, len(classes)):
         thisClass = classes[x]
         class_dictionary[thisClass] = class_dictionary_count(thisClass)
         totalCount = totalCount + class_dictionary[thisClass]
 
-    for j in range(0,len(classes)):
+    for j in range(0, len(classes)):
         thisClass = classes[j]
         iclass_dictionary[thisClass] = totalCount - class_dictionary[thisClass]
 
-    for y in range(0,len(classes)):
+    for y in range(0, len(classes)):
         thisClass = classes[y]
         sum = 0
         classProbability[thisClass] = class_dictionary[thisClass] / totalCount
@@ -109,19 +108,30 @@ def bayes_predict(text):
             if wordCount == 0:
                 continue
             else:
-                wordProbability =  getwordclasscount(word,thisClass) / class_dictionary[thisClass]
-                wordInverseProbability  = getInverseWordClassCount(word,thisClass) / iclass_dictionary[thisClass]
-                word_conditional_probability = wordProbability / (wordProbability + wordInverseProbability)
-                word_conditional_probability = (( 1 * 0.5 ) + ( wordCount * word_conditional_probability )) / ( 1 + wordCount)
+                wordProbability = (
+                    getwordclasscount(word, thisClass) / class_dictionary[thisClass]
+                )
+                wordInverseProbability = (
+                    getInverseWordClassCount(word, thisClass)
+                    / iclass_dictionary[thisClass]
+                )
+                word_conditional_probability = wordProbability / (
+                    wordProbability + wordInverseProbability
+                )
+                word_conditional_probability = (
+                    (1 * 0.5) + (wordCount * word_conditional_probability)
+                ) / (1 + wordCount)
                 if word_conditional_probability == 0:
                     word_conditional_probability = 0.01
                 elif word_conditional_probability == 1:
                     word_conditional_probability = 0.99
 
-            sum = sum + ( math.log(1 - word_conditional_probability) - math.log(word_conditional_probability))
-        scores[thisClass] = 1 / ( 1 + math.exp(sum))
-    return  scores
-
+            sum = sum + (
+                math.log(1 - word_conditional_probability)
+                - math.log(word_conditional_probability)
+            )
+        scores[thisClass] = 1 / (1 + math.exp(sum))
+    return scores
 
 
 def get_winner(scores):
@@ -131,18 +141,18 @@ def get_winner(scores):
         if scores[classes] > bestscore:
             bestscore = scores[classes]
             bestclass = classes
-    print("Class : "+bestclass + " :: Score : "+str(bestscore*100)+"%") 
-
+    print("Class : " + bestclass + " :: Score : " + str(bestscore * 100) + "%")
 
 
 def readtrainingdata():
     with open("dataset") as f:
         for line in f:
-            text = re.split(r'\t+',line)[1].rstrip()
-            classLabel = re.split(r'\t+',line)[0]
-            bayes_learn(text,classLabel)
+            text = re.split(r"\t+", line)[1].rstrip()
+            classLabel = re.split(r"\t+", line)[0]
+            bayes_learn(text, classLabel)
     print("Train complete.. Predict now")
     predict()
+
 
 def predict():
     scores = bayes_predict(input())
@@ -150,15 +160,15 @@ def predict():
 
 
 def start():
-    #print("train or predict : 1 or 2")
-    #answer  = int(input())
-    #if answer == 1:
-        readtrainingdata()
-    #else:
-        #predict()
+    # print("train or predict : 1 or 2")
+    # answer  = int(input())
+    # if answer == 1:
+    readtrainingdata()
 
+
+# else:
+# predict()
 
 
 start()
 db.dump()
-
