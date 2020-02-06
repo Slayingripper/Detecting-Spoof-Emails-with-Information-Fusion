@@ -9,6 +9,7 @@ import time
 from tqdm import tqdm
 import sys
 from colorama import init
+from Machinelearning import machinelearning
 
 init(strip=not sys.stdout.isatty())  # strip colors if stdout is redirected
 from termcolor import cprint
@@ -18,8 +19,8 @@ parser = argparse.ArgumentParser(description="This is my help")
 
 args = parser.parse_args()
 
-
-cprint(figlet_format("P.E.A", font="isometric1"), attrs=["bold"])
+#Python EMAIL NEURAL IDETIFICATION SYSTEM
+cprint(figlet_format("P.E.N.I.S", font="isometric1"), attrs=["bold"])
 # ask user for Method to use
 questions = [
     inquirer.List(
@@ -33,8 +34,7 @@ answers = inquirer.prompt(questions)
 
 if answers["Method"] == "Machine Learning":
     print("This might take a while.....")
-    from Machinelearning import *
-
+    cl = machinelearning()
     # NaiveBayesClassifier()
     MLquestions = [
         inquirer.List(
@@ -63,13 +63,18 @@ if answers["Method"] == "Machine Learning":
 
         spamsubject = input("Type something to test this out: ")
         print(cl.classify(spamsubject))
-        from domaincheck import *
-        from domainextcheck import *
-        from grammar import *
+        
+        from keychecker import *
+        keywords(spamsubject)
+       # from grammar import *
+       # SpellChecker(spamsubject)
+        #from domaincheck import *
+        #from domainextcheck import *
+        
 
-        SpellChecker(spamsubject)
-        domaincheck(spamsubject)
-        domainextcheck(spamsubject)
+        #SpellChecker(spamsubject)
+        #domaincheck(spamsubject)
+        #domainextcheck(spamsubject)
         answers = inquirer.prompt(MLquestions)
 
 elif answers["Method"] == "Neural Network":

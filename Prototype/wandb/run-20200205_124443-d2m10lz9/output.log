@@ -1,0 +1,28 @@
+[34m[1mwandb[0m: [33mWARNING[0m wandb.init() arguments ignored because wandb magic has already been initialized
+5574
+1393
+1394
+5574
+importing data...
+It took 22.819463968276978 seconds to import data
+data imported
+shuffle the data
+training data
+It took 7.527428388595581 seconds to train data
+data trained, now checking accuracy:
+accuracy: 0.8627556512378902
+It took 54.77806854248047to calculate the accuracy
+ham
+spam
+spam
+spam
+[J7[134;1H[J8
+[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Show top 10 informative features
+ [34m> Show top 10 informative features(B[m[K
+ (B[m  Test a Subject heading(B[m[K
+ (B[m  Test a Heading and continue with process(B[m[K
+
+Traceback (most recent call last):
+  File "start.py", line 53, in <module>
+    cl.show_informative_features(10)
+AttributeError: 'NoneType' object has no attribute 'show_informative_features'
