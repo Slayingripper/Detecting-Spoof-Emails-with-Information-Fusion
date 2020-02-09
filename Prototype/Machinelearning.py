@@ -11,11 +11,11 @@ def machinelearning():
     from textblob.classifiers import DecisionTreeClassifier
     from textblob.classifiers import MaxEntClassifier
     from textblob.classifiers import BaseClassifier
-    from wandb import magic
-    import wandb
+    #from wandb import magic
+    #import wandb
 
-    wandb.init(magic=True)
-    wandb.init(project="uncategorized")
+    #wandb.init(magic=True)
+    #wandb.init(project="uncategorized")
     # add file paths here
     file1 = "/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/SMSSpamCollection"
     file2 = "/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/SMSSpamCollection"

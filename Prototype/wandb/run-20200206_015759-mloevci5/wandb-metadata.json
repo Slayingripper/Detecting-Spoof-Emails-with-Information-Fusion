@@ -1,0 +1,23 @@
+{
+    "root": "/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion",
+    "program": "start.py",
+    "git": {
+        "remote": "https://github.com/Slayingripper/Detecting-Spoof-Emails-with-Information-Fusion.git",
+        "commit": "77cd92816de18a4c3cd720dfe79b7ccec0bc9e9b"
+    },
+    "email": "kirav96@gmail.com",
+    "startedAt": "2020-02-06T01:58:00.026951",
+    "host": "parrot",
+    "username": "blackfalcon",
+    "executable": "/usr/bin/python3",
+    "os": "Linux-5.4.0-2parrot1-amd64-x86_64-with-Parrot-4.8-rolling",
+    "python": "3.7.5",
+    "cpu_count": 4,
+    "args": [],
+    "state": "failed",
+    "jobType": null,
+    "mode": "run",
+    "project": "Detecting-Spoof-Emails-with-Information-Fusion-Prototype",
+    "heartbeatAt": "2020-02-06T02:00:36.154058",
+    "exitcode": 1
+}

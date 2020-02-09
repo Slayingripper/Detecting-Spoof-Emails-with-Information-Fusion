@@ -19,7 +19,7 @@ parser = argparse.ArgumentParser(description="This is my help")
 
 args = parser.parse_args()
 
-#Python EMAIL NEURAL IDETIFICATION SYSTEM
+#Python EMAIL using a NEURAL IDETIFICATION SYSTEM
 cprint(figlet_format("P.E.N.I.S", font="isometric1"), attrs=["bold"])
 # ask user for Method to use
 questions = [
@@ -34,7 +34,7 @@ answers = inquirer.prompt(questions)
 
 if answers["Method"] == "Machine Learning":
     print("This might take a while.....")
-    cl = machinelearning()
+    #cl = machinelearning()
     # NaiveBayesClassifier()
     MLquestions = [
         inquirer.List(
@@ -62,12 +62,15 @@ if answers["Method"] == "Machine Learning":
     elif answers["MLquestions"] == "Test a Heading and continue with process":
 
         spamsubject = input("Type something to test this out: ")
-        print(cl.classify(spamsubject))
-        
-        from keychecker import *
-        keywords(spamsubject)
-       # from grammar import *
-       # SpellChecker(spamsubject)
+       # print(cl.classify(spamsubject))
+        if "@" not in spamsubject:
+            from keychecker import *
+            keywords(spamsubject)
+            from newgram import *
+            checkthis = spell(spamsubject)
+            if spamsubject != checkthis :
+                print("Wrong")
+          
         #from domaincheck import *
         #from domainextcheck import *
         

@@ -23,10 +23,9 @@ def domaincheck():
 
     spamlevel = 0
     # open CSV FILE and replace empty spaces with ""
-    df = pd.read_csv(
-        r"/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/CSVDATA.csv"
-    )
-
+   # df = pd.read_csv(    r"/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/CSVDATA.csv" )
+    string = 'chicken@gmail.com'
+    df = pd.DataFrame([string], columns=['SENDER'])
     print("\n --- search for domains ---\n")
 
     for I, J in df.iterrows():
@@ -34,21 +33,22 @@ def domaincheck():
         # if re.search('.com$',J['SENDER']) is None:
         #   spamlevel = spamlevel+1
 
-        if re.search("@gmail$", J["SENDER"]) is None:
+        if re.search("@gmail$", J["SENDER"]) is not None:
             spamlevel = spamlevel + 1
-        if re.search("@hotmail$", J["SENDER"]) is None:
+        elif re.search("@hotmail$", J["SENDER"]) is not None:
             spamlevel = spamlevel + 1
-        if re.search("@outlook$", J["SENDER"]) is None:
+        elif re.search("@outlook$", J["SENDER"]) is not None:
             spamlevel = spamlevel + 1
-        if re.search("@live$", J["SENDER"]) is None:
+        elif re.search("@live$", J["SENDER"]) is not None:
             spamlevel = spamlevel + 1
-        if re.search("@protonmail$", J["SENDER"]) is None:
+        elif re.search("@protonmail$", J["SENDER"]) is not None:
             spamlevel = spamlevel + 1
-        if re.search("@yahoo$", J["SENDER"]) is None:
+        elif re.search("@yahoo$", J["SENDER"]) is not None:
             spamlevel = spamlevel + 1
-        if re.search("@$", J["SENDER"]) is not None:
+        if re.search("@$", J["SENDER"]) is  None:
             spamlevel = spamlevel + 1
-
+            
+    print(spamlevel)
     print(df.index)
     numberofemails = len(df.index)
 
