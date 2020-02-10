@@ -376,14 +376,39 @@ Disadvantages :
 2. Faster only if the second order derivative is known 
 3. slower overall and costly to compute in both time and memory
 
+### Gradient descent
+
 
 #### SGD
+Stochastic gradient decent updates the parameters for each training example . It perfoms one update at a time.
+Because SGD has these frequent updates this means that paramater updates have a high variance between them which causes the loss function to fluctiate to different extremes. This might sound bad but in reality it helps the algorithm discover new or better minima.
+
+This does not come without it disadvantages. Because of these frequent updates it might not calculate the exact minimun and will exceed it becuse of these frequent fluctuations. 
+
 
 
 #### ADAM
-
+Adaptive Moment Estimation just like Adagrad/Adelta computes adaptive learning rates for each parameter. It works in a similar way to the other ones with the exeption of it storing an average of past gradients.
+//insert figure//
+Adam is a very efficient and speedy method of learning and does not face the problems that other optimisation algorithms face like vanishing Learning rate , slow convergence or High variance in the parameter updates which leads to fluctuating Loss function.
+//insert figure// 
 #### Adagrad
+Adagrad allows the learning reate to morphe depending on its parameters. It can make large updates for infrequent parameters and small updates on smaller ones . This type of optimisation algorithm is ideal for dealing with spare and spread out data. 
+
+It uses a different learning rate of every parameters based on previous gradients which were calculated before it.
+
+Advantages : 
+1. No need to manually tune the learning rate 
+2. Great for spread out data
+
+Disadvantages :
+1. Learning rate is always Decreasing
+
+This is because of its squared Gradient in the denominator . THe sum keeps growing during training which causes the learning rate to decrease becoming very inefficient to the point that it stops learning and acquiring new data.
+
 
 
 #### Adadelta
+Adadelta aims to fix the decaying learning Rate of Adagrad by limiting the accumulation of past gradionts to a fixed size instead of getting the all. 
+
 https://arxiv.org/pdf/1412.6980v8.pdf

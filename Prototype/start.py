@@ -69,15 +69,18 @@ if answers["Method"] == "Machine Learning":
             from newgram import *
             checkthis = spell(spamsubject)
             if spamsubject != checkthis :
-                print("Wrong")
-          
-        #from domaincheck import *
-        #from domainextcheck import *
-        
+                print("Wrong")  
+        from domaincheck import *
+        domaincheck(spamsubject)
+        from domainextcheck import *
+        domainextcheck(spamsubject)
 
         #SpellChecker(spamsubject)
         #domaincheck(spamsubject)
         #domainextcheck(spamsubject)
+        
+        
+        #Clear variable cache
         answers = inquirer.prompt(MLquestions)
 
 elif answers["Method"] == "Neural Network":
@@ -111,6 +114,9 @@ elif answers["Method"] == "Neural Network":
     print(answers["Method"])
 
 elif answers["Method"] == "Exit":
+    exit()
+
+def exit():
     print("Thank you Bye bye....")
     time.sleep(1)
     sys.exit()
