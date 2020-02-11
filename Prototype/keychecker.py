@@ -6,7 +6,7 @@ import re
 
 def keywords(sentence):
     thetest = 1
-    #sentence = "money"
+    # sentence = "money"
     new_string = sentence
     cnt = Counter()
     words = re.findall(
@@ -28,7 +28,7 @@ def keywords(sentence):
 
 
 def main():
-    keywords('')
+    keywords("")
 
 
 main()

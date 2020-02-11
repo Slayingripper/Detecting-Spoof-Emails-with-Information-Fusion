@@ -19,7 +19,7 @@ parser = argparse.ArgumentParser(description="This is my help")
 
 args = parser.parse_args()
 
-#Python EMAIL using a NEURAL IDETIFICATION SYSTEM
+# Python EMAIL using a NEURAL IDETIFICATION SYSTEM
 cprint(figlet_format("P.E.N.I.S", font="isometric1"), attrs=["bold"])
 # ask user for Method to use
 questions = [
@@ -34,7 +34,7 @@ answers = inquirer.prompt(questions)
 
 if answers["Method"] == "Machine Learning":
     print("This might take a while.....")
-    #cl = machinelearning()
+    # cl = machinelearning()
     # NaiveBayesClassifier()
     MLquestions = [
         inquirer.List(
@@ -62,25 +62,28 @@ if answers["Method"] == "Machine Learning":
     elif answers["MLquestions"] == "Test a Heading and continue with process":
 
         spamsubject = input("Type something to test this out: ")
-       # print(cl.classify(spamsubject))
+        # print(cl.classify(spamsubject))
         if "@" not in spamsubject:
             from keychecker import *
+
             keywords(spamsubject)
             from newgram import *
+
             checkthis = spell(spamsubject)
-            if spamsubject != checkthis :
-                print("Wrong")  
+            if spamsubject != checkthis:
+                print("Wrong")
         from domaincheck import *
+
         domaincheck(spamsubject)
         from domainextcheck import *
+
         domainextcheck(spamsubject)
 
-        #SpellChecker(spamsubject)
-        #domaincheck(spamsubject)
-        #domainextcheck(spamsubject)
-        
-        
-        #Clear variable cache
+        # SpellChecker(spamsubject)
+        # domaincheck(spamsubject)
+        # domainextcheck(spamsubject)
+
+        # Clear variable cache
         answers = inquirer.prompt(MLquestions)
 
 elif answers["Method"] == "Neural Network":
@@ -105,41 +108,45 @@ elif answers["Method"] == "Neural Network":
         answers = inquirer.prompt(NNquestions)
 
     elif answers["NNquestions"] == "Test a Subject heading":
-        
-            spamsubject = input("Type something to test this out: ")
-            print(get_predictions(spamsubject))
-            answers = inquirer.prompt(NNquestions)
+
+        spamsubject = input("Type something to test this out: ")
+        print(get_predictions(spamsubject))
+        answers = inquirer.prompt(NNquestions)
 
     elif answers["NNquestions"] == "Test a Heading and continue with process":
 
-            spamsubject = input("Type something to test this out: ")
-            print(get_predictions(spamsubject))
+        spamsubject = input("Type something to test this out: ")
+        print(get_predictions(spamsubject))
         # print(cl.classify(spamsubject))
-            if "@" not in spamsubject:
-                from keychecker import *
-                keywords(spamsubject)
-                from newgram import *
-                checkthis = spell(spamsubject)
-                if spamsubject != checkthis :
-                    print("Wrong")  
-            from domaincheck import *
-            domaincheck(spamsubject)
-            from domainextcheck import *
-            domainextcheck(spamsubject)
+        if "@" not in spamsubject:
+            from keychecker import *
 
-            #SpellChecker(spamsubject)
-            #domaincheck(spamsubject)
-            #domainextcheck(spamsubject)
-            
-            
-            #Clear variable cache
-            answers = inquirer.prompt(NNquestions)
-        #   import NeuralNetworkwithkfold
+            keywords(spamsubject)
+            from newgram import *
 
-          #  print(answers["Method"])
+            checkthis = spell(spamsubject)
+            if spamsubject != checkthis:
+                print("Wrong")
+        from domaincheck import *
+
+        domaincheck(spamsubject)
+        from domainextcheck import *
+
+        domainextcheck(spamsubject)
+
+        # SpellChecker(spamsubject)
+        # domaincheck(spamsubject)
+        # domainextcheck(spamsubject)
+
+        # Clear variable cache
+        answers = inquirer.prompt(NNquestions)
+    #   import NeuralNetworkwithkfold
+
+    #  print(answers["Method"])
 
 elif answers["Method"] == "Exit":
     exit()
+
 
 def exit():
     print("Thank you Bye bye....")

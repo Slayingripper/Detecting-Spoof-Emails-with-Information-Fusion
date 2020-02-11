@@ -1,4 +1,5 @@
 from __future__ import print_function
+
 # imports libraries
 from nltk.tokenize import word_tokenize
 from nltk.corpus import brown

@@ -17,22 +17,22 @@ def domainextcheck(sentence):
     spamlevel = 0
 
     # open CSV FILE and replace empty spaces with ""
-   # df = pd.read_csv(
-   #     r"/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/CSVDATA.csv"
-  #  )
+    # df = pd.read_csv(
+    #     r"/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/CSVDATA.csv"
+    #  )
 
     print("\n --- search for domain extensions ---\n")
 
     string = new_string
-    df = pd.DataFrame([string], columns=['SENDER'])
+    df = pd.DataFrame([string], columns=["SENDER"])
     # na = False removes NA / NaN values from consideration; otherwise a ValueError may be returned.
 
     for I, J in df.iterrows():
         # print (J ['SENDER'],J ['SUBJECT'])
         # if re.search('.com$',J['SENDER']) is None:
         #   spamlevel = spamlevel+1
-      #  if re.search(".$", J["SENDER"]) is  None:
-        if  re.search(".net$", J["SENDER"]) is not None:
+        #  if re.search(".$", J["SENDER"]) is  None:
+        if re.search(".net$", J["SENDER"]) is not None:
             spamlevel = spamlevel + 1
         elif re.search(".com$", J["SENDER"]) is not None:
             spamlevel = spamlevel + 1
@@ -56,7 +56,7 @@ def domainextcheck(sentence):
 
 
 def main():
-    domainextcheck('')
+    domainextcheck("")
 
 
 main()

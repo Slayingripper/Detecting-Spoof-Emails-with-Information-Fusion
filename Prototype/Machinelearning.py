@@ -1,4 +1,3 @@
-
 def machinelearning():
     import random
     import time
@@ -11,21 +10,20 @@ def machinelearning():
     from textblob.classifiers import DecisionTreeClassifier
     from textblob.classifiers import MaxEntClassifier
     from textblob.classifiers import BaseClassifier
-    #from wandb import magic
-    #import wandb
 
-    #wandb.init(magic=True)
-    #wandb.init(project="uncategorized")
+    # from wandb import magic
+    # import wandb
+
+    # wandb.init(magic=True)
+    # wandb.init(project="uncategorized")
     # add file paths here
     file1 = "/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/SMSSpamCollection"
     file2 = "/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/SMSSpamCollection"
-
 
     # we calculate the row count and and the training amount we are going to use for
     # our classifier the current dataset current has around 6k or spam and ham (mixed)
     row_count = len(list(csv.reader(open(file1))))
     print(row_count)
-
 
     dothis = row_count - 1
     # using int to round the train amount (Lower BOUND)
@@ -36,12 +34,10 @@ def machinelearning():
     therest = trainamount + 1
     print(therest)
 
-
     # bigchungas 55k unclassified
     big_count = len(list(csv.reader(open(file2))))
     big_counter = big_count - 1
     print(big_count)
-
 
     # using stop words causes a massive INCREASE in import time so we have to use
     # a specific one to reduce the time taken , for example "english"
@@ -67,7 +63,6 @@ def machinelearning():
                     break
             return list_tuples
 
-
     # used for the super extreme case
     def get_list_spam(read_file):
         list_tuples = []
@@ -89,12 +84,10 @@ def machinelearning():
                     break
             return list_tuples
 
-
     print("importing data...")
     a = time.time()
     entire_data = get_list_tuples(file1)
     unknown_data = get_list_spam(file2)
-
 
     print("It took " + str(time.time() - a) + " seconds to import data")
     print("data imported")
@@ -103,10 +96,8 @@ def machinelearning():
     random.shuffle(entire_data)
     random.shuffle(unknown_data)
 
-
     # train = entire_data[:row_count]
     # test = entire_data[:row_count]
-
 
     train = entire_data[:row_count]
     # train = unknown_data[1:2000]
