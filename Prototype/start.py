@@ -86,7 +86,7 @@ if answers["Method"] == "Machine Learning":
 elif answers["Method"] == "Neural Network":
     print("This might take a while.....")
     time.sleep(2)
-    from NeuralNetworkwithkfold import *
+    from newSNN import *
 
     NNquestions = [
         inquirer.List(
@@ -104,14 +104,39 @@ elif answers["Method"] == "Neural Network":
         model.summary()
         answers = inquirer.prompt(NNquestions)
 
-    for i in tqdm(range(10)):
-        time.sleep(1)
-        SpellChecker
-        domaincheck
-        domainextcheck
-    #   import NeuralNetworkwithkfold
+    elif answers["NNquestions"] == "Test a Subject heading":
+        
+            spamsubject = input("Type something to test this out: ")
+            print(get_predictions(spamsubject))
+            answers = inquirer.prompt(NNquestions)
 
-    print(answers["Method"])
+    elif answers["NNquestions"] == "Test a Heading and continue with process":
+
+            spamsubject = input("Type something to test this out: ")
+            print(get_predictions(spamsubject))
+        # print(cl.classify(spamsubject))
+            if "@" not in spamsubject:
+                from keychecker import *
+                keywords(spamsubject)
+                from newgram import *
+                checkthis = spell(spamsubject)
+                if spamsubject != checkthis :
+                    print("Wrong")  
+            from domaincheck import *
+            domaincheck(spamsubject)
+            from domainextcheck import *
+            domainextcheck(spamsubject)
+
+            #SpellChecker(spamsubject)
+            #domaincheck(spamsubject)
+            #domainextcheck(spamsubject)
+            
+            
+            #Clear variable cache
+            answers = inquirer.prompt(NNquestions)
+        #   import NeuralNetworkwithkfold
+
+          #  print(answers["Method"])
 
 elif answers["Method"] == "Exit":
     exit()

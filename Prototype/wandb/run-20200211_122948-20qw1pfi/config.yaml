@@ -1,0 +1,11 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.8.21
+    framework: keras
+    is_jupyter_run: false
+    magic:
+      enable: true
+    python_version: 3.7.6
