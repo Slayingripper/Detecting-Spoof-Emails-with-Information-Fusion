@@ -1,0 +1,8 @@
+[34m[1mwandb[0m: [33mWARNING[0m wandb.init() arguments ignored because wandb magic has already been initialized
+Traceback (most recent call last):
+  File "newSNN.py", line 49, in <module>
+    X, y = load_data()
+  File "newSNN.py", line 43, in load_data
+    labels.append(split[0].strip())
+IndexError: list index out of range
+>>> 

@@ -1,0 +1,5 @@
+[34m[1mwandb[0m: [33mWARNING[0m wandb.init() arguments ignored because wandb magic has already been initialized
+Traceback (most recent call last):
+  File "newSNN.py", line 93, in <module>
+    kfold = StratifiedKFold(n_splits=10, shuffle=True, random_state=seed)
+NameError: name 'StratifiedKFold' is not defined

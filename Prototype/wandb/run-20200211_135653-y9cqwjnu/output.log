@@ -1,0 +1,8 @@
+[34m[1mwandb[0m: [33mWARNING[0m wandb.init() arguments ignored because wandb magic has already been initialized
+Traceback (most recent call last):
+  File "newSNN.py", line 72, in <module>
+    y = [label2int[label] for label in y]
+  File "newSNN.py", line 72, in <listcomp>
+    y = [label2int[label] for label in y]
+KeyError: 'ham,Hope'
+>>> 
