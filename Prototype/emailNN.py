@@ -1,4 +1,4 @@
-import tqdm
+#simport tqdm
 import numpy as np
 import keras_metrics  # for recall and precision metrics
 from keras.preprocessing.sequence import pad_sequences
@@ -35,7 +35,7 @@ def load_data():
     """
     texts, labels = [], []
     with open(
-        "/home/blackfalcon/Documents/8020.csv"
+        "C:/Users/Admin/Documents/GitHub/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/both.csv"
     ) as f:
         for line in f:
             split = line.split()
