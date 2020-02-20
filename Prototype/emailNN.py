@@ -1,4 +1,4 @@
-#simport tqdm
+import tqdm
 import numpy as np
 import keras_metrics  # for recall and precision metrics
 from keras.preprocessing.sequence import pad_sequences
@@ -17,11 +17,12 @@ import wandb
 wandb.init(magic=True)
 wandb.init(project="NEWNN")
 
-SEQUENCE_LENGTH = 100  # the length of all sequences (number of words per sample)
-EMBEDDING_SIZE = 100  # Using 100-Dimensional GloVe embedding vectors
+SEQUENCE_LENGTH = 50  # the length of all sequences (number of words per sample)
+EMBEDDING_SIZE = 50  # Using 100-Dimensional GloVe embedding vectors
+dim = 50
 TEST_SIZE = 0.25  # ratio of testing set
 
-BATCH_SIZE = 64
+BATCH_SIZE = 512
 EPOCHS = 20  # number of epochs
 
 # to convert labels to integers and vice-versa
@@ -35,7 +36,7 @@ def load_data():
     """
     texts, labels = [], []
     with open(
-        "C:/Users/Admin/Documents/GitHub/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/both.csv"
+        "/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/Legit.csv"
     ) as f:
         for line in f:
             split = line.split()
@@ -77,9 +78,9 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 
-def get_embedding_vectors(tokenizer, dim=100):
+def get_embedding_vectors(tokenizer):
     embedding_index = {}
-    with open(f"/home/blackfalcon/Downloads/glove.6B.100d.txt", encoding="utf8") as f:
+    with open(f"/home/blackfalcon/Downloads/glove.6B.{dim}d.txt", encoding="utf8") as f:
         for line in tqdm.tqdm(f, "Reading GloVe"):
             values = line.split()
             word = values[0]
@@ -173,7 +174,7 @@ def get_predictions(text):
     # one-hot encoded vector, revert using np.argmax
     return int2label[np.argmax(prediction)]
 
-model.save("emailaddresses.h5")
+#model.save("emailaddresses.h5")
 text = "hsdadadk@gmail.com"
 print(get_predictions(text))
 text = "johnsmith@gmail.com"

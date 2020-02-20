@@ -3,25 +3,26 @@ import string
 import csv
 fname = 'output.csv'
 
-filename = "C:/Users/Admin/Documents/GitHub/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/emails.csv"
+filename = "/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/names.csv"
 with open(filename) as f:
-    domains = f.readlines()
+    names = f.readlines()
 # you may also want to remove whitespace characters like `\n` at the end of each line
+domains = [ "hotmail.com", "gmail.com", "live.com", "cytanet.com.cy", "outlook.com", "yahoo.com","protonmail.com"]
 domains = [x.strip() for x in domains]
 
 
 
-#domains = [ "hotmail.com", "gmail.com", "live.com", "" , "mail.kz", "yahoo.com",]
-letters = string.ascii_lowercase[:12] 
 
+#letters = string.ascii_lowercase[:12] 
+names = [x.strip() for x in names]
 def get_one_random_domain(domains):
     return random.choice(domains)
 
-def get_one_random_name(letters):
-    return ''.join(random.choice(letters) for i in range(7))
+def get_one_random_name(names):
+    return ''.join(random.choice(names) for i in range(1))
 
 def generate_random_emails():
-    return [get_one_random_name(letters) + '@' + get_one_random_domain(domains) for i in range(10000)]
+    return [get_one_random_name(names) + '@' + get_one_random_domain(domains) for i in range(100000)]
 
 def main():                
   print(generate_random_emails())

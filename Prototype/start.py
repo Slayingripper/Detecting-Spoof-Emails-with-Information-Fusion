@@ -3,6 +3,7 @@
 # import  domaincheck
 # import  domainextcheck
 # import  grammar
+#!/usr/bin/env python -W ignore::DeprecationWarning
 import argparse
 import inquirer
 import time
@@ -14,13 +15,15 @@ from Machinelearning import machinelearning
 init(strip=not sys.stdout.isatty())  # strip colors if stdout is redirected
 from termcolor import cprint
 from pyfiglet import figlet_format
-
-parser = argparse.ArgumentParser(description="This is my help")
-
+logo = cprint(figlet_format("SEA", font="isometric1"), attrs=["bold"])
+parser = argparse.ArgumentParser(logo,description="You can use this framwork without any arguments but there are special features hidden inside")
+parser.add_argument("--demo", help="Use for demonstration")
+parser.add_argument("--penis", help="its true form")
+parser.add_argument("--auto", help="auto mode")
 args = parser.parse_args()
 
 # Python EMAIL using a NEURAL IDETIFICATION SYSTEM
-cprint(figlet_format("P.E.N.I.S", font="isometric1"), attrs=["bold"])
+
 # ask user for Method to use
 questions = [
     inquirer.List(
