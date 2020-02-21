@@ -12,12 +12,13 @@ from sklearn.model_selection import train_test_split
 import time
 import numpy as np
 import pickle
-#from wandb import magic
-#import wandb
+
+# from wandb import magic
+# import wandb
 
 
-#wandb.init(magic=True)
-#wandb.init(project="NEWNN")
+# wandb.init(magic=True)
+# wandb.init(project="NEWNN")
 
 SEQUENCE_LENGTH = 100  # the length of all sequences (number of words per sample)
 EMBEDDING_SIZE = 100  # Using 100-Dimensional GloVe embedding vectors
@@ -64,13 +65,14 @@ X = pad_sequences(X, maxlen=SEQUENCE_LENGTH)
 
 # One Hot encoding labels
 # [spam, ham, spam, ham, ham] will be converted to:
-# [1, 0, 1, 0, 1] 
+# [1, 0, 1, 0, 1]
 y = [label2int[label] for label in y]
 y = to_categorical(y)
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=TEST_SIZE, random_state=1
 )
+
 
 def get_embedding_vectors(tokenizer, dim=100):
     embedding_index = {}
@@ -91,7 +93,9 @@ def get_embedding_vectors(tokenizer, dim=100):
 
     return embedding_matrix
 
-#kfold = StratifiedKFold(n_splits=10, shuffle=True, random_state=seed)
+
+# kfold = StratifiedKFold(n_splits=10, shuffle=True, random_state=seed)
+
 
 def get_model(tokenizer, lstm_units):
     """
@@ -120,15 +124,15 @@ def get_model(tokenizer, lstm_units):
     # compile as rmsprop optimizer
     # aswell as with recall metric
     model.compile(
-        optimizer="adam",
-        loss="categorical_crossentropy",
-        metrics=["accuracy"],
+        optimizer="adam", loss="categorical_crossentropy", metrics=["accuracy"],
     )
     model.summary()
     return model
 
-model_checkpoint = ModelCheckpoint("spam_classifier_{val_loss:.2f}", save_best_only=True,
-                                    verbose=1)
+
+model_checkpoint = ModelCheckpoint(
+    "spam_classifier_{val_loss:.2f}", save_best_only=True, verbose=1
+)
 # constructs the model with 128 LSTM units
 model = get_model(tokenizer=tokenizer, lstm_units=128)
 print("X_train.shape:", X_train.shape)
@@ -142,21 +146,22 @@ model.fit(
     validation_data=(X_test, y_test),
     batch_size=BATCH_SIZE,
     epochs=EPOCHS,
-    validation_split=1.0,callbacks=[model_checkpoint],
+    validation_split=1.0,
+    callbacks=[model_checkpoint],
     use_multiprocessing=True,
     verbose=1,
 )
 # get the loss and metrics
 result = model.evaluate(X_test, y_test)
 # extract those
-#loss = result[0]
+# loss = result[0]
 accuracy = result[1]
-#precision = result[2]
-#recall = result[3]
+# precision = result[2]
+# recall = result[3]
 
 print(f"[+] Accuracy: {accuracy*100:.2f}%")
-#print(f"[+] Precision:   {precision*100:.2f}%")
-#print(f"[+] Recall:   {recall*100:.2f}%")
+# print(f"[+] Precision:   {precision*100:.2f}%")
+# print(f"[+] Recall:   {recall*100:.2f}%")
 
 
 def get_predictions(text):
@@ -168,8 +173,9 @@ def get_predictions(text):
     # one-hot encoded vector, revert using np.argmax
     return int2label[np.argmax(prediction)]
 
+
 model.save("NEURAL.h5")
-with open('tokenizer2.pickle', 'wb') as handle:
+with open("tokenizer2.pickle", "wb") as handle:
     pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
 text = "SEX SEX GIVE ME MORE SEX MONEY "
 print(get_predictions(text))

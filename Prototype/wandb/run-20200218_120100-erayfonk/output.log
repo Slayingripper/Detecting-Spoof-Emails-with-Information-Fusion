@@ -1,0 +1,9 @@
+[34m[1mwandb[0m: [33mWARNING[0m wandb.init() arguments ignored because wandb magic has already been initialized
+Traceback (most recent call last):
+  File "emailNN.py", line 133, in <module>
+    model = get_model(tokenizer=tokenizer, lstm_units=128)
+  File "emailNN.py", line 106, in get_model
+    embedding_matrix = get_embedding_vectors(tokenizer)
+  File "emailNN.py", line 83, in get_embedding_vectors
+    for line in tqdm.tqdm(f, "Reading GloVe"):
+NameError: name 'tqdm' is not defined

@@ -15,8 +15,12 @@ from Machinelearning import machinelearning
 init(strip=not sys.stdout.isatty())  # strip colors if stdout is redirected
 from termcolor import cprint
 from pyfiglet import figlet_format
+
 logo = cprint(figlet_format("SEA", font="isometric1"), attrs=["bold"])
-parser = argparse.ArgumentParser(logo,description="You can use this framwork without any arguments but there are special features hidden inside")
+parser = argparse.ArgumentParser(
+    logo,
+    description="You can use this framwork without any arguments but there are special features hidden inside",
+)
 parser.add_argument("--demo", help="Use for demonstration")
 parser.add_argument("--penis", help="its true form")
 parser.add_argument("--auto", help="auto mode")

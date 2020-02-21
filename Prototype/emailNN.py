@@ -174,7 +174,8 @@ def get_predictions(text):
     # one-hot encoded vector, revert using np.argmax
     return int2label[np.argmax(prediction)]
 
-#model.save("emailaddresses.h5")
+
+# model.save("emailaddresses.h5")
 text = "hsdadadk@gmail.com"
 print(get_predictions(text))
 text = "johnsmith@gmail.com"
