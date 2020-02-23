@@ -3,7 +3,7 @@
 # import  domaincheck
 # import  domainextcheck
 # import  grammar
-#!/usr/bin/env python -W ignore::DeprecationWarning
+#!/usr/bin/env python3 -W ignore::DeprecationWarning
 import argparse
 import inquirer
 import time
@@ -40,62 +40,89 @@ questions = [
 answers = inquirer.prompt(questions)
 
 if answers["Method"] == "Machine Learning":
-    print("This might take a while.....")
-    # cl = machinelearning()
-    # NaiveBayesClassifier()
-    MLquestions = [
+    
+        questions2 = [
         inquirer.List(
-            "MLquestions",
-            message="What else would you like to do?",
-            choices=[
-                "Show top 10 informative features",
-                "Test a Subject heading",
-                "Test a Heading and continue with process",
-            ],
+            "questions2",
+            message="Do you want to use a pretrained model?",
+            choices=["Yes", "No"],
         ),
-    ]
+            ]
+    
+        answers = inquirer.prompt(questions2)
+    
+        if answers["questions2"] == "Yes":
+            from NaiveLoader import mloader
+            cl = mloader();
+            print(cl.classify("vassilis@gmail.com"))
+            
+        else:
+            
+            print("This might take a while.....")
+            cl = machinelearning()
+            NaiveBayesClassifier()
+        MLquestions = [
+            inquirer.List(
+                "MLquestions",
+                message="What else would you like to do?",
+                choices=[
+                    "Show top 10 informative features",
+                    "Test a Subject heading",
+                    "Test a Heading and continue with process",
+                ],
+            ),
+        ]
 
-    answers = inquirer.prompt(MLquestions)
-    if answers["MLquestions"] == "Show top 10 informative features":
-        cl.show_informative_features(10)
         answers = inquirer.prompt(MLquestions)
+        if answers["MLquestions"] == "Show top 10 informative features":
+            cl.show_informative_features(10)
+            answers = inquirer.prompt(MLquestions)
 
-    elif answers["MLquestions"] == "Test a Subject heading":
+        elif answers["MLquestions"] == "Test a Subject heading":
 
-        spamsubject = input("Type something to test this out: ")
-        print(cl.classify(spamsubject))
-        answers = inquirer.prompt(MLquestions)
+            spamsubject = input("Type something to test this out: ")
+            print(cl.classify(spamsubject))
+            answers = inquirer.prompt(MLquestions)
 
-    elif answers["MLquestions"] == "Test a Heading and continue with process":
+        elif answers["MLquestions"] == "Test a Heading and continue with process":
 
-        spamsubject = input("Type something to test this out: ")
-        # print(cl.classify(spamsubject))
-        if "@" not in spamsubject:
-            from keychecker import *
+            spamsubject = input("Type something to test this out: ")
+            # print(cl.classify(spamsubject))
+            if "@" not in spamsubject:
+                from keychecker import *
 
-            keywords(spamsubject)
-            from newgram import *
+                keywords(spamsubject)
+                from newgram import *
 
-            checkthis = spell(spamsubject)
-            if spamsubject != checkthis:
-                print("Wrong")
-        from domaincheck import *
+                checkthis = spell(spamsubject)
+                if spamsubject != checkthis:
+                    print("Wrong")
+            from domaincheck import *
 
-        domaincheck(spamsubject)
-        from domainextcheck import *
+            domaincheck(spamsubject)
+            from domainextcheck import *
 
-        domainextcheck(spamsubject)
+            domainextcheck(spamsubject)
 
-        # SpellChecker(spamsubject)
-        # domaincheck(spamsubject)
-        # domainextcheck(spamsubject)
+            # SpellChecker(spamsubject)
+            # domaincheck(spamsubject)
+            # domainextcheck(spamsubject)
 
-        # Clear variable cache
-        answers = inquirer.prompt(MLquestions)
+            # Clear variable cache
+            answers = inquirer.prompt(MLquestions)
 
 elif answers["Method"] == "Neural Network":
     print("This might take a while.....")
-    time.sleep(2)
+    
+    questions2 = [
+        inquirer.List(
+            "questions2",
+            message="Do you want to use a pretrained model?",
+            choices=["Yes", "No"],
+        ),
+            ]
+    
+    answers = inquirer.prompt(questions2)
     from newSNN import *
 
     NNquestions = [
