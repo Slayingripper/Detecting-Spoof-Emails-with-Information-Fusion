@@ -1,19 +1,13 @@
 def machinelearning():
-    import random
-    import time
-    import nltk
-    import csv
-    import threading
+    import random,time,nltk,csv,threading
     from textblob import TextBlob
     from nltk.corpus import stopwords
     from textblob.classifiers import NaiveBayesClassifier
     from textblob.classifiers import DecisionTreeClassifier
     from textblob.classifiers import MaxEntClassifier
     from textblob.classifiers import BaseClassifier
-
     # from wandb import magic
     # import wandb
-
     # wandb.init(magic=True)
     # wandb.init(project="uncategorized")
     # add file paths here
@@ -24,7 +18,6 @@ def machinelearning():
     # our classifier the current dataset current has around 6k or spam and ham (mixed)
     row_count = len(list(csv.reader(open(file1))))
     print(row_count)
-
     dothis = row_count - 1
     # using int to round the train amount (Lower BOUND)
     trainamount = int(row_count / 4)

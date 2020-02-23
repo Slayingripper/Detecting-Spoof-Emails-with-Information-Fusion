@@ -7,6 +7,5 @@ def mloader():
     train = pickle.load(f)
     f.close()
     cl = NaiveBayesClassifier(train)
-    cl.show_informative_features(10)
     return cl
     

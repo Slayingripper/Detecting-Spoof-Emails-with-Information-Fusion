@@ -4,14 +4,28 @@
 # import  domainextcheck
 # import  grammar
 #!/usr/bin/env python3 -W ignore::DeprecationWarning
-import argparse
-import inquirer
-import time
+import argparse,inquirer,time,sys
+from time import sleep
 from tqdm import tqdm
-import sys
 from colorama import init
 from Machinelearning import machinelearning
+from domaincheck  import *  
+from domainextcheck import * 
+from keychecker import *
+from newgram import *
+from NaiveLoader import mloader
+############################################################################
+def exit():
+    print("Thank you Bye bye....")
+    time.sleep(1)
+    sys.exit()
 
+def drawProgressBar(percent, barLen = 20):
+    # percent float from 0 to 1. 
+    sys.stdout.write("\r")
+    sys.stdout.write("[{:<{}}] {:.0f}%".format("=" * int(barLen * percent), barLen, percent * 100))
+    sys.stdout.flush()
+#############################################################################
 init(strip=not sys.stdout.isatty())  # strip colors if stdout is redirected
 from termcolor import cprint
 from pyfiglet import figlet_format
@@ -52,9 +66,10 @@ if answers["Method"] == "Machine Learning":
         answers = inquirer.prompt(questions2)
     
         if answers["questions2"] == "Yes":
-            from NaiveLoader import mloader
-            cl = mloader();
-            print(cl.classify("vassilis@gmail.com"))
+            
+            import progressbartest
+           # cl = mloader();
+         #   print(cl.classify("vassilis@gmail.com"))
             
         else:
             
@@ -85,42 +100,40 @@ if answers["Method"] == "Machine Learning":
             answers = inquirer.prompt(MLquestions)
 
         elif answers["MLquestions"] == "Test a Heading and continue with process":
-
-            spamsubject = input("Type something to test this out: ")
+            subjectweight = 0 
+            addressweight = 0 
+            spamsubject = input("Type a email subject to test this out: ")
+            emailaddress = input("Type an email address to test this out: ")
             # print(cl.classify(spamsubject))
             if "@" not in spamsubject:
-                from keychecker import *
-
-                keywords(spamsubject)
-                from newgram import *
-
+                
+                if keywords(spamsubject) != 0:
+                    subjectweight = subjectweight + 0.125
+                    print (subjectweight)
                 checkthis = spell(spamsubject)
                 if spamsubject != checkthis:
-                    print("Wrong")
-            from domaincheck import *
-
-            domaincheck(spamsubject)
-            from domainextcheck import *
-
-            domainextcheck(spamsubject)
-
-            # SpellChecker(spamsubject)
-            # domaincheck(spamsubject)
-            # domainextcheck(spamsubject)
-
+                    subjectweight = subjectweight + 0.125
+                    print (subjectweight)
+            if "@" not in emailaddress:
+                print("please enter a valid email address")
+                exit()      
+            if domaincheck(emailaddress) == 0 :
+                spamthis = "works"
+                print(spamthis)
+            
+            domainextcheck(emailaddress)
             # Clear variable cache
             answers = inquirer.prompt(MLquestions)
 
 elif answers["Method"] == "Neural Network":
     print("This might take a while.....")
     
-    questions2 = [
-        inquirer.List(
-            "questions2",
-            message="Do you want to use a pretrained model?",
-            choices=["Yes", "No"],
-        ),
-            ]
+    questions2 = [inquirer.List(
+        "questions2",
+        message="Do you want to use a pretrained model?",
+        choices=["Yes", "No"],
+    ),
+        ]
     
     answers = inquirer.prompt(questions2)
     from newSNN import *
@@ -180,9 +193,3 @@ elif answers["Method"] == "Neural Network":
 
 elif answers["Method"] == "Exit":
     exit()
-
-
-def exit():
-    print("Thank you Bye bye....")
-    time.sleep(1)
-    sys.exit()

@@ -1,13 +1,20 @@
-def domaincheck(sentence):
-    # imports
-    import re,array,nltk,os,sys,subprocess,time
-    from nltk.corpus import brown
-    import pandas as pd
-    from datetime import datetime
-    from nltk.tokenize import word_tokenize
-    from nltk.corpus import brown
-    from threading import Thread
+# imports
+import re
+from nltk.corpus import brown
+import pandas as pd
+from datetime import datetime
+from nltk.tokenize import word_tokenize
+from nltk.corpus import brown
+import array
+import nltk
+import os
+import sys
+from threading import Thread
+import subprocess
+import time
 
+
+def domaincheck(sentence):
     # this is module is used to check the domains if they exist ex. gmail,hotmail,outlook etc
     # domains used + some extras are from https://www.godaddy.com/garage/what-are-the-five-most-common-domain-extensions-and-which-one-should-i-use/
     start_time = time.time()
@@ -40,12 +47,20 @@ def domaincheck(sentence):
                 spamlevel = spamlevel + 1
 
     print(spamlevel)
-    #print(df.index)
-    #numberofemails = len(df.index)
-    return spamlevel
+    print(df.index)
+    numberofemails = len(df.index)
 
-if __name__ == "__main__": 
+    # print out the accuracy and the number of emails
+    result = spamlevel / 7 - len(df.index)
+    print("there are: " + str(abs(result)) + " probable spam emails")
+    resultfinal = result * 100
+    accuracy = abs(resultfinal) / numberofemails
+    print(str(accuracy) + "%" + " of accuracy")
+    print("--- %s seconds ---" % (time.time() - start_time))
+
+
+def main():
     domaincheck("")
-#def main():
- #   domaincheck("")
-#main()
+
+
+main()

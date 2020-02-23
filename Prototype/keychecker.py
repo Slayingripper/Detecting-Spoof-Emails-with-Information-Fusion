@@ -1,19 +1,15 @@
-import os
-import nltk
-from collections import Counter
-import re
-
-
 def keywords(sentence):
+    #imports
+    import os,nltk,re
+    from collections import Counter
+
     thetest = 1
-    # sentence = "money"
+    spamlevel = 0
     new_string = sentence
     cnt = Counter()
     words = re.findall(
         "\w+",
-        open(
-            "/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/keywords.txt"
-        )
+        open("/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/keywords.txt")
         .read()
         .lower(),
     )
@@ -21,14 +17,11 @@ def keywords(sentence):
         if word in new_string:
             thetest += 1
             cnt[word] += 1
-    print(cnt)
+    #print(cnt)
     testing = type(str(word))
     if thetest > 1:
-        print("works")
-
-
-def main():
+        #print("works")
+        spamlevel = spamlevel + 1 
+    return spamlevel
+if __name__ == "__main__": 
     keywords("")
-
-
-main()
