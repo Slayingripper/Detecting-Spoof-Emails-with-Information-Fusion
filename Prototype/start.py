@@ -1,8 +1,3 @@
-# import  NeuralNetworkwithkfold
-# import  Machinelearning
-# import  domaincheck
-# import  domainextcheck
-# import  grammar
 #!/usr/bin/env python3 -W ignore::DeprecationWarning
 import argparse,inquirer,time,sys
 from time import sleep
@@ -15,11 +10,16 @@ from keychecker import *
 from newgram import *
 from NaiveLoader import mloader
 ############################################################################
+###Files
+naiveemail = "/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Prototype/loader/emnaive.pickle"
+naivesub = "/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Prototype/loader/subjectnaive.pickle"
+neuralemail= ""
+neuralsubject = ""
+############################################################################
 def exit():
     print("Thank you Bye bye....")
     time.sleep(1)
     sys.exit()
-
 def drawProgressBar(percent, barLen = 20):
     # percent float from 0 to 1. 
     sys.stdout.write("\r")
@@ -68,7 +68,8 @@ if answers["Method"] == "Machine Learning":
         if answers["questions2"] == "Yes":
             
             import progressbartest
-           # cl = mloader();
+            clemail = mloader(naiveemail);
+            clsubject = mloader(naivesub)
          #   print(cl.classify("vassilis@gmail.com"))
             
         else:
@@ -90,13 +91,14 @@ if answers["Method"] == "Machine Learning":
 
         answers = inquirer.prompt(MLquestions)
         if answers["MLquestions"] == "Show top 10 informative features":
-            cl.show_informative_features(10)
+            clemail.show_informative_features(10)
+            clsubject.show_informative_features(10)
             answers = inquirer.prompt(MLquestions)
 
         elif answers["MLquestions"] == "Test a Subject heading":
 
             spamsubject = input("Type something to test this out: ")
-            print(cl.classify(spamsubject))
+            print(clsubject.classify(spamsubject))
             answers = inquirer.prompt(MLquestions)
 
         elif answers["MLquestions"] == "Test a Heading and continue with process":
@@ -104,9 +106,15 @@ if answers["Method"] == "Machine Learning":
             addressweight = 0 
             spamsubject = input("Type a email subject to test this out: ")
             emailaddress = input("Type an email address to test this out: ")
-            # print(cl.classify(spamsubject))
+            
+            
+            #print(clsubject.classify(spamsubject))
+            #print(clemail.classify(emailaddress))
+        
+            #print(cl.classify(spamsubject))
             if "@" not in spamsubject:
-                
+                if clsubject.classify(spamsubject) == "spam":
+                    subjectweight = subjectweight + 0.5    
                 if keywords(spamsubject) != 0:
                     subjectweight = subjectweight + 0.125
                     print (subjectweight)
@@ -117,14 +125,22 @@ if answers["Method"] == "Machine Learning":
             if "@" not in emailaddress:
                 print("please enter a valid email address")
                 exit()      
+            if clemail.classify(emailaddress) == "spam":
+                addressweight = addressweight + 0.5    
             if domaincheck(emailaddress) == 0 :
-                spamthis = "works"
-                print(spamthis)
-            
-            domainextcheck(emailaddress)
+                addressweight = addressweight + 0.125
+                print(addressweight)
+        
+            if domainextcheck(emailaddress) == 0:
+               addressweight = addressweight + 0.125
+               print(addressweight)
             # Clear variable cache
-            answers = inquirer.prompt(MLquestions)
-
+            spamprobability = (addressweight + subjectweight) * 100
+            
+            print("Probability of this being spam is " + str(spamprobability) +"%")
+            #answers = inquirer.prompt(MLquestions)
+        
+    
 elif answers["Method"] == "Neural Network":
     print("This might take a while.....")
     
