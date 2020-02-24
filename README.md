@@ -262,8 +262,7 @@ Laplace smoothing can solve this since it will give the last word a small nonzer
 
 # Neural Networks
 
-Neural Networks are a sequence of algorithms that try to mimic the way a human brain operates. They used to recognise
-the relationships of a dataset that is provided to it. 
+Neural Networks are a sequence of algorithms that try to mimic the way a human brain operates. They are used to recognise the relationships of a dataset that is provided to it. 
 Neural networks are adaptive and can change themselves depeding on the training data they are provided with.
 Neural networks have a kind of universality , they can compute almost any function assuming we use the right type of 
 neural network. Accord to the theorem of Universiality even if we restrict a neural network to only have one single "hidden" layer
@@ -287,6 +286,19 @@ as an output layer . If the neural network has more than one hidden layer it is 
 ## Symmetrically connected network: 
 SCNN funciton in all most the same way as RNN with the main difference being that it uses symetric weights in both directions.
 
+## Long/Short term memory networks (LTSM)
+LSTM is a more specilised version of of RNN's which include LSTM unit that do not perfom activation. This allows the identical data to go back into the network for a random  long duration of time. This gives LSTM the unique ability to interact with evolving datasets. These types of networks have the ability to mitigate the problem of vanishing error gradients during the training proccess using their back progation to "retrain" and account for that loss. 
+There is a big debate wether LSTM is Turing complete with evidence for both sides.
+One of the main advatages of LSTMs are their almost 100% reproducability.
+
+//////
+
+
+insert figure and mathy stuff
+/////
+[linked phrase](https://github.com/keras-team/keras/blob/master/examples/lstm_text_generation.py)
+[linked phrase](https://github.com/Lasagne/Recipes/blob/master/examples/lstm_text_generation.py)
+[linked phrase](https://karpathy.github.io/2015/05/21/rnn-effectiveness/)
 ### Epoch(εποχή)
 
 Epoch are a measure of iritations the training vectors are used to update the weights. 
@@ -412,3 +424,6 @@ This is because of its squared Gradient in the denominator . THe sum keeps growi
 Adadelta aims to fix the decaying learning Rate of Adagrad by limiting the accumulation of past gradionts to a fixed size instead of getting the all. 
 
 https://arxiv.org/pdf/1412.6980v8.pdf
+
+
+## 
