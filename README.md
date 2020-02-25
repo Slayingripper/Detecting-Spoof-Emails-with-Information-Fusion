@@ -286,7 +286,7 @@ as an output layer . If the neural network has more than one hidden layer it is 
 ## Symmetrically connected network: 
 SCNN funciton in all most the same way as RNN with the main difference being that it uses symetric weights in both directions.
 
-## Long/Short term memory networks (LTSM)
+## Long/Short term memory networks (LSTM)
 LSTM is a more specilised version of of RNN's which include LSTM unit that do not perfom activation. This allows the identical data to go back into the network for a random  long duration of time. This gives LSTM the unique ability to interact with evolving datasets. These types of networks have the ability to mitigate the problem of vanishing error gradients during the training proccess using their back progation to "retrain" and account for that loss. 
 There is a big debate wether LSTM is Turing complete with evidence for both sides.
 One of the main advatages of LSTMs are their almost 100% reproducability.
@@ -426,4 +426,24 @@ Adadelta aims to fix the decaying learning Rate of Adagrad by limiting the accum
 https://arxiv.org/pdf/1412.6980v8.pdf
 
 
-## 
+
+
+## Hyper Parameters
+A machine learning model is just a formula with a number of parameters that need to be learned from data. But there are also parameters that can't be directly learned from the regular training process
+We call these higher level properties Hyperparameters.
+This could be number of trees in random forest,
+number of hidden layers in neural network, the learning rate for logistic regression,
+it is a process of trial and error and it is not very intuitive since we are not great at interpreting high dimensional data.
+
+### Tunability 
+The variation in perfomance can be due to only a fue hyperparameters. This means that the tunability of the alogirthm we wish to optimise is a measure of how much perfomance we can gain from it.
+cite(https://ui.adsabs.harvard.edu/abs/2018arXiv180209596P/abstract)
+In the case of our implementation LSTM has no significant perfomance gain when messing with the learning rate and network size. cite(https://arxiv.org/abs/1503.04069)
+But some research has suggested that splitting the data into smaller batches between 2 and 32 have a significant increase in perfomance acroding to cite(https://ui.adsabs.harvard.edu/abs/2018arXiv180407612M/abstract)
+
+### Grid Search
+
+Grid search considers all parameter combinations.It is a method for automating the process of finding the best combination of hyper-parameters for a given model and dataset.
+### Random Search 
+Randomised Search can test a given number of values in a parameteer space .
+

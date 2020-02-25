@@ -24,7 +24,7 @@ SEQUENCE_LENGTH = 100  # the length of all sequences (number of words per sample
 EMBEDDING_SIZE = 100  # Using 100-Dimensional GloVe embedding vectors
 TEST_SIZE = 0.25  # ratio of testing set
 
-BATCH_SIZE = 128
+BATCH_SIZE = 64
 EPOCHS = 20  # number of epochs
 
 # to convert labels to integers and vice-versa

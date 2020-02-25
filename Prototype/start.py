@@ -1,5 +1,5 @@
 #!/usr/bin/env python3 -W ignore::DeprecationWarning
-import argparse,inquirer,time,sys
+import argparse,inquirer,time,sys,warnings
 from time import sleep
 from tqdm import tqdm
 from colorama import init
@@ -9,6 +9,8 @@ from domainextcheck import *
 from keychecker import *
 from newgram import *
 from NaiveLoader import mloader
+
+warnings.filterwarnings("ignore")
 ############################################################################
 ###Files
 naiveemail = "/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Prototype/loader/emnaive.pickle"
@@ -33,11 +35,12 @@ from pyfiglet import figlet_format
 logo = cprint(figlet_format("SEA", font="isometric1"), attrs=["bold"])
 parser = argparse.ArgumentParser(
     logo,
-    description="You can use this framwork without any arguments but there are special features hidden inside",
+    description="SEA or Spam Email Analysis is a framework for testing emails and their probability of being spam. \n There are two choices for classification(Naive Bayes and Neural network(LSTM) ) both use custom fiters that further test and analyse the email for better accuracy and percision",
 )
 parser.add_argument("--demo", help="Use for demonstration")
-parser.add_argument("--penis", help="its true form")
-parser.add_argument("--auto", help="auto mode")
+parser.add_argument("--aggressive", help="uses both models for testing achieving a more accurate result")
+parser.add_argument("--auto", help="Runs the pre trained models directly without user input")
+parser.add_argument("--AIS", help="Aritifical Immune System (TBD)")
 args = parser.parse_args()
 
 # Python EMAIL using a NEURAL IDETIFICATION SYSTEM
@@ -47,13 +50,13 @@ questions = [
     inquirer.List(
         "Method",
         message="Choose a Learning Method",
-        choices=["Machine Learning", "Neural Network", "Exit"],
+        choices=["Naive Bayes Classification", "Neural Network (LSTM)", "Exit"],
     ),
 ]
 
 answers = inquirer.prompt(questions)
 
-if answers["Method"] == "Machine Learning":
+if answers["Method"] == "Naive Bayes Classification":
     
         questions2 = [
         inquirer.List(
