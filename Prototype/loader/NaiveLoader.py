@@ -11,5 +11,5 @@ def Naiveloader(path):
     #cl.show_informative_features(10)
     #print(cl.classify("vassilis@gmail.com"))
     return cl
- if __name__ == "__main__" : 
+if __name__ == "__main__" : 
         Naiveloader("")   
