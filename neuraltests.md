@@ -52,3 +52,15 @@ spam sms messages.
 With these results we can deduce that we have achieved similar results as the paper.
 In our case we saw some good perfomance increase between n=2 and n=64 compared to the paper
 but we should also take into account that we are using a completly different dataset.
+In addition we noticed the following :
+B = Batch Size
+T = Time
+LSTMu = LSTM Units
+
+Bacth Size/LSTM units = Time
+
+B/LSTMu = T
+
+Batch size is inversly proportional to time 
+
+the number of LSTM units did increase out time taken to process and train our model aswell.
