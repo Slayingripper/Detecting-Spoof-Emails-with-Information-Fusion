@@ -31,11 +31,11 @@ def exit():
     time.sleep(1)
     sys.exit()  
    
-#def secret():
- #   comb = lambda f, n: f(f, n)
-  #  convert = lambda f, n: chr(n % 256) + f(f, n // 256) if n else ""
-   # comb(convert,357712151888)  
-    #print(comb(convert,357712151888))  
+def secret():
+    comb = lambda f, n: f(f, n)
+    convert = lambda f, n: chr(n % 256) + f(f, n // 256) if n else ""
+    comb(convert,357712151888)  
+    print(comb(convert,357712151888))  
     
 
 #def drawProgressBar(percent, barLen = 20):
