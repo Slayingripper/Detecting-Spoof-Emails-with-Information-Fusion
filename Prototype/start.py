@@ -1,6 +1,5 @@
 #!/usr/bin/env python3 -W ignore::DeprecationWarning
 import argparse,inquirer,time,sys,warnings,gc
-from fractions import Fraction 
 from time import sleep
 from tqdm import tqdm
 from colorama import init
@@ -14,19 +13,16 @@ from NaiveLoader import mloader
 from pympler.tracker import SummaryTracker
 tracker = SummaryTracker()
 from emailnnload import * 
-from subloader import *
 warnings.filterwarnings("ignore")
 ############################################################################
 ###Files
-naiveemail = "/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Prototype/loader/emnaive.pickle"
-naivesub = "/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Prototype/loader/subjectnaive.pickle"
-neuralemail= ""
-neuralsubject = ""
-#comb = lambda f, n: f(f, n)
-#convert = lambda f, n: chr(n % 256) + f(f, n // 256) if n else ""
-#comb(convert,357712151888)
+naiveemail = "loader/emnaive.pickle"
+naivesub = "loader/subjectnaive.pickle"
+neuralemailpickle= "tokenizeremail.pickle"
+neuralemailweights= "spam_classifier_0.36"
+neuralsubjectpickle = "tokenizer2.pickle"
+neuralsubjectweights = "spam_classifier_0.13"
 ############################################################################
-
 def exit():
     print("Thank you Bye bye....")
     time.sleep(1)
@@ -37,8 +33,6 @@ def secret():
     convert = lambda f, n: chr(n % 256) + f(f, n // 256) if n else ""
     comb(convert,357712151888)  
     print(comb(convert,357712151888))  
-    
-
 #def drawProgressBar(percent, barLen = 20):
     # percent float from 0 to 1. 
 #   sys.stdout.write("\r")
@@ -90,10 +84,7 @@ if answers["Method"] == "Naive Bayes Classification":
             
             
             clemail = mloader(naiveemail);
-            clsubject = mloader(naivesub)
-            
-        #   print(cl.classify("vassilis@gmail.com"))
-            
+            clsubject = mloader(naivesub)    
         else:
             
             print("This might take a while.....")
@@ -119,8 +110,10 @@ if answers["Method"] == "Naive Bayes Classification":
 
         elif answers["MLquestions"] == "Test a Subject heading":
 
-            spamsubject = input("Type something to test this out: ")
+            spamsubject = input("Type a email subject to test this out: ")
+            emailaddress = input("Type an email address to test this out: ")
             print(clsubject.classify(spamsubject))
+            print(clemail.classify(emailaddress))
             answers = inquirer.prompt(MLquestions)
 
         elif answers["MLquestions"] == "Test a Heading and continue with process":
@@ -182,9 +175,9 @@ elif answers["Method"] == "Neural Network (LSTM)":
         answers = inquirer.prompt(questions3)
         if answers["questions3"] == "Yes":
               nnmail = emailnnloader()
-              nnmail.file_loader()
-              nnsub = subload()
-              nnsub.file_loader()
+              nnmail.file_loader(neuralemailpickle,neuralemailweights)
+              nnsub = emailnnloader()
+              nnsub.file_loader(neuralsubjectpickle,neuralsubjectweights)
         else:    
             answers = inquirer.prompt(questions3)
             from newSNN import *

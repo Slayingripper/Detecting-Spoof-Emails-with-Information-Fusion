@@ -19,6 +19,7 @@ label2int = {"ham": 0, "spam": 1}
 int2label = {0: "ham", 1: "spam"}
 model = None
 
+
 class emailnnloader():
     # from utils import get_model, int2label, label2int
     #!/usr/bin/env python -W ignore::DeprecationWarning
@@ -72,13 +73,13 @@ class emailnnloader():
         model.summary()
         return model
 
-    def file_loader(self):
+    def file_loader(self,picklepath,weightpath):
         global tokenizer, model
         # get the tokenizer
-        tokenizer = pickle.load(open("tokenizeremail.pickle", "rb"))
+        tokenizer = pickle.load(open(picklepath, "rb"))
 
         model = self.get_model(tokenizer, 128)
-        model.load_weights("spam_classifier_0.36")
+        model.load_weights(weightpath)
 
     def get_predictions(self,text):
         sequence = tokenizer.texts_to_sequences([text])
@@ -97,7 +98,7 @@ class emailnnloader():
 
 if __name__ == "__main__" : 
     ennl = emailnnloader()
-    ennl.file_loader()
+    ennl.file_loader(picklepath,weightpath)
     #kaka = print(get_predictions("bacon"))
     chicken = print(ennl.get_predictions("daflajdsfla@gmail.com"))
     
