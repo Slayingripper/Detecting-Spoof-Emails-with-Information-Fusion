@@ -3,9 +3,6 @@ def machinelearning():
     from textblob import TextBlob
     from nltk.corpus import stopwords
     from textblob.classifiers import NaiveBayesClassifier
-    from textblob.classifiers import DecisionTreeClassifier
-    from textblob.classifiers import MaxEntClassifier
-    from textblob.classifiers import BaseClassifier
     # from wandb import magic
     # import wandb
     # wandb.init(magic=True)

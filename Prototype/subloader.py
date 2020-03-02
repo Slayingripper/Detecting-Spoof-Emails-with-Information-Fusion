@@ -1,28 +1,30 @@
-def subload():
+from keras.preprocessing.sequence import pad_sequences
+import pickle,tqdm,time,pickle,keras_metrics,warnings
+import numpy as np
+from keras.preprocessing.sequence import pad_sequences
+from sklearn.model_selection import StratifiedKFold
+from keras.preprocessing.text import Tokenizer
+from keras.layers import Embedding, LSTM, Dropout, Dense
+from keras.models import Sequential
+from keras.utils import to_categorical
+from keras.callbacks import ModelCheckpoint, TensorBoard
+from sklearn.model_selection import train_test_split
+SEQUENCE_LENGTH = 100  # the length of all sequences (number of words per sample)
+EMBEDDING_SIZE = 100  # Using 100-Dimensional GloVe embedding vectors
+TEST_SIZE = 0.25  # ratio of testing set
+tokenizer =  None
+BATCH_SIZE = 128
+EPOCHS = 20  # number of epochs
+label2int = {"ham": 0, "spam": 1}
+int2label = {0: "ham", 1: "spam"}
+model = None
+
+class subload():
     # from utils import get_model, int2label, label2int
-    from keras.preprocessing.sequence import pad_sequences
-    import pickle,tqdm,keras_metrics,time,warnings
-    from keras.preprocessing.sequence import pad_sequences
-    from sklearn.model_selection import StratifiedKFold
-    from keras.preprocessing.text import Tokenizer
-    from keras.layers import Embedding, LSTM, Dropout, Dense
-    from keras.models import Sequential
-    from keras.utils import to_categorical
-    from keras.callbacks import ModelCheckpoint, TensorBoard
-    from sklearn.model_selection import train_test_split
-    import numpy as np
-    warnings.filterwarnings("ignore")
-    SEQUENCE_LENGTH = 100  # the length of all sequences (number of words per sample)
-    EMBEDDING_SIZE = 100  # Using 100-Dimensional GloVe embedding vectors
-    TEST_SIZE = 0.25  # ratio of testing set
-
-    BATCH_SIZE = 128
-    EPOCHS = 20  # number of epochs
-    label2int = {"ham": 0, "spam": 1}
-    int2label = {0: "ham", 1: "spam"}
-
-
-    def get_embedding_vectors(tokenizer, dim=100):
+    #!/usr/bin/env python -W ignore::DeprecationWarning
+   # warnings.filterwarnings("ignore")
+    
+    def get_embedding_vectors(self,tokenizer, dim=100):
         embedding_index = {}
         with open(f"/home/blackfalcon/Downloads/glove.6B.100d.txt", encoding="utf8") as f:
             for line in tqdm.tqdm(f, "Reading GloVe"):
@@ -42,13 +44,9 @@ def subload():
         return embedding_matrix
 
 
-    def get_model(tokenizer, lstm_units):
-        """
-        Constructs the model,
-        Embedding vectors => LSTM => 2 output Fully-Connected neurons with softmax activation
-        """
-        # get the GloVe embedding vectors
-        embedding_matrix = get_embedding_vectors(tokenizer)
+    def get_model(self,tokenizer, lstm_units):
+    # get the GloVe embedding vectors
+        embedding_matrix = self.get_embedding_vectors(tokenizer)
         model = Sequential()
         model.add(
             Embedding(
@@ -74,24 +72,41 @@ def subload():
         model.summary()
         return model
 
+    def file_loader(self):
+        global tokenizer, model
+        # get the tokenizer
+        tokenizer = pickle.load(open("tokenizer2.pickle", "rb"))
 
-    # get the tokenizer
-    tokenizer = pickle.load(open("tokenizer2.pickle", "rb"))
+        model = self.get_model(tokenizer, 128)
+        model.load_weights("spam_classifier_0.13")
 
-    model = get_model(tokenizer, 128)
-    model.load_weights("spam_classifier_0.13")
-
-
-    def get_predictions(text):
+    def get_predictions(self,text):
         sequence = tokenizer.texts_to_sequences([text])
+        #print("1")
         # pad the sequence
         sequence = pad_sequences(sequence, maxlen=SEQUENCE_LENGTH)
+        #print("2")
         # get the prediction
         prediction = model.predict(sequence)[0]
+        #print("3")
         # one-hot encoded vector, revert using np.argmax
         return int2label[np.argmax(prediction)]
+
+
+
+if __name__ == "__main__" : 
+    snnl = subload()
+    snnl.file_loader()
+    #kaka = print(get_predictions("bacon"))
+    chicken = print(snnl.get_predictions("tits and shits and money"))
     #result = print(get_predictions(text))
-    #return result
-def main():
-    subload()
-main()   
+
+           
+    
+        
+    #  while True:
+    #     text = input("Enter the mail:")
+            # convert to sequences
+        #    z=get_predictions(text)
+        #   print(z)
+    

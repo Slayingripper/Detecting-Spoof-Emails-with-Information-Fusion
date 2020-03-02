@@ -18,7 +18,7 @@ def domainextcheck(sentence):
     #     r"/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/CSVDATA.csv"
     #  )
 
-    print("\n --- search for domain extensions ---\n")
+   # print("\n --- search for domain extensions ---\n")
 
     string = new_string
     df = pd.DataFrame([string], columns=["SENDER"])

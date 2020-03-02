@@ -82,16 +82,17 @@ class emailnnloader():
 
     def get_predictions(self,text):
         sequence = tokenizer.texts_to_sequences([text])
-        print("1")
+        #print("1")
         # pad the sequence
         sequence = pad_sequences(sequence, maxlen=SEQUENCE_LENGTH)
-        print("2")
+        #print("2")
         # get the prediction
         prediction = model.predict(sequence)[0]
-        print("3")
+        #print("3")
         # one-hot encoded vector, revert using np.argmax
         return int2label[np.argmax(prediction)]
 
+        print(int2label[np.argmax(prediction)])
 
 
 if __name__ == "__main__" : 
@@ -99,6 +100,7 @@ if __name__ == "__main__" :
     ennl.file_loader()
     #kaka = print(get_predictions("bacon"))
     chicken = print(ennl.get_predictions("daflajdsfla@gmail.com"))
+    
     #result = print(get_predictions(text))
 
            

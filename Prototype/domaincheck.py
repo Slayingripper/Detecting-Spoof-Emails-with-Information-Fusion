@@ -1,14 +1,10 @@
 def domaincheck(sentence):
     # imports
-    import re
-    import array
-    import nltk
-    import time
+    import re,array,nltk,time
     from nltk.corpus import brown
     import pandas as pd
     from nltk.tokenize import word_tokenize
     from nltk.corpus import brown
-
     # this is module is used to check the domains if they exist ex. gmail,hotmail,outlook etc
     # domains used + some extras are from https://www.godaddy.com/garage/what-are-the-five-most-common-domain-extensions-and-which-one-should-i-use/
     time.time()
@@ -18,7 +14,7 @@ def domaincheck(sentence):
     # df = pd.read_csv(    r"/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/CSVDATA.csv" )
     string = sentence
     df = pd.DataFrame([string], columns=["SENDER"])
-    print("\n --- search for domains ---\n")
+   # print("\n --- search for domains ---\n")
 
     for I, J in df.iterrows():
         # print (J ['SENDER'],J ['SUBJECT'])

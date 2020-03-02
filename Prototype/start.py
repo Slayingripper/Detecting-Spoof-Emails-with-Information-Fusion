@@ -1,5 +1,6 @@
 #!/usr/bin/env python3 -W ignore::DeprecationWarning
-import argparse,inquirer,time,sys,warnings
+import argparse,inquirer,time,sys,warnings,gc
+from fractions import Fraction 
 from time import sleep
 from tqdm import tqdm
 from colorama import init
@@ -12,8 +13,8 @@ from profanity import *
 from NaiveLoader import mloader
 from pympler.tracker import SummaryTracker
 tracker = SummaryTracker()
-#from emailnnload import emailnnloader 
-#from subloader import subload
+from emailnnload import * 
+from subloader import *
 warnings.filterwarnings("ignore")
 ############################################################################
 ###Files
@@ -156,7 +157,6 @@ if answers["Method"] == "Naive Bayes Classification":
             if domaincheck(emailaddress) == 0 :
                 addressweight = addressweight + 0.25
                 print(addressweight)
-        
             if domainextcheck(emailaddress) == 0:
                 addressweight = addressweight + 0.25
             print(addressweight)
@@ -164,6 +164,8 @@ if answers["Method"] == "Naive Bayes Classification":
             spamprobability = (addressweight + subjectweight) * 100
             
             print("Probability of this being spam is " + str(spamprobability) +"%")
+            gc.get_count()
+            gc.collect()
             #answers = inquirer.prompt(MLquestions)
             tracker.print_diff()
         
@@ -180,7 +182,9 @@ elif answers["Method"] == "Neural Network (LSTM)":
         answers = inquirer.prompt(questions3)
         if answers["questions3"] == "Yes":
               nnmail = emailnnloader()
-            # nnsub = subloader()
+              nnmail.file_loader()
+              nnsub = subload()
+              nnsub.file_loader()
         else:    
             answers = inquirer.prompt(questions3)
             from newSNN import *
@@ -205,6 +209,7 @@ elif answers["Method"] == "Neural Network (LSTM)":
 
             spamsubject = input("Type a email subject to test this out: ")
             emailaddress = input("Type an email address to test this out: ")
+            
             print(nnmail(emailaddress))
             #print(nnsub(spamsubject))
             
@@ -216,35 +221,44 @@ elif answers["Method"] == "Neural Network (LSTM)":
             addressweight = 0 
             spamsubject = input("Type a email subject to test this out: ")
             emailaddress = input("Type an email address to test this out: ")
+            print(nnmail.get_predictions(emailaddress))
+            print(nnsub.get_predictions(spamsubject))
             #print(get_predictions(spamsubject))
             # print(cl.classify(spamsubject))
             
             if "@" not in spamsubject:
-                    if nnsub(spamsubject) == "spam":
+                    if nnsub.get_predictions(spamsubject) == "spam":
                         subjectweight = subjectweight + 0.5    
+                        print (subjectweight)
                     if keywords(spamsubject) != 0:
-                        subjectweight = subjectweight + 0.125
+                        subjectweight = subjectweight + 0.167
                         print (subjectweight)
                     checkthis = spell(spamsubject)
                     if spamsubject != checkthis:
-                        subjectweight = subjectweight + 0.125
+                        subjectweight = subjectweight + 0.167
                         print (subjectweight)
+                    if profanity(spamsubject)!= 0 :
+                        subjectweight = subjectweight + 0.167
+                        print(subjectweight)      
             if "@" not in emailaddress:
                 print("please enter a valid email address")
                 exit()      
-            if nnmail(emailaddress) == "spam":
+            if nnmail.get_predictions(emailaddress) == "spam":
                 addressweight = addressweight + 0.5    
+                print(addressweight)
             if domaincheck(emailaddress) == 0 :
                 addressweight = addressweight + 0.125
                 print(addressweight)
-        
             if domainextcheck(emailaddress) == 0:
                 addressweight = addressweight + 0.125
                 print(addressweight)
             # Clear variable cache
             spamprobability = (addressweight + subjectweight) * 100
-
+            print("Probability of this being spam is " + str(spamprobability) +"%")
+            gc.get_count()
+            gc.collect()
             # Clear variable cache
+            tracker.print_diff()
             answers = inquirer.prompt(NNquestions)
         #   import NeuralNetworkwithkfold
 
