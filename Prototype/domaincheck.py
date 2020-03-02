@@ -1,16 +1,17 @@
 def domaincheck(sentence):
     # imports
-    import re,array,nltk,os,sys,subprocess,time
+    import re
+    import array
+    import nltk
+    import time
     from nltk.corpus import brown
     import pandas as pd
-    from datetime import datetime
     from nltk.tokenize import word_tokenize
     from nltk.corpus import brown
-    from threading import Thread
 
     # this is module is used to check the domains if they exist ex. gmail,hotmail,outlook etc
     # domains used + some extras are from https://www.godaddy.com/garage/what-are-the-five-most-common-domain-extensions-and-which-one-should-i-use/
-    start_time = time.time()
+    time.time()
     # sentence = "money"
     spamlevel = 0
     # open CSV FILE and replace empty spaces with ""
