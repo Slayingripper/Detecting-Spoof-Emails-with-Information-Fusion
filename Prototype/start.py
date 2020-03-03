@@ -4,15 +4,14 @@ from time import sleep
 from tqdm import tqdm
 from colorama import init
 from Machinelearning import machinelearning
-from domaincheck  import *  
-from domainextcheck import * 
-from keychecker import *
+from domaincomb import * 
 from newgram import *
-from profanity import * 
+from wordanalysis import *
 from NaiveLoader import mloader
 from pympler.tracker import SummaryTracker
 tracker = SummaryTracker()
 from emailnnload import * 
+import ramlimit
 warnings.filterwarnings("ignore")
 ############################################################################
 ###Files
@@ -22,12 +21,14 @@ neuralemailpickle= "tokenizeremail.pickle"
 neuralemailweights= "spam_classifier_0.36"
 neuralsubjectpickle = "tokenizer2.pickle"
 neuralsubjectweights = "spam_classifier_0.13"
+profanity = "profanity.txt"
+keywords = "keywords.txt"
 ############################################################################
 def exit():
     print("Thank you Bye bye....")
     time.sleep(1)
     sys.exit()  
-   
+ 
 def secret():
     comb = lambda f, n: f(f, n)
     convert = lambda f, n: chr(n % 256) + f(f, n // 256) if n else ""
@@ -53,6 +54,9 @@ parser.add_argument("--auto", help="Runs the pre trained models directly without
 parser.add_argument("--AIS", help="Aritifical Immune System (TBD)")
 #parser.add_argument("--p",type= str,default=comb(convert,357712151888))
 args = parser.parse_args()
+def ramy(**args):
+    if 'demo' in args:
+        ramlimit() 
 #logo = cprint(figlet_format(args.p, font="isometric1"), attrs=["bold"])
 #args._get_args("demo",print(comb(convert,357712151888)))
 # Python EMAIL using a NEURAL IDETIFICATION SYSTEM
@@ -131,14 +135,14 @@ if answers["Method"] == "Naive Bayes Classification":
                 if clsubject.classify(spamsubject) == "spam":
                     subjectweight = subjectweight + 0.5  
                     print (subjectweight)  
-                if keywords(spamsubject) != 0:
+                if wordanalysis.lexicon(keywords,spamsubject) != 0:
                     subjectweight = subjectweight + 0.167
                     print (subjectweight)
                 checkthis = spell(spamsubject)
                 if spamsubject != checkthis:
                     subjectweight = subjectweight + 0.167
                     print (subjectweight)
-                if profanity(spamsubject)!= 0 :
+                if wordanalysis.lexicon(profanity,spamsubject)!= 0 :
                     subjectweight = subjectweight + 0.167
                     print(subjectweight)    
             if "@" not in emailaddress:
@@ -147,10 +151,11 @@ if answers["Method"] == "Naive Bayes Classification":
             if clemail.classify(emailaddress) == "spam":
                 addressweight = addressweight + 0.5  
                 print (addressweight)  
-            if domaincheck(emailaddress) == 0 :
+                
+            if domaincombine.domaincheck(emailaddress) == 0 :
                 addressweight = addressweight + 0.25
                 print(addressweight)
-            if domainextcheck(emailaddress) == 0:
+            if domaincombine.domainextcheck(emailaddress) == 0:
                 addressweight = addressweight + 0.25
             print(addressweight)
             # Clear variable cache
@@ -223,14 +228,14 @@ elif answers["Method"] == "Neural Network (LSTM)":
                     if nnsub.get_predictions(spamsubject) == "spam":
                         subjectweight = subjectweight + 0.5    
                         print (subjectweight)
-                    if keywords(spamsubject) != 0:
+                    if wordanalysis().lexicon(keywords,spamsubject) != 0:
                         subjectweight = subjectweight + 0.167
                         print (subjectweight)
                     checkthis = spell(spamsubject)
                     if spamsubject != checkthis:
                         subjectweight = subjectweight + 0.167
                         print (subjectweight)
-                    if profanity(spamsubject)!= 0 :
+                    if wordanalysis().lexicon(profanity,spamsubject)!= 0 :
                         subjectweight = subjectweight + 0.167
                         print(subjectweight)      
             if "@" not in emailaddress:
@@ -239,10 +244,10 @@ elif answers["Method"] == "Neural Network (LSTM)":
             if nnmail.get_predictions(emailaddress) == "spam":
                 addressweight = addressweight + 0.5    
                 print(addressweight)
-            if domaincheck(emailaddress) == 0 :
+            if domaincombine.domaincheck(emailaddress) == 0 :
                 addressweight = addressweight + 0.125
                 print(addressweight)
-            if domainextcheck(emailaddress) == 0:
+            if domaincombine.domainextcheck(emailaddress) == 0:
                 addressweight = addressweight + 0.125
                 print(addressweight)
             # Clear variable cache

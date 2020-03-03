@@ -1,66 +1,46 @@
-# imports
-import re
-from nltk.corpus import brown
-import pandas as pd
-from datetime import datetime
-from nltk.tokenize import word_tokenize
-from nltk.corpus import brown
-import array
-import nltk
-import os
-import sys
-from threading import Thread
-import subprocess
-import time
-
-
 def domaincheck(sentence):
+    # imports
+    import re,array,nltk,time
+    from nltk.corpus import brown
+    import pandas as pd
+    from nltk.tokenize import word_tokenize
+    from nltk.corpus import brown
     # this is module is used to check the domains if they exist ex. gmail,hotmail,outlook etc
     # domains used + some extras are from https://www.godaddy.com/garage/what-are-the-five-most-common-domain-extensions-and-which-one-should-i-use/
-    start_time = time.time()
-
+    time.time()
     # sentence = "money"
-    new_string = sentence
     spamlevel = 0
     # open CSV FILE and replace empty spaces with ""
     # df = pd.read_csv(    r"/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/CSVDATA.csv" )
-    string = new_string
+    string = sentence
     df = pd.DataFrame([string], columns=["SENDER"])
-    print("\n --- search for domains ---\n")
+   # print("\n --- search for domains ---\n")
 
     for I, J in df.iterrows():
         # print (J ['SENDER'],J ['SUBJECT'])
         # if re.search('.com$',J['SENDER']) is None:
         #   spamlevel = spamlevel+1
-        if re.search("@$", J["SENDER"]) is None:
-            if re.search("@gmail$", J["SENDER"]) is not None:
-                spamlevel = spamlevel + 1
-            elif re.search("@hotmail$", J["SENDER"]) is not None:
-                spamlevel = spamlevel + 1
-            elif re.search("@outlook$", J["SENDER"]) is not None:
-                spamlevel = spamlevel + 1
-            elif re.search("@live$", J["SENDER"]) is not None:
-                spamlevel = spamlevel + 1
-            elif re.search("@protonmail$", J["SENDER"]) is not None:
-                spamlevel = spamlevel + 1
-            elif re.search("@yahoo$", J["SENDER"]) is not None:
-                spamlevel = spamlevel + 1
+       # if re.search("@$", J["SENDER"]) is not None:
+        if re.search("@gmail", J["SENDER"]) is not None:
+            spamlevel = spamlevel + 1
+        elif re.search("@hotmail$", J["SENDER"]) is not None:
+            spamlevel = spamlevel + 1
+        elif re.search("@outlook$", J["SENDER"]) is not None:
+            spamlevel = spamlevel + 1
+        elif re.search("@live$", J["SENDER"]) is not None:
+            spamlevel = spamlevel + 1
+        elif re.search("@protonmail$", J["SENDER"]) is not None:
+            spamlevel = spamlevel + 1
+        elif re.search("@yahoo$", J["SENDER"]) is not None:
+            spamlevel = spamlevel + 1
 
     print(spamlevel)
-    print(df.index)
-    numberofemails = len(df.index)
+    #print(df.index)
+    #numberofemails = len(df.index)
+    return spamlevel
 
-    # print out the accuracy and the number of emails
-    result = spamlevel / 7 - len(df.index)
-    print("there are: " + str(abs(result)) + " probable spam emails")
-    resultfinal = result * 100
-    accuracy = abs(resultfinal) / numberofemails
-    print(str(accuracy) + "%" + " of accuracy")
-    print("--- %s seconds ---" % (time.time() - start_time))
-
-
-def main():
+if __name__ == "__main__": 
     domaincheck("")
-
-
-main()
+#def main():
+ #   domaincheck("")
+#main()

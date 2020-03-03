@@ -9,7 +9,7 @@ def keywords(sentence):
     cnt = Counter()
     words = re.findall(
         "\w+",
-        open("/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/keywords.txt")
+        open("Detecting-Spoof-Emails-with-Information-Fusion/keywords.txt")
         .read()
         .lower(),
     )
