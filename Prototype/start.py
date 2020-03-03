@@ -11,18 +11,18 @@ from NaiveLoader import mloader
 from pympler.tracker import SummaryTracker
 tracker = SummaryTracker()
 from emailnnload import * 
-import ramlimit
+#import ramlimit
 warnings.filterwarnings("ignore")
 ############################################################################
 ###Files
 naiveemail = "loader/emnaive.pickle"
 naivesub = "loader/subjectnaive.pickle"
-neuralemailpickle= "tokenizeremail.pickle"
-neuralemailweights= "spam_classifier_0.36"
-neuralsubjectpickle = "tokenizer2.pickle"
-neuralsubjectweights = "spam_classifier_0.13"
-profanity = "profanity.txt"
-keywords = "keywords.txt"
+neuralemailpickle= "Pretrained/tokenizeremail.pickle"
+neuralemailweights= "Pretrained/spam_classifier_0.36"
+neuralsubjectpickle = "Pretrained/tokenizer2.pickle"
+neuralsubjectweights = "Pretrained/spam_classifier_0.13"
+profanity = "Pretrained/profanity.txt"
+keywords = "Pretrained/keywords.txt"
 ############################################################################
 def exit():
     print("Thank you Bye bye....")
@@ -33,7 +33,7 @@ def secret():
     comb = lambda f, n: f(f, n)
     convert = lambda f, n: chr(n % 256) + f(f, n // 256) if n else ""
     comb(convert,357712151888)  
-    print(comb(convert,357712151888))  
+    #print(comb(convert,357712151888))  
 #def drawProgressBar(percent, barLen = 20):
     # percent float from 0 to 1. 
 #   sys.stdout.write("\r")
@@ -53,10 +53,17 @@ parser.add_argument("--aggressive", help="uses both models for testing achieving
 parser.add_argument("--auto", help="Runs the pre trained models directly without user input")
 parser.add_argument("--AIS", help="Aritifical Immune System (TBD)")
 #parser.add_argument("--p",type= str,default=comb(convert,357712151888))
+parser.add_argument("--l",default= "l" )
 args = parser.parse_args()
-def ramy(**args):
-    if 'demo' in args:
-        ramlimit() 
+
+#if 'demo' in args.demo:
+    #logo = cprint(figlet_format(secret, font="isometric1"), attrs=["bold"])
+#print(args.l)
+#if 'l' in args.l:
+ #   print("memory limited")
+  #  ramlimiter()
+   # print("memory limited")
+
 #logo = cprint(figlet_format(args.p, font="isometric1"), attrs=["bold"])
 #args._get_args("demo",print(comb(convert,357712151888)))
 # Python EMAIL using a NEURAL IDETIFICATION SYSTEM
