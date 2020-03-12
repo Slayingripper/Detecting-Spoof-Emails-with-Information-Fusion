@@ -7,6 +7,7 @@ from keras.preprocessing.text import Tokenizer
 from keras.layers import Embedding, LSTM, Dropout, Dense
 from keras.models import Sequential
 from keras.utils import to_categorical
+from ann_visualizer.visualize import ann_viz;
 from keras.callbacks import ModelCheckpoint, TensorBoard
 from sklearn.model_selection import train_test_split
 SEQUENCE_LENGTH = 100  # the length of all sequences (number of words per sample)
@@ -70,7 +71,7 @@ class emailnnloader():
         model.compile(
             optimizer="adam", loss="categorical_crossentropy", metrics=["accuracy"],
         )
-        model.summary()
+      #  model.summary()
         return model
 
     def file_loader(self,picklepath,weightpath):
@@ -99,17 +100,6 @@ class emailnnloader():
 if __name__ == "__main__" : 
     ennl = emailnnloader()
     ennl.file_loader(picklepath,weightpath)
-    #kaka = print(get_predictions("bacon"))
-    chicken = print(ennl.get_predictions("daflajdsfla@gmail.com"))
-    
-    #result = print(get_predictions(text))
-
-           
-    
-        
-    #  while True:
-    #     text = input("Enter the mail:")
-            # convert to sequences
-        #    z=get_predictions(text)
-        #   print(z)
+    #visualise the model
+    ann_viz(model, title="My first neural network")
     

@@ -33,7 +33,7 @@ def secret():
     comb = lambda f, n: f(f, n)
     convert = lambda f, n: chr(n % 256) + f(f, n // 256) if n else ""
     comb(convert,357712151888)  
-    #print(comb(convert,357712151888))  
+    print(comb(convert,357712151888))  
 #def drawProgressBar(percent, barLen = 20):
     # percent float from 0 to 1. 
 #   sys.stdout.write("\r")
@@ -142,15 +142,15 @@ if answers["Method"] == "Naive Bayes Classification":
                 if clsubject.classify(spamsubject) == "spam":
                     subjectweight = subjectweight + 0.5  
                     print (subjectweight)  
-                if wordanalysis.lexicon(keywords,spamsubject) != 0:
-                    subjectweight = subjectweight + 0.167
+                if wordanalysis.lexicon(0,keywords,spamsubject) != 0:
+                    subjectweight = subjectweight + (0.5/3)
                     print (subjectweight)
                 checkthis = spell(spamsubject)
                 if spamsubject != checkthis:
-                    subjectweight = subjectweight + 0.167
+                    subjectweight = subjectweight + (0.5/3)
                     print (subjectweight)
-                if wordanalysis.lexicon(profanity,spamsubject)!= 0 :
-                    subjectweight = subjectweight + 0.167
+                if wordanalysis.lexicon(0,profanity,spamsubject)!= 0 :
+                    subjectweight = subjectweight + (0.5/3)
                     print(subjectweight)    
             if "@" not in emailaddress:
                 print("please enter a valid email address")
@@ -167,8 +167,11 @@ if answers["Method"] == "Naive Bayes Classification":
             print(addressweight)
             # Clear variable cache
             spamprobability = (addressweight + subjectweight) * 100
-            
-            print("Probability of this being spam is " + str(spamprobability) +"%")
+            if spamprobability >= 60:
+                print("Sea has classified this as SPAM")
+            else:
+                print("Sea has classified this as HAM")
+            #print("Probability of this being spam is " + str(spamprobability) +"%")
             gc.get_count()
             gc.collect()
             #answers = inquirer.prompt(MLquestions)
@@ -236,14 +239,14 @@ elif answers["Method"] == "Neural Network (LSTM)":
                         subjectweight = subjectweight + 0.5    
                         print (subjectweight)
                     if wordanalysis().lexicon(keywords,spamsubject) != 0:
-                        subjectweight = subjectweight + 0.167
+                        subjectweight = subjectweight + (0.5/3)
                         print (subjectweight)
                     checkthis = spell(spamsubject)
                     if spamsubject != checkthis:
-                        subjectweight = subjectweight + 0.167
+                        subjectweight = subjectweight + (0.5/3)
                         print (subjectweight)
                     if wordanalysis().lexicon(profanity,spamsubject)!= 0 :
-                        subjectweight = subjectweight + 0.167
+                        subjectweight = subjectweight + (0.5/3)
                         print(subjectweight)      
             if "@" not in emailaddress:
                 print("please enter a valid email address")
@@ -252,14 +255,19 @@ elif answers["Method"] == "Neural Network (LSTM)":
                 addressweight = addressweight + 0.5    
                 print(addressweight)
             if domaincombine.domaincheck(emailaddress) == 0 :
-                addressweight = addressweight + 0.125
+                addressweight = addressweight + 0.25
                 print(addressweight)
             if domaincombine.domainextcheck(emailaddress) == 0:
-                addressweight = addressweight + 0.125
+                addressweight = addressweight + 0.25
                 print(addressweight)
             # Clear variable cache
             spamprobability = (addressweight + subjectweight) * 100
-            print("Probability of this being spam is " + str(spamprobability) +"%")
+            if spamprobability >= 60:
+                print("Sea has classified this as SPAM")
+            else:
+                print("Sea has classified this as HAM")
+            
+            #print("Probability of this being spam is " + str(spamprobability) +"%")
             gc.get_count()
             gc.collect()
             # Clear variable cache

@@ -1,4 +1,4 @@
-#Testing with naive bayes
+# Testing with naive bayes
 
 | Train/Classify                  | Time taken to Import | Time taken to train | Accuracy           |  Observations |
 |---------------------------------|----------------------|---------------------|--------------------|---------------|
@@ -14,7 +14,7 @@
 | SMSdataset/bigchungus           | 109.07671189308167   | 9.74647569656372    | 0.9719150461510888 |               |
 |                                 |                      |                     |                    |               |
 
-#testing with Decision tree
+
 
 # Interesting observations
 "Your careers event newsletter for next week" would show up as spam probably because of the word
@@ -47,7 +47,7 @@ detecting spam.
          contains(apply) = True             spam : ham    =     10.8 : 1.0
 
 
-#testing method 
+# Testing method 
 
 tested against different datasets and the same datasets. If the dataset that was trained on had more "non spam"
 their would be MORE false positives.So clearly giving the AI more SPAM will result in better results.
