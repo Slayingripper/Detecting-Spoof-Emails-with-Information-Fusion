@@ -1,5 +1,5 @@
 #!/usr/bin/env python3 -W ignore::DeprecationWarning
-import argparse,inquirer,time,sys,warnings,gc
+import argparse,inquirer,time,sys,warnings,gc,progressbartest
 from time import sleep
 from tqdm import tqdm
 from colorama import init
@@ -11,6 +11,7 @@ from NaiveLoader import mloader
 from pympler.tracker import SummaryTracker
 tracker = SummaryTracker()
 from emailnnload import * 
+from threading import Thread
 #import ramlimit
 warnings.filterwarnings("ignore")
 ############################################################################
@@ -27,18 +28,24 @@ keywords = "Pretrained/keywords.txt"
 def exit():
     print("Thank you Bye bye....")
     time.sleep(1)
-    sys.exit()  
- 
+    sys.exit()
 def secret():
     comb = lambda f, n: f(f, n)
     convert = lambda f, n: chr(n % 256) + f(f, n // 256) if n else ""
     comb(convert,357712151888)  
     print(comb(convert,357712151888))  
-#def drawProgressBar(percent, barLen = 20):
-    # percent float from 0 to 1. 
-#   sys.stdout.write("\r")
-#  sys.stdout.write("[{:<{}}] {:.0f}%".format("=" * int(barLen * percent), barLen, percent * 100))
-# sys.stdout.flush()
+def nnloader1():
+    nnmail = emailnnloader()
+    nnmail.file_loader(neuralemailpickle,neuralemailweights)
+def nnloader2():  
+    nnsub = emailnnloader()
+    nnsub.file_loader(neuralsubjectpickle,neuralsubjectweights)   
+def machine1():
+    clemail = mloader(naiveemail)
+    return clemail
+def machine2():
+    clsubject = mloader(naivesub)  
+    return clsubject
 #############################################################################
 init(strip=not sys.stdout.isatty())  # strip colors if stdout is redirected
 from termcolor import cprint
@@ -93,9 +100,13 @@ if answers["Method"] == "Naive Bayes Classification":
         
         if answers["questions2"] == "Yes":
             
-            
-            clemail = mloader(naiveemail);
-            clsubject = mloader(naivesub)    
+            clemail = mloader(naiveemail)
+            clsubject = mloader(naivesub) 
+            #Thread(target = machine1).start()
+            #print("Importing 1")
+            #Thread(target = machine2).start() 
+            #print("Importing 2")
+               
         else:
             
             print("This might take a while.....")
@@ -139,7 +150,7 @@ if answers["Method"] == "Naive Bayes Classification":
         
             #print(cl.classify(spamsubject))
             if "@" not in spamsubject:
-                if clsubject.classify(spamsubject) == "spam":
+                if machine2().clsubject.classify(spamsubject) == "spam":
                     subjectweight = subjectweight + 0.5  
                     print (subjectweight)  
                 if wordanalysis.lexicon(0,keywords,spamsubject) != 0:
@@ -155,7 +166,7 @@ if answers["Method"] == "Naive Bayes Classification":
             if "@" not in emailaddress:
                 print("please enter a valid email address")
                 exit()      
-            if clemail.classify(emailaddress) == "spam":
+            if machine1().clemail.classify(emailaddress) == "spam":
                 addressweight = addressweight + 0.5  
                 print (addressweight)  
                 
@@ -189,10 +200,14 @@ elif answers["Method"] == "Neural Network (LSTM)":
             ]
         answers = inquirer.prompt(questions3)
         if answers["questions3"] == "Yes":
-              nnmail = emailnnloader()
-              nnmail.file_loader(neuralemailpickle,neuralemailweights)
-              nnsub = emailnnloader()
-              nnsub.file_loader(neuralsubjectpickle,neuralsubjectweights)
+               
+                nnmail = emailnnloader()
+                nnmail.file_loader(neuralemailpickle,neuralemailweights) 
+                nnsub = emailnnloader()
+                nnsub.file_loader(neuralsubjectpickle,neuralsubjectweights)
+                #Thread(target = nnloader1).start()
+                #Thread(target = nnloader2).start()     
+                
         else:    
             answers = inquirer.prompt(questions3)
             from newSNN import *
@@ -229,8 +244,8 @@ elif answers["Method"] == "Neural Network (LSTM)":
             addressweight = 0 
             spamsubject = input("Type a email subject to test this out: ")
             emailaddress = input("Type an email address to test this out: ")
-            print(nnmail.get_predictions(emailaddress))
-            print(nnsub.get_predictions(spamsubject))
+            #print(nnmail.get_predictions(emailaddress))
+            #print(nnsub.get_predictions(spamsubject))
             #print(get_predictions(spamsubject))
             # print(cl.classify(spamsubject))
             
@@ -278,4 +293,16 @@ elif answers["Method"] == "Neural Network (LSTM)":
         #  print(answers["Method"])
 
 elif answers["Method"] == "Exit":
+    Thread(target = func1).start()
+    Thread(target = func2).start() 
     exit()
+    
+ 
+ 
+ 
+
+ 
+    
+if __name__ == '_exit':
+    print("aloo")     
+              

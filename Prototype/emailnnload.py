@@ -10,6 +10,7 @@ from keras.utils import to_categorical
 from ann_visualizer.visualize import ann_viz;
 from keras.callbacks import ModelCheckpoint, TensorBoard
 from sklearn.model_selection import train_test_split
+warnings.filterwarnings("ignore")
 SEQUENCE_LENGTH = 100  # the length of all sequences (number of words per sample)
 EMBEDDING_SIZE = 100  # Using 100-Dimensional GloVe embedding vectors
 TEST_SIZE = 0.25  # ratio of testing set
