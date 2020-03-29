@@ -41,7 +41,8 @@ observations of figures
 
 
 ### Neural Network (Long Short Term Memory)
-Neural Networks are complex and 
+To tackle which Neural Network would yield the best results, two different kinds where tested which are most commonly used for text classification. In our case we used Sequencial and Long Short Term Memory (LSTM) [cite] . Both Neural Networks were ran 20 times each with Nodes being added or removed depending if the accuracy was increasing or decreasing. Using the Sequencial neural network we achieved an accuracy of 93.45% using 57,10,8,4,2,1 nodes creating a deep neural network. This gave us the exact same result as [cite] which used the same type of network but with larger but less nodes. In comparison LSTM gave us an accuracy of 98.35% when we bumped up the LSTM units to 128 with a batch size of 64 . Expanding we've also used the same amount of Nodes as the previous network specificallly 10,8,4,2,1 even though due to the nature of LSTM adding nodes yields minimal increase in accuracy. 
+
 
 
 
@@ -50,6 +51,8 @@ Neural Networks are complex and
 observations of figures
 
 ### Filters 
+Multiple filters were created to further increase the accuracy of the framework , and try to compensate where the algorithms comes short. One obeservation was that both the neural network and Naive Bayes would focus on the Domain name and extension of an email address instead of the prefix which was in most cases unique. This was verified when we run the summary function of NLTK(used for Naive Bayes) to show us which variables had the most weight aswell as the keras.metrics to show us the the same thing for the neural network. 
+Therefore the use of filters would try to improve on this by checking the email adress for , Profanity,Domain name(gmail,hotmail,live,protonmail,yahoo) , Domain extension(.com,co.uk,.net,.us,.org) aswell as keywords that are commonly used in spam email which where gathered from {cite}.
 
 
 
