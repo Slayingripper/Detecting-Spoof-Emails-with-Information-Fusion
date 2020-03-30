@@ -4,6 +4,11 @@
 Summary paragraph - overview of the type of data and the range of teqniques. 
 The 
 
+
+In this section we will explore the mothodologies which were applied in this project. 
+
+
+
 Separate out the data from the techniques
 
 characteristics of the data should justify which techniques you have chosen:
