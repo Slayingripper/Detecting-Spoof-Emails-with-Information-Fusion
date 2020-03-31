@@ -82,3 +82,7 @@ Performance :
 
 Hardware : 
 
+### System Resources
+
+A re-occuring observation was that when running the classification techniques using the pretrained models, Naive bayes would use up alot more system resources as far as RAM is concered more specifically it would use a dictionary size measuring 1.04 GB which is used  to tokenise and classify the text. Comparitively the Neural Network approach used much less resources and computational power since it peaked at a maximum of  around 400mb RAM usage and most CPU usage was during the importing of the pretrained model. It should be noted that the pretrained models used for the neural network are almost twice the size of the Naive Bayes ones. This was due to the implementation of multiple nodes and layers which resulted in the larger size of the saved model.
+If we were to turn on the options for multiple languages for naive bayes during tokenisation that would not only increase the size of the saved model but also the time taken to test train and evaluate our results. 
