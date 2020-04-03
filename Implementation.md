@@ -11,7 +11,7 @@ Clear and Concise metrics that can be used to for both models which will facilit
 
 The following perfomance metrics are used to evaluate both models :
 /* Insert Equation */
-1. Accuracy : 
+1. Accuracy : Since we are dealing with two completly different methods for classification the way accuracy varies slightly but the results give are substantial and percise. In the case of our Neural Network with the use of the keras library, we use "categorical_accuracy" which is calculates the mean accuracy rate across all prediction for multiclass classification problems [cite]. Even though our classification was binary, due to library issues  which were beyond our control , we needed to use this method of accuracy metrics in our case as we needed the load back our trained model later on and it would not work when "binary_accuracy" was selected. This did not skew the results though as the results where consistent throught the testing phase. Further more  using the Naive Bayes model, accuracy is measured by comparing the expected results with results classified by the textblob library.
 
 
 /* Insert Equation */
