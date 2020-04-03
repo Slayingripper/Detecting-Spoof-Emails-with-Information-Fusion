@@ -7,11 +7,23 @@ clear and concise methods of collecting and analysing our data. Expanding, valid
 
 ### Metrics 
 
-Clear and Concise metrics that can be used to for both models which will facilite comparisons between the two. It is of great significance that the metrics comprise of the multiple ascpest as to evaluate the models perfomance eg. Variable Loss etc. and also being clear and simplistic to understand and can be justly compared.
+Clear and Concise metrics that can be used to for both models which will facilite comparisons between the two. It is of great significance that the metrics comprise of the multiple ascpest as to evaluate the models perfomance eg. Variable Loss etc. and also being clear and simplistic to understand and can be justly compared. Multiple metrics are present in the literature which evaluate the perfomance of both models . They mostly provide the average Accuracy of the models which is measured by the comparing the classification of done by the model and the given classification of the dataset .
+
+The following perfomance metrics are used to evaluate both models :
+/* Insert Equation */
+1. Accuracy : 
 
 
+/* Insert Equation */
+2. Value Loss : The value of the cost function of the cross-validation data and the loss in value of the function of the training data. When the data is validated the neurons that use the drop value do not drop random neurons. The reason behind this is that during the training phase,drop out is used in order to add some randomness or noise to avoid over-fitting the data. During the calculation of cross-validation,the neural network is in a recall phase which means that the neural network is used to its full potential. 
 
-## Naive Bayes
+3. Epoche (for Neural Networks) : Using the Epoche metric we can visualise how our data's accuracy increase or decreased depending on the amount of Epoche it goes through aswell as finding the point where it stops learning . 
+4. Resource Usage (CPU,RAM) : Being able to monitor system resource usage is of great importance as this wil help us evaluate which method is the most efficient in classifying spam .
+### Validation 
+
+Without proper validation, our perfomance metrics are usless. Validation will ensure that the model is consistant and will not overfit or underfit new data or the training set. Overall making sure the metrics that we record are representative of the future perfomance of the model. We acheive this by measuring our moders perfomance using hidden data which was not evaluated before.
+
+Using our dataset we can split it into two parts. One for training and one for validation. K-fold cross validation is a defacto  standard used in a large quantity of models for the measurement of the perfomance of a model using somewhat small datasets. 
 
 
 ## Long Short Term Memory 
