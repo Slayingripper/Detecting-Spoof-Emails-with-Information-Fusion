@@ -23,7 +23,9 @@ The following perfomance metrics are used to evaluate both models :
 
 Without proper validation, our perfomance metrics are usless. Validation will ensure that the model is consistant and will not overfit or underfit new data or the training set. Overall making sure the metrics that we record are representative of the future perfomance of the model. We acheive this by measuring our moders perfomance using hidden data which was not evaluated before.
 
-Using our dataset we can split it into two parts. One for training and one for validation. K-fold cross validation is a defacto  standard used in a large quantity of models for the measurement of the perfomance of a model using somewhat small datasets. 
+Using our dataset we can split it into two parts. One for training and one for validation. K-fold cross validation is a defacto  standard used in a large quantity of models for the measurement of the perfomance of a model using somewhat small datasets. Cross validation enables the model to use a full dataset for training and validation  by learning models from a randomised subset of data and using the other untouched set for validation. This method produces k- metrics that are used to calculate the average generalisastion error. [cite]
+
+
 
 
 ## Long Short Term Memory 
