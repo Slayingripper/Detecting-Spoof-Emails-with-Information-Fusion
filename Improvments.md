@@ -13,4 +13,4 @@ profanity instead of using two python modules that just use diffent files are re
 Multicore parameters have been implimented to allow the libraries such as keras and NLTK to make use of the multiple cores that are availeble on the
 system. Although this is more noticable when importing and tokenizing the dataset there still a decreased time improting and training the data. 
 
-###
+### 

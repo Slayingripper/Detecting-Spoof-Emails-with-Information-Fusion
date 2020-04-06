@@ -26,7 +26,29 @@ Without proper validation, our perfomance metrics are usless. Validation will en
 Using our dataset we can split it into two parts. One for training and one for validation. K-fold cross validation is a defacto  standard used in a large quantity of models for the measurement of the perfomance of a model using somewhat small datasets. Cross validation enables the model to use a full dataset for training and validation  by learning models from a randomised subset of data and using the other untouched set for validation. This method produces k- metrics that are used to calculate the average generalisastion error. [cite]
 
 
+## Data
 
+The raw data used to train both models are the SMSspamdata for Machine Learning[cite] and the preprocessed data for Neura Networks [cite]. There was not much preprocessing done on the data as they where directly derived from the dataset. The SMSspamdata is as follows.
+
+SPAMBASE dataset uses : 4601 Emails ( 1813 Spam = 39.4%)
+Class Distribution:
+	Spam	  1813  (39.4%)
+	Non-Spam  2788  (60.6%)
+It has  58 attributes (57 continuous, 1 nominal class label)
+The first column of the Dataset is used to identify if the email was considered spam or not(Nominal class label)
+The 48 continuous real atrributes are used to show the percentage of words in the email that match the word in the sentence.
+6 CONTINOUS REAL ATTRIBUTES  are  used to show the total number characters in the email
+1 is used to show the average length of uninterrupted sequences of capital letters
+1 is usedlength of longest uninterrupted sequence of capital letters and 1 is used to show 
+total number of capital letters in the e-mail
+
+## Email Address dataset
+
+Email addresses on their own are even more difficult to predict as far as their legitimecy goes. This is due to the variations which exist in email addreses more specifically in the prefix of the address as shown in the diagram bellow.
+/* insert figure */
+
+The dataset for the email addresses was made using a list of first names [cite] for the prefix and five domain names and extetsion from common email providers. Furthermore for the spam email addresses we've used a list of user submited spam email domains [cite] and random letters and numbers for the prefix of the address. Using a simple python script we've created a dataset of 50:50 spam/ham addresses consisting of 200,000 email addresses. 
+ 
 
 ## Long Short Term Memory 
 

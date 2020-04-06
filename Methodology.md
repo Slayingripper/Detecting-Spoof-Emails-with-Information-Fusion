@@ -12,17 +12,6 @@ In this section we will explore the mothodologies which were applied in this pro
 Separate out the data from the techniques
 
 characteristics of the data should justify which techniques you have chosen:
-SPAMBASE dataset uses : 4601 Emails ( 1813 Spam = 39.4%)
-Class Distribution:
-	Spam	  1813  (39.4%)
-	Non-Spam  2788  (60.6%)
-It has  58 attributes (57 continuous, 1 nominal class label)
-The first column of the Dataset is used to identify if the email was considered spam or not(Nominal class label)
-The 48 continuous real atrributes are used to show the percentage of words in the email that match the word in the sentence.
-6 CONTINOUS REAL ATTRIBUTES  are  used to show the total number characters in the email
-1 is used to show the average length of uninterrupted sequences of capital letters
-1 is usedlength of longest uninterrupted sequence of capital letters and 1 is used to show 
-total number of capital letters in the e-mail
 
 
 # Email Addreses database
@@ -60,11 +49,75 @@ observations of figures
 To tackle which Neural Network would yield the best results, two different kinds where tested which are most commonly used for text classification. In our case we used Sequencial and Long Short Term Memory (LSTM) [cite] . Both Neural Networks were ran 20 times each with Nodes being added or removed depending if the accuracy was increasing or decreasing. Using the Sequencial neural network we achieved an accuracy of 93.45% using 57,10,8,4,2,1 nodes creating a deep neural network. This gave us the exact same result as [cite] which used the same type of network but with larger but less nodes. In comparison LSTM gave us an accuracy of 98.35% when we bumped up the LSTM units to 128 with a batch size of 64 . Expanding we've also used the same amount of Nodes as the previous network specificallly 10,8,4,2,1 even though due to the nature of LSTM adding nodes yields minimal increase in accuracy. 
 
 
-Accuracy Graph 		Epoch				Val_Loss
+Accuracy Graph 		Epoch				Accuracy vs Epoch
 
 /*insert figure*/  /*insert figure*/  /*insert figure*/  
 
-observations of figures
+observations of figures:
+The graphs show the results of 100 runs(max that can be displayed by wandb). We can clearly see that when we compare the two Neural Networks that LSTM which starts from greater than 90% keeps a consistant 
+
+
+
+
+To test our neural network further we tested out the research paper "Revisiting Small Batch Training for Deep Neural Networks" [cite] which has yielded surpising results.The paper showed that there was improvement in perfomance between N=2 and N=32 ,depending on the dataset. Although the paper uses LSTM for the CIFAR-10, CIFAR-100 and ImageNet datasets , it was still worth a try to to see if we could yield an increase in perfomance. The tables bellow show the analytical results of the tests: 
+### Using 64 LSTM Units
+
+| LSTM Units | Batch Size | Accuracy % |   Comment   |   |   |
+|:----------:|:----------:|:----------:|:-----------:|---|---|
+|     64     |      2     |    98.64   |             |   |   |
+|     64     |      4     |    86.94   |   Anomally  |   |   |
+|     64     |      8     |    98.92   |             |   |   |
+|     64     |     16     |    98.66   |             |   |   |
+|     64     |     32     |    98.78   |  Consistant |   |   |
+|     64     |     64     |    98.78   |  No benefit |   |   |
+|     64     |     128    |     86     |    Breaks   |   |   |
+|     64     |     256    |      -     | No bennefit |   |   |
+|     64     |     512    |      -     | No bennefit |   |   |
+### Using 128 LSTM UNITS
+| LSTM Units | Batch Size | Accuracy % |    Comment   |   |   |
+|:----------:|:----------:|:----------:|:------------:|---|---|
+|     128    |      2     |    98.71   | Underfitting |   |   |
+|     128    |      4     |    95.11   |              |   |   |
+|     128    |      8     |    96.18   |              |   |   |
+|     128    |     16     |    96.06   |              |   |   |
+|     128    |     32     |    98.85   |  Overfitting |   |   |
+|     128    |     64     |    98.35   |              |   |   |
+|     128    |     128    |    98.49   |              |   |   |
+|     128    |     256    |    94.44   |              |   |   |
+|     128    |     512    |    80.64   |   Anomally   |   |   |
+
+### Using 256 LSTM UNITS
+
+| LSTM Units | Batch Size | Accuracy % |        Comment        |   |   |
+|:----------:|:----------:|:----------:|:---------------------:|---|---|
+|     256    |      2     |    98.85   |                       |   |   |
+|     256    |      4     |     86     |        Anomally       |   |   |
+|     256    |      8     |    97.71   |                       |   |   |
+|     256    |     16     |    98.71   | Inconsistnat Results  |   |   |
+|     256    |     32     |    98.35   |                       |   |   |
+|     256    |     64     |    98.57   |                       |   |   |
+|     256    |     128    |    98.28   |                       |   |   |
+|     256    |     256    |      -     |      No bennefit      |   |   |
+|     256    |     512    |      -     |      No bennefit      |   |   |
+
+
+With these results we can deduce that we have achieved similar results as the paper.
+In our case we saw some good perfomance increase between n=2 and n=64 compared to the paper
+but we should also take into account that we are using a completly different dataset.
+In addition we noticed the following :
+B = Batch Size
+T = Time
+LSTMu = LSTM Units
+
+Bacth Size/LSTM units = Time
+
+B/LSTMu = T
+
+Batch size is inversly proportional to time 
+
+the number of LSTM units did increase our time taken to process and train our model aswell.
+
+
 
 ### Filters 
 Multiple filters were created to further increase the accuracy of the framework , and try to compensate where the algorithms comes short. One obeservation was that both the neural network and Naive Bayes would focus on the Domain name and extension of an email address instead of the prefix which was in most cases unique. This was verified when we run the summary function of NLTK(used for Naive Bayes) to show us which variables had the most weight aswell as the keras.metrics to show us the the same thing for the neural network. 
