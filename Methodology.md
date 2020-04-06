@@ -109,9 +109,23 @@ B = Batch Size
 T = Time
 LSTMu = LSTM Units
 
+ Batch Size          
+ ----------   =  Time
+ LSTM units          
+
+ \frac{Batch Size}{LSTM units}  = Time
+
 Bacth Size/LSTM units = Time
 
 B/LSTMu = T
+
+ \frac{B \downarrow }{LSTMu \uparrow  } = T  \uparrow 
+
+   B downarrow                   
+ ---------------  =  T  uparrow 
+ LSTMu uparrow                  
+
+
 
 Batch size is inversly proportional to time 
 
