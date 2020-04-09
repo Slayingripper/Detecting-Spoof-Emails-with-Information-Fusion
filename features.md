@@ -8,7 +8,7 @@
 5. Domain extension checking
 6. Spell checking
 7. Keyword Checking
-8. Pretrains Models
+8. Pretrained Models
 9. CLI interface
 10. Cross Platform
 

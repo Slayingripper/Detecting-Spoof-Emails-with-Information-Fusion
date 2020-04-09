@@ -63,4 +63,4 @@ B/LSTMu = T
 
 Batch size is inversly proportional to time 
 
-the number of LSTM units did increase out time taken to process and train our model aswell.
+the number of LSTM units did increase our time taken to process and train our model aswell.
