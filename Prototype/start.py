@@ -1,5 +1,5 @@
 #!/usr/bin/env python3 -W ignore::DeprecationWarning
-import argparse,inquirer,time,sys,warnings,gc,progressbartest
+import argparse,inquirer,time,sys,warnings,gc
 from time import sleep
 from tqdm import tqdm
 from colorama import init
@@ -40,12 +40,15 @@ def nnloader1():
 def nnloader2():  
     nnsub = emailnnloader()
     nnsub.file_loader(neuralsubjectpickle,neuralsubjectweights)   
-def machine1():
+
+def machine1(self):
     clemail = mloader(naiveemail)
+    self.name = ml1                          
     return clemail
-def machine2():
+
+def machine2(self):
     clsubject = mloader(naivesub)  
-    return clsubject
+    return clsubject    
 #############################################################################
 init(strip=not sys.stdout.isatty())  # strip colors if stdout is redirected
 from termcolor import cprint
@@ -55,6 +58,7 @@ parser = argparse.ArgumentParser(
     logo,
     description="SEA or Spam Email Analysis is a framework for testing emails and their probability of being spam. \n There are two choices for classification(Naive Bayes and Neural network(LSTM) ) both use custom fiters that further test and analyse the email for better accuracy and percision",
 )
+
 parser.add_argument("--demo", help="Use for demonstration")
 parser.add_argument("--aggressive", help="uses both models for testing achieving a more accurate result")
 parser.add_argument("--auto", help="Runs the pre trained models directly without user input")
@@ -150,7 +154,7 @@ if answers["Method"] == "Naive Bayes Classification":
         
             #print(cl.classify(spamsubject))
             if "@" not in spamsubject:
-                if machine2().clsubject.classify(spamsubject) == "spam":
+                if clsubject.classify(spamsubject) == "spam":
                     subjectweight = subjectweight + 0.5  
                     print (subjectweight)  
                 if wordanalysis.lexicon(0,keywords,spamsubject) != 0:
@@ -166,7 +170,7 @@ if answers["Method"] == "Naive Bayes Classification":
             if "@" not in emailaddress:
                 print("please enter a valid email address")
                 exit()      
-            if machine1().clemail.classify(emailaddress) == "spam":
+            if clemail.classify(emailaddress) == "spam":
                 addressweight = addressweight + 0.5  
                 print (addressweight)  
                 
@@ -295,14 +299,5 @@ elif answers["Method"] == "Neural Network (LSTM)":
 elif answers["Method"] == "Exit":
     Thread(target = func1).start()
     Thread(target = func2).start() 
-    exit()
-    
- 
- 
- 
-
- 
-    
-if __name__ == '_exit':
-    print("aloo")     
+    exit()    
               
