@@ -11,7 +11,7 @@ Sea stands for Spam . Email - Analysis. It can be used to train and test large a
 # How to Run
 ## Step 0: please download Glove vectors to used LSTM
 due to githubs file size limitation this cannot be included in the repository , so download , unzip and move the
-files into the loader folder
+files into the Prototype/loader folder
 ```
 wget http://nlp.stanford.edu/data/glove.6B.zip
 unzip glove.6b.zip
