@@ -16,9 +16,9 @@ files into the loader folder
 wget http://nlp.stanford.edu/data/glove.6B.zip
 unzip glove.6b.zip
 ```
-## Step 1: run the requirments.txt file with 
+## Step 1: Easy one liner install depencencies 
 ```
-sudo pip install requirments.txt
+sudo pip3 install inquirer tqdm colorama nltk pandas autocorrect pympler keras tensorflow keras_metrics sklearn ann_visualizer pyfiglet textblob
 ```
 
 ## Step 2 : Install the punkt NLTK wordlist
