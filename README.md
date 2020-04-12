@@ -6,10 +6,12 @@ Sea stands for Spam . Email - Analysis. It can be used to train and test large a
 1. Python 3.6 +
 2. Linux/Mac OS/Windows(CLI might not work)
 3. Multi-Core , Multi-GPU system recomended 
-
+4. inquirer,tqdm,colorama,nltk,pandas,autocorrect,pympler,keras,tensorflow,keras_metrics,sklearn,ann_visualizer,pyfiglet,textblob
 
 # How to Run
-## Step 0: if you are going to train and test your own models please download Glove vectors
+## Step 0: please download Glove vectors to used LSTM
+due to githubs file size limitation this cannot be included in the repository , so download , unzip and move the
+files into the data folder
 ```
 wget http://nlp.stanford.edu/data/glove.6B.zip
 cd /Downloads
@@ -24,7 +26,7 @@ sudo pip install requirments.txt
 ## Step 2 : Install the punkt NLTK wordlist
 
 ```
-python nltk.download('punkt')
+python3 -m textblob.download_corpora
 ```
 
 ## step 3 : Run the SEA 
