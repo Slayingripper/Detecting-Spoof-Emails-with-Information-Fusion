@@ -60,8 +60,7 @@ echo -e "                           .(/*,,,,*(/.    .(*,,***,/(,
 "
 printf "\e[0;31m Getting System Ready:\n"
 sleep 1 
-python
-import nltk
+sudo pip3 install inquirer tqdm colorama nltk pandas autocorrect pympler keras tensorflow keras_metrics sklearn ann_visualizer pyfiglet textblob
 nltk.download('stopwords')
 nltk.download('punkt')
 !pip install keras-vis
