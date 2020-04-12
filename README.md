@@ -1,7 +1,9 @@
-![] (information/sealogo.png?raw=true)
+
+![](https://github.com/Slayingripper/Detecting-Spoof-Emails-with-Information-Fusion/blob/master/Information/sealogo.png)
 # What is SEA?
 
 Sea stands for Spam . Email - Analysis. It can be used to train and test large amount of data and also classify single SUBJECTS and Email addresses. 
+
 
 # Requirements 
 1. Python 3.6 +
