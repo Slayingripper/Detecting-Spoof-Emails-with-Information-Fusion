@@ -239,7 +239,7 @@ elif answers["Method"] == "Neural Network (LSTM)":
             emailaddress = input("Type an email address to test this out: ")
             
             print(nnmail(emailaddress))
-            #print(nnsub(spamsubject))
+            print(nnsub(spamsubject))
             
             answers = inquirer.prompt(NNquestions)
 
@@ -249,11 +249,8 @@ elif answers["Method"] == "Neural Network (LSTM)":
             addressweight = 0 
             spamsubject = input("Type a email subject to test this out: ")
             emailaddress = input("Type an email address to test this out: ")
-            #print(nnmail.get_predictions(emailaddress))
-            #print(nnsub.get_predictions(spamsubject))
-            #print(get_predictions(spamsubject))
-            # print(cl.classify(spamsubject))
             
+         
             if "@" not in spamsubject:
                     if nnsub.get_predictions(spamsubject) == "spam":
                         subjectweight = subjectweight + 0.5    
@@ -291,7 +288,7 @@ elif answers["Method"] == "Neural Network (LSTM)":
             gc.get_count()
             gc.collect()
             # Clear variable cache
-            tracker.print_diff()
+           # tracker.print_diff()
             answers = inquirer.prompt(NNquestions)
         #   import NeuralNetworkwithkfold
 
