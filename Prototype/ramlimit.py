@@ -2,12 +2,15 @@ import resource
 import platform
 import sys
 
+
+###################################
+# THIS MODULE ONLY WORKS ON LINUX #
+###################################
+
 class ramlimiter():
-    
+   #Will throw error if linux is not used.
     def memory_limit(percentage: float):
-        """
-        只在linux操作系统起作用
-        """
+   
         if platform.system() != "Linux":
             print('Only works on linux!')
             return
@@ -24,7 +27,7 @@ class ramlimiter():
                     free_memory += int(sline[1])
                     
         return free_memory
-    #
+    #Define the amount of memory we will limit 
     def memory(percentage=0.8):
         def decorator(function):
             def wrapper(*args, **kwargs):
@@ -42,7 +45,7 @@ class ramlimiter():
     @memory(percentage=0.8)
 
 if __name__ == '__main__':
-    ramlimiter() # Limitates maximun memory usage to half
+    ramlimiter() # Limitates maximun memory usage to 80%
     print("works")
         
     

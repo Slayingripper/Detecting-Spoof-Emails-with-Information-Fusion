@@ -190,7 +190,8 @@ if answers["Method"] == "Naive Bayes Classification":
             gc.get_count()
             gc.collect()
             #answers = inquirer.prompt(MLquestions)
-            tracker.print_diff()
+            #ENABLE THIS FOR DIAGNOSTICS
+			#tracker.print_diff()
         
     
 elif answers["Method"] == "Neural Network (LSTM)":
