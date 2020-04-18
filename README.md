@@ -1,6 +1,9 @@
+
+![](https://github.com/Slayingripper/Detecting-Spoof-Emails-with-Information-Fusion/blob/master/Information/sealogo.png)
 # What is SEA?
 
 Sea stands for Spam . Email - Analysis. It can be used to train and test large amount of data and also classify single SUBJECTS and Email addresses. 
+
 
 # Requirements 
 1. Python 3.6 +
@@ -11,14 +14,14 @@ Sea stands for Spam . Email - Analysis. It can be used to train and test large a
 # How to Run
 ## Step 0: please download Glove vectors to used LSTM
 due to githubs file size limitation this cannot be included in the repository , so download , unzip and move the
-files into the loader folder
+files into the Prototype/loader folder
 ```
 wget http://nlp.stanford.edu/data/glove.6B.zip
 unzip glove.6b.zip
 ```
-## Step 1: run the requirments.txt file with 
+## Step 1: Easy one liner install depencencies 
 ```
-sudo pip install requirments.txt
+sudo pip3 install inquirer tqdm colorama nltk pandas autocorrect pympler keras tensorflow keras_metrics sklearn ann_visualizer pyfiglet textblob
 ```
 
 ## Step 2 : Install the punkt NLTK wordlist
