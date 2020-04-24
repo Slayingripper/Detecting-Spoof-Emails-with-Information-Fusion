@@ -240,32 +240,28 @@ elif answers["Method"] == "Neural Network (LSTM)":
             "NNquestions",
             message="What else would you like to do?",
             choices=[
-                "Show Summary of network",
-                "Test a Subject heading",
-                "Test a Heading and continue with process",
+                "Test a Subject heading and Email Address only",
+                "Test a Heading and Address and continue with process",
             ],
         ),
     ]
     answers = inquirer.prompt(NNquestions)
-    if answers["NNquestions"] == "Show Summary of network":
-        model.summary()
-        exit()
-
-    elif answers["NNquestions"] == "Test a Subject heading":
+    if answers["NNquestions"] == "Test a Subject heading and Email Address only":
 
         spamsubject = input("Type a email subject to test this out: ")
-        emailaddress = input("Type an email address to test this out: ")
+        emailaddress = input("Type a email address to test this out: ")
 
-        print(nnmail(emailaddress))
+        
         print(nnsub(spamsubject))
+        print(nnmail(emailaddress))
         exit()
 
-    elif answers["NNquestions"] == "Test a Heading and continue with process":
+    elif answers["NNquestions"] == "Test a Heading and Address and continue with process":
 
         subjectweight = 0
         addressweight = 0
         spamsubject = input("Type a email subject to test this out: ")
-        emailaddress = input("Type an email address to test this out: ")
+        emailaddress = input("Type a email address to test this out: ")
 
         if "@" not in spamsubject:
             if nnsub.get_predictions(spamsubject) == "spam":

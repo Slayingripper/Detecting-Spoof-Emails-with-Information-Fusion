@@ -38,7 +38,7 @@ class domaincombine:
             elif re.search("@yahoo$", J["SENDER"]) is not None:
                 spamlevel = spamlevel + 1
 
-        print(spamlevel)
+       # print(spamlevel)
         # print(df.index)
         # numberofemails = len(df.index)
         return spamlevel
@@ -76,7 +76,7 @@ class domaincombine:
                 spamlevel = spamlevel + 1
             elif re.search(".co$", J["SENDER"]) is not None:
                 spamlevel = spamlevel + 1
-        print(spamlevel)
+        #print(spamlevel)
 
         return spamlevel
 
