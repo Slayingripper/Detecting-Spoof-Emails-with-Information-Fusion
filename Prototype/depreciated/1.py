@@ -1,5 +1,5 @@
 def bacon():
-    
+
     # from utils import get_model, int2label, label2int
     #!/usr/bin/env python -W ignore::DeprecationWarning
     from keras.preprocessing.sequence import pad_sequences
@@ -29,10 +29,11 @@ def bacon():
     label2int = {"ham": 0, "spam": 1}
     int2label = {0: "ham", 1: "spam"}
 
-
     def get_embedding_vectors(tokenizer, dim=100):
         embedding_index = {}
-        with open(f"/home/blackfalcon/Downloads/glove.6B.100d.txt", encoding="utf8") as f:
+        with open(
+            f"/home/blackfalcon/Downloads/glove.6B.100d.txt", encoding="utf8"
+        ) as f:
             for line in tqdm.tqdm(f, "Reading GloVe"):
                 values = line.split()
                 word = values[0]
@@ -48,7 +49,6 @@ def bacon():
                 embedding_matrix[i] = embedding_vector
 
         return embedding_matrix
-
 
     def get_model(tokenizer, lstm_units):
         """
@@ -82,13 +82,11 @@ def bacon():
         model.summary()
         return model
 
-
     # get the tokenizer
     tokenizer = pickle.load(open("tokenizeremail.pickle", "rb"))
 
     model = get_model(tokenizer, 128)
     model.load_weights("spam_classifier_0.36")
-
 
     def get_predictions(text):
         sequence = tokenizer.texts_to_sequences([text])
@@ -98,7 +96,7 @@ def bacon():
         prediction = model.predict(sequence)[0]
         # one-hot encoded vector, revert using np.argmax
         return int2label[np.argmax(prediction)]
-    
+
     def extra():
         print("this")
         print("this")
@@ -107,9 +105,10 @@ def bacon():
         print("this")
         return 1
 
-if __name__ == "__main__" :
-        bacon()
-#while True:
- #   text = input("Enter the mail:")
-    # convert to sequences
-  #  print(get_predictions(text))
+
+if __name__ == "__main__":
+    bacon()
+# while True:
+#   text = input("Enter the mail:")
+# convert to sequences
+#  print(get_predictions(text))

@@ -1,5 +1,5 @@
 from keras.preprocessing.sequence import pad_sequences
-import pickle,tqdm,time,pickle,keras_metrics,warnings
+import pickle, tqdm, time, pickle, keras_metrics, warnings
 import numpy as np
 from keras.preprocessing.sequence import pad_sequences
 from sklearn.model_selection import StratifiedKFold
@@ -9,24 +9,28 @@ from keras.models import Sequential
 from keras.utils import to_categorical
 from keras.callbacks import ModelCheckpoint, TensorBoard
 from sklearn.model_selection import train_test_split
+
 SEQUENCE_LENGTH = 100  # the length of all sequences (number of words per sample)
 EMBEDDING_SIZE = 100  # Using 100-Dimensional GloVe embedding vectors
 TEST_SIZE = 0.25  # ratio of testing set
-tokenizer =  None
+tokenizer = None
 BATCH_SIZE = 128
 EPOCHS = 20  # number of epochs
 label2int = {"ham": 0, "spam": 1}
 int2label = {0: "ham", 1: "spam"}
 model = None
 
-class subload():
+
+class subload:
     # from utils import get_model, int2label, label2int
     #!/usr/bin/env python -W ignore::DeprecationWarning
-   # warnings.filterwarnings("ignore")
-    
-    def get_embedding_vectors(self,tokenizer, dim=100):
+    # warnings.filterwarnings("ignore")
+
+    def get_embedding_vectors(self, tokenizer, dim=100):
         embedding_index = {}
-        with open(f"/home/blackfalcon/Downloads/glove.6B.100d.txt", encoding="utf8") as f:
+        with open(
+            f"/home/blackfalcon/Downloads/glove.6B.100d.txt", encoding="utf8"
+        ) as f:
             for line in tqdm.tqdm(f, "Reading GloVe"):
                 values = line.split()
                 word = values[0]
@@ -43,9 +47,8 @@ class subload():
 
         return embedding_matrix
 
-
-    def get_model(self,tokenizer, lstm_units):
-    # get the GloVe embedding vectors
+    def get_model(self, tokenizer, lstm_units):
+        # get the GloVe embedding vectors
         embedding_matrix = self.get_embedding_vectors(tokenizer)
         model = Sequential()
         model.add(
@@ -80,33 +83,28 @@ class subload():
         model = self.get_model(tokenizer, 128)
         model.load_weights("spam_classifier_0.13")
 
-    def get_predictions(self,text):
+    def get_predictions(self, text):
         sequence = tokenizer.texts_to_sequences([text])
-        #print("1")
+        # print("1")
         # pad the sequence
         sequence = pad_sequences(sequence, maxlen=SEQUENCE_LENGTH)
-        #print("2")
+        # print("2")
         # get the prediction
         prediction = model.predict(sequence)[0]
-        #print("3")
+        # print("3")
         # one-hot encoded vector, revert using np.argmax
         return int2label[np.argmax(prediction)]
 
 
-
-if __name__ == "__main__" : 
+if __name__ == "__main__":
     snnl = subload()
     snnl.file_loader()
-    #kaka = print(get_predictions("bacon"))
+    # kaka = print(get_predictions("bacon"))
     chicken = print(snnl.get_predictions("tits and shits and money"))
-    #result = print(get_predictions(text))
+    # result = print(get_predictions(text))
 
-           
-    
-        
     #  while True:
     #     text = input("Enter the mail:")
-            # convert to sequences
-        #    z=get_predictions(text)
-        #   print(z)
-    
+    # convert to sequences
+    #    z=get_predictions(text)
+    #   print(z)

@@ -1,9 +1,10 @@
 #!/usr/bin/env python3 -W ignore::DeprecationWarning
 def machinelearning():
-    import random,time,nltk,csv,threading
+    import random, time, nltk, csv, threading
     from textblob import TextBlob
     from nltk.corpus import stopwords
     from textblob.classifiers import NaiveBayesClassifier
+
     warnings.filterwarnings("ignore")
 
     # from wandb import magic
