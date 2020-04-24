@@ -1,3 +1,4 @@
+#!/usr/bin/env python3 -W ignore::DeprecationWarning
 import tqdm
 import numpy as np
 import keras_metrics  # for recall and precision metrics
@@ -12,6 +13,8 @@ from sklearn.model_selection import train_test_split
 import time
 import numpy as np
 import pickle
+warnings.filterwarnings("ignore")
+
 
 # from wandb import magic
 # import wandb

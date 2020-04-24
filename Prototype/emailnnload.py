@@ -1,3 +1,4 @@
+#!/usr/bin/env python3 -W ignore::DeprecationWarning
 from keras.preprocessing.sequence import pad_sequences
 import pickle,tqdm,time,pickle,keras_metrics,warnings
 import numpy as np
@@ -20,6 +21,7 @@ EPOCHS = 20  # number of epochs
 label2int = {"ham": 0, "spam": 1}
 int2label = {0: "ham", 1: "spam"}
 model = None
+
 
 
 class emailnnloader():

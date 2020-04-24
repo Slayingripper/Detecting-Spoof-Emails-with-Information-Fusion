@@ -1,3 +1,4 @@
+#!/usr/bin/env python3 -W ignore::DeprecationWarning
 import tqdm
 import numpy as np
 import keras_metrics  # for recall and precision metrics
@@ -13,6 +14,8 @@ import numpy as np
 import pickle
 from wandb import magic
 import wandb
+warnings.filterwarnings("ignore")
+
 
 wandb.init(magic=True)
 wandb.init(project="NEWNN")

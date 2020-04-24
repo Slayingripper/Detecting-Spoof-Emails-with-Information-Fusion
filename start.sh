@@ -62,42 +62,15 @@ printf "\e[0;31m Getting System Ready:\n"
 sleep 1 
 sudo pip3 install inquirer tqdm colorama nltk pandas autocorrect pympler keras tensorflow keras_metrics sklearn ann_visualizer pyfiglet textblob
 
+printf "\e[0;31m Downloading  GLove database:\n"
+cd $DIR/Prototype/loader
+wget http://nlp.stanford.edu/data/glove.6B.zip
+unzip glove.6b.zip
+printf 'Installing textblob files\n'
+sleep 1
+python3 -m textblob.download_corpora
 
-printf "\e[0;34m Going to folder:\n"
-DIR=$(dirname "${BASH_SOURCE[0]}")
-
+printf 'running SEA.....'
+sleep 1
 cd $DIR/Prototype/
-
-DIR=$(dirname "${BASH_SOURCE[0]}")
-files=( "$DIR" *.py )
-
-PS3='Select file to run, or 0 to exit: '
-select file in "${files[@]}"; do
-    if [[ $REPLY == "0" ]]; then
-        echo 'Bye!' >&2
-        exit
-    elif [[ -z $file ]]; then
-        echo 'Invalid choice, try again' >&2
-    else
-        python $file
-        break
-    fi
-done
-printf "\e[1;37m Cleaning up:\n"
-spinner() {
-    local i sp n
-    sp='/-\|'
-    n=${#sp}
-    printf ' '
-    while sleep 0.1; do
-        printf "%s\b" "${sp:i++%n:1}"
-    done
-}
-
-printf 'Spin to win'
-spinner &
-
-sleep 3  # sleeping for 10 seconds is important work
-clear
-kill "$!" # kill the spinner
-printf '\n'
+python3 start.py

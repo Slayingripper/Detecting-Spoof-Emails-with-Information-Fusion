@@ -64,7 +64,7 @@ parser.add_argument("--aggressive", help="uses both models for testing achieving
 parser.add_argument("--auto", help="Runs the pre trained models directly without user input")
 parser.add_argument("--AIS", help="Aritifical Immune System (TBD)")
 #parser.add_argument("--p",type= str,default=comb(convert,357712151888))
-parser.add_argument("--l",default= "l" )
+parser.add_argument("--l",default= "l" ,help="Runs with ram limit enabled")
 args = parser.parse_args()
 
 #if 'demo' in args.demo:
@@ -132,7 +132,8 @@ if answers["Method"] == "Naive Bayes Classification":
         if answers["MLquestions"] == "Show top 10 informative features":
             clemail.show_informative_features(10)
             clsubject.show_informative_features(10)
-            answers = inquirer.prompt(MLquestions)
+            
+            exit()
 
         elif answers["MLquestions"] == "Test a Subject heading":
 
@@ -140,7 +141,7 @@ if answers["Method"] == "Naive Bayes Classification":
             emailaddress = input("Type an email address to test this out: ")
             print(clsubject.classify(spamsubject))
             print(clemail.classify(emailaddress))
-            answers = inquirer.prompt(MLquestions)
+            exit()
 
         elif answers["MLquestions"] == "Test a Heading and continue with process":
             subjectweight = 0 
@@ -156,30 +157,30 @@ if answers["Method"] == "Naive Bayes Classification":
             if "@" not in spamsubject:
                 if clsubject.classify(spamsubject) == "spam":
                     subjectweight = subjectweight + 0.5  
-                    print (subjectweight)  
+                 
                 if wordanalysis.lexicon(0,keywords,spamsubject) != 0:
                     subjectweight = subjectweight + (0.5/3)
-                    print (subjectweight)
+                   
                 checkthis = spell(spamsubject)
                 if spamsubject != checkthis:
                     subjectweight = subjectweight + (0.5/3)
-                    print (subjectweight)
+                    
                 if wordanalysis.lexicon(0,profanity,spamsubject)!= 0 :
                     subjectweight = subjectweight + (0.5/3)
-                    print(subjectweight)    
+                       
             if "@" not in emailaddress:
                 print("please enter a valid email address")
                 exit()      
             if clemail.classify(emailaddress) == "spam":
                 addressweight = addressweight + 0.5  
-                print (addressweight)  
+               
                 
             if domaincombine.domaincheck(emailaddress) == 0 :
                 addressweight = addressweight + 0.25
-                print(addressweight)
+               
             if domaincombine.domainextcheck(emailaddress) == 0:
                 addressweight = addressweight + 0.25
-            print(addressweight)
+            
             # Clear variable cache
             spamprobability = (addressweight + subjectweight) * 100
             if spamprobability >= 60:
@@ -189,6 +190,7 @@ if answers["Method"] == "Naive Bayes Classification":
             #print("Probability of this being spam is " + str(spamprobability) +"%")
             gc.get_count()
             gc.collect()
+            exit()
             #answers = inquirer.prompt(MLquestions)
             #ENABLE THIS FOR DIAGNOSTICS
 			#tracker.print_diff()
@@ -231,7 +233,7 @@ elif answers["Method"] == "Neural Network (LSTM)":
         answers = inquirer.prompt(NNquestions)
         if answers["NNquestions"] == "Show Summary of network":
             model.summary()
-            answers = inquirer.prompt(NNquestions)
+            exit()
 
         elif answers["NNquestions"] == "Test a Subject heading":
 
@@ -240,8 +242,8 @@ elif answers["Method"] == "Neural Network (LSTM)":
             
             print(nnmail(emailaddress))
             print(nnsub(spamsubject))
+            exit()
             
-            answers = inquirer.prompt(NNquestions)
 
         elif answers["NNquestions"] == "Test a Heading and continue with process":
 
@@ -254,29 +256,29 @@ elif answers["Method"] == "Neural Network (LSTM)":
             if "@" not in spamsubject:
                     if nnsub.get_predictions(spamsubject) == "spam":
                         subjectweight = subjectweight + 0.5    
-                        print (subjectweight)
+                        
                     if wordanalysis().lexicon(keywords,spamsubject) != 0:
                         subjectweight = subjectweight + (0.5/3)
-                        print (subjectweight)
+                        
                     checkthis = spell(spamsubject)
                     if spamsubject != checkthis:
                         subjectweight = subjectweight + (0.5/3)
-                        print (subjectweight)
+                        
                     if wordanalysis().lexicon(profanity,spamsubject)!= 0 :
                         subjectweight = subjectweight + (0.5/3)
-                        print(subjectweight)      
+                            
             if "@" not in emailaddress:
                 print("please enter a valid email address")
                 exit()      
             if nnmail.get_predictions(emailaddress) == "spam":
                 addressweight = addressweight + 0.5    
-                print(addressweight)
+                
             if domaincombine.domaincheck(emailaddress) == 0 :
                 addressweight = addressweight + 0.25
-                print(addressweight)
+                
             if domaincombine.domainextcheck(emailaddress) == 0:
                 addressweight = addressweight + 0.25
-                print(addressweight)
+                
             # Clear variable cache
             spamprobability = (addressweight + subjectweight) * 100
             if spamprobability >= 60:
@@ -289,13 +291,11 @@ elif answers["Method"] == "Neural Network (LSTM)":
             gc.collect()
             # Clear variable cache
            # tracker.print_diff()
-            answers = inquirer.prompt(NNquestions)
+            exit()
         #   import NeuralNetworkwithkfold
 
         #  print(answers["Method"])
 
 elif answers["Method"] == "Exit":
-    Thread(target = func1).start()
-    Thread(target = func2).start() 
     exit()    
               

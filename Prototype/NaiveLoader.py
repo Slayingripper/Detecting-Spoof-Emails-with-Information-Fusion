@@ -1,3 +1,4 @@
+#!/usr/bin/env python3 -W ignore::DeprecationWarning
 def mloader(path):
     import pickle,nltk
     from textblob import TextBlob
