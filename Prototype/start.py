@@ -251,12 +251,13 @@ elif answers["Method"] == "Neural Network (LSTM)":
         spamsubject = input("Type a email subject to test this out: ")
         emailaddress = input("Type a email address to test this out: ")
 
-        
         print(nnsub(spamsubject))
         print(nnmail(emailaddress))
         exit()
 
-    elif answers["NNquestions"] == "Test a Heading and Address and continue with process":
+    elif (
+        answers["NNquestions"] == "Test a Heading and Address and continue with process"
+    ):
 
         subjectweight = 0
         addressweight = 0
