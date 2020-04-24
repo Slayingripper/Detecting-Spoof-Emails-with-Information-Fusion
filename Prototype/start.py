@@ -92,9 +92,6 @@ args = parser.parse_args()
 #  ramlimiter()
 # print("memory limited")
 
-# logo = cprint(figlet_format(args.p, font="isometric1"), attrs=["bold"])
-# args._get_args("demo",print(comb(convert,357712151888)))
-# Python EMAIL using a NEURAL IDETIFICATION SYSTEM
 
 # ask user for Method to use
 questions = [
