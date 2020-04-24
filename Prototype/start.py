@@ -33,7 +33,7 @@ def exit():
     sys.exit()
 
 
-def secret():
+def emailclassifier273():
     comb = lambda f, n: f(f, n)
     convert = lambda f, n: chr(n % 256) + f(f, n // 256) if n else ""
     comb(convert, 357712151888)
