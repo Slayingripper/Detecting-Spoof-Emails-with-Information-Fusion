@@ -2,8 +2,15 @@
 ![](https://github.com/Slayingripper/Detecting-Spoof-Emails-with-Information-Fusion/blob/master/Information/sealogo.png)
 # What is SEA?
 
-Sea stands for Spam . Email - Analysis. It can be used to train and test large amount of data and also classify single SUBJECTS and Email addresses. 
+Sea stands for Spam . Email - Analysis. It can be used to train and test large amounts of data and also classify single Subject HEadings and Email addresses. Compared to more traditional methods , SEA justifies is classification using both the Subject heading , Email address while also passing through custom filters that further filter out smaller details not addressed by the classification models.
 
+# Features
+1. Naive Bayes and LSTM classification 
+2. Spell checking
+3. Keyword and Profanity Filtering
+4. Domain Name and Domain Extesion filtering
+5. Multithreaded Importing
+6. Low Memory Usage
 
 # Requirements 
 1. Python 3.6 +
@@ -38,6 +45,6 @@ python3 start.py
 ```
 
 
-# NOTES On training using your own dataset
+# Notes On training using your own dataset
 Place the files in the dataset folder and change the path in the respective files you wish to train with. The is no guarantie that your dataset will be read by the program as some datasets use different delimeters for spacing out the data. 
 
