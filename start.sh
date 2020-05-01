@@ -63,7 +63,7 @@ sleep 1
 sudo pip3 install inquirer tqdm colorama nltk pandas autocorrect pympler keras tensorflow keras_metrics sklearn ann_visualizer pyfiglet textblob
 
 printf "\e[0;31m Downloading  GLove database:\n"
-cd $DIR/Prototype/loader
+cd $DIR Prototype/loader
 wget http://nlp.stanford.edu/data/glove.6B.zip
 unzip glove.6b.zip
 printf 'Installing textblob files\n'
