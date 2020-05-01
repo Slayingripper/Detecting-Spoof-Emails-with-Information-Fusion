@@ -32,7 +32,7 @@ class emailnnloader:
     def get_embedding_vectors(self, tokenizer, dim=100):
         embedding_index = {}
         with open(
-            f"Prototype/loader/glove.6B.100d.txt", encoding="utf8"
+            f"/Prototype/loader/glove.6B.100d.txt", encoding="utf8"
         ) as f:
             for line in tqdm.tqdm(f, "Reading GloVe"):
                 values = line.split()
