@@ -41,7 +41,7 @@ python3 -m textblob.download_corpora
 
 ```
 cd /Prototype/
-python3 start.py
+python3 -W ignore start.py
 ```
 
 

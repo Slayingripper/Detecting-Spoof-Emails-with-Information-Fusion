@@ -61,7 +61,8 @@ echo -e "                           .(/*,,,,*(/.    .(*,,***,/(,
 printf "\e[0;31m Getting System Ready:\n"
 sleep 1 
 sudo pip3 install inquirer tqdm colorama nltk pandas autocorrect pympler keras tensorflow keras_metrics sklearn ann_visualizer pyfiglet textblob
-
+printf "\e[0;31m Getting System Ready:\n"
+sudo apt install unzip
 printf "\e[0;31m Downloading  GLove database:\n"
 cd $DIR Prototype/loader
 wget http://nlp.stanford.edu/data/glove.6B.zip
@@ -72,5 +73,5 @@ python3 -m textblob.download_corpora
 
 printf 'running SEA.....'
 sleep 1
-cd $DIR/Prototype/
-python3 start.py
+cd $DIR Prototype/
+python3 -W ignore start.py
