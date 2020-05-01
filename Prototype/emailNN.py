@@ -40,7 +40,7 @@ def load_data():
     """
     texts, labels = [], []
     with open(
-        "/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/Legit.csv"
+        "Detecting-Spoof-Emails-with-Information-Fusion/Dataset/Legit.csv"
     ) as f:
         for line in f:
             split = line.split()
@@ -84,7 +84,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 def get_embedding_vectors(tokenizer):
     embedding_index = {}
-    with open(f"/home/blackfalcon/Downloads/glove.6B.{dim}d.txt", encoding="utf8") as f:
+    with open(f"loader/glove.6B.{dim}d.txt", encoding="utf8") as f:
         for line in tqdm.tqdm(f, "Reading GloVe"):
             values = line.split()
             word = values[0]
