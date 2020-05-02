@@ -1,9 +1,0 @@
-[34m[1mwandb[0m: [33mWARNING[0m wandb.init() arguments ignored because wandb magic has already been initialized
-Traceback (most recent call last):
-  File "start.py", line 92, in <module>
-    from newSNN import *
-  File "/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Prototype/newSNN.py", line 72, in <module>
-    y = [label2int[label] for label in y]
-  File "/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Prototype/newSNN.py", line 72, in <listcomp>
-    y = [label2int[label] for label in y]
-KeyError: 'ham,Bugis'

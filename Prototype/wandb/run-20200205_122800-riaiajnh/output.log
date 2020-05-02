@@ -1,156 +1,0 @@
-[34m[1mwandb[0m: [33mWARNING[0m wandb.init() arguments ignored because wandb magic has already been initialized
-5574
-1393
-1394
-5574
-importing data...
-It took 20.306174755096436 seconds to import data
-data imported
-shuffle the data
-training data
-It took 6.464208602905273 seconds to train data
-data trained, now checking accuracy:
-accuracy: 0.8627556512378902
-It took 49.24915385246277to calculate the accuracy
-ham
-spam
-spam
-spam
-[J7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Show top 10 informative features
- [34m> Show top 10 informative features(B[m[K
- (B[m  Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Subject heading
- (B[m  Show top 10 informative features(B[m[K
- [34m> Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Show top 10 informative features
- [34m> Show top 10 informative features(B[m[K
- (B[m  Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Subject heading
- (B[m  Show top 10 informative features(B[m[K
- [34m> Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show top 10 informative features(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Subject heading
- (B[m  Show top 10 informative features(B[m[K
- [34m> Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Show top 10 informative features
- [34m> Show top 10 informative features(B[m[K
- (B[m  Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Subject heading
- (B[m  Show top 10 informative features(B[m[K
- [34m> Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show top 10 informative features(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show top 10 informative features(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show top 10 informative features(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show top 10 informative features(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show top 10 informative features(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show top 10 informative features(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show top 10 informative features(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show top 10 informative features(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Subject heading
- (B[m  Show top 10 informative features(B[m[K
- [34m> Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show top 10 informative features(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Subject heading
- (B[m  Show top 10 informative features(B[m[K
- [34m> Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Show top 10 informative features
- [34m> Show top 10 informative features(B[m[K
- (B[m  Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Show top 10 informative features
- [34m> Show top 10 informative features(B[m[K
- (B[m  Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Subject heading
- (B[m  Show top 10 informative features(B[m[K
- [34m> Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Show top 10 informative features
- [34m> Show top 10 informative features(B[m[K
- (B[m  Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-
-Most Informative Features
-           contains(txt) = True             spam : ham    =     37.2 : 1.0
-        contains(mobile) = True             spam : ham    =     24.4 : 1.0
-           contains(new) = True             spam : ham    =     19.2 : 1.0
-           contains(per) = True             spam : ham    =     16.7 : 1.0
-          contains(free) = True             spam : ham    =     14.6 : 1.0
-          contains(mins) = True             spam : ham    =     14.1 : 1.0
-             contains(i) = True              ham : spam   =     14.1 : 1.0
-          contains(stop) = True             spam : ham    =     12.4 : 1.0
-       contains(service) = True             spam : ham    =     11.5 : 1.0
-         contains(offer) = True             spam : ham    =     11.5 : 1.0
-[J7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Show top 10 informative features
- [34m> Show top 10 informative features(B[m[K
- (B[m  Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Subject heading
- (B[m  Show top 10 informative features(B[m[K
- [34m> Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-

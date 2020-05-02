@@ -1,311 +1,0 @@
-[34m[1mwandb[0m: [33mWARNING[0m wandb.init() arguments ignored because wandb magic has already been initialized
-WARNING:tensorflow:From /home/blackfalcon/.local/lib/python3.7/site-packages/tensorflow/python/ops/nn_impl.py:180: add_dispatch_support.<locals>.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
-Instructions for updating:
-Use tf.where in 2.0, which has the same broadcast rule as np.where
-2020-02-06 01:58:19.096781: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
-2020-02-06 01:58:19.120651: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2494265000 Hz
-2020-02-06 01:58:19.121024: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x556caa0 executing computations on platform Host. Devices:
-2020-02-06 01:58:19.121057: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): <undefined>, <undefined>
-2020-02-06 01:58:19.300650: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1412] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
-WARNING:tensorflow:From /home/blackfalcon/.local/lib/python3.7/site-packages/keras/backend/tensorflow_backend.py:422: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.
-
-WARNING:tensorflow:From /home/blackfalcon/.local/lib/python3.7/site-packages/keras/callbacks/tensorboard_v1.py:200: The name tf.summary.merge_all is deprecated. Please use tf.compat.v1.summary.merge_all instead.
-
-WARNING:tensorflow:From /home/blackfalcon/.local/lib/python3.7/site-packages/keras/callbacks/tensorboard_v1.py:203: The name tf.summary.FileWriter is deprecated. Please use tf.compat.v1.summary.FileWriter instead.
-
-WARNING:tensorflow:From /home/blackfalcon/.local/lib/python3.7/site-packages/keras/callbacks/tensorboard_v1.py:343: The name tf.Summary is deprecated. Please use tf.compat.v1.Summary instead.
-
-accuracy: 94.13%
-94.13% (+/- 0.00%)
-[J7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Show Summary of network
- [34m> Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Subject heading
- (B[m  Show Summary of network(B[m[K
- [34m> Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Heading and continue with process
- (B[m  Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- [34m> Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Subject heading
- (B[m  Show Summary of network(B[m[K
- [34m> Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Show Summary of network
- [34m> Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Show Summary of network
- [34m> Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Show Summary of network
- [34m> Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-
-Model: "sequential_10"
-_________________________________________________________________
-Layer (type)                 Output Shape              Param #   
-=================================================================
-dense_46 (Dense)             (None, 15)                870       
-_________________________________________________________________
-dense_47 (Dense)             (None, 10)                160       
-_________________________________________________________________
-dense_48 (Dense)             (None, 8)                 88        
-_________________________________________________________________
-dense_49 (Dense)             (None, 4)                 36        
-_________________________________________________________________
-dropout_10 (Dropout)         (None, 4)                 0         
-_________________________________________________________________
-dense_50 (Dense)             (None, 1)                 5         
-=================================================================
-Total params: 1,159
-Trainable params: 1,159
-Non-trainable params: 0
-_________________________________________________________________
-[J7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Show Summary of network
- [34m> Show Summary of network(B[m[K
- (B[m  Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-[A[A[A[A7[134;1H[J8
-[A[K(B[m[[33m?(B[m](B[m What else would you like to do?: Test a Subject heading
- (B[m  Show Summary of network(B[m[K
- [34m> Test a Subject heading(B[m[K
- (B[m  Test a Heading and continue with process(B[m[K
-
-  0%|                                                                                                           | 0/10 [00:00<?, ?it/s]
-Traceback (most recent call last):
-  File "start.py", line 104, in <module>
-    SpellChecker
-NameError: name 'SpellChecker' is not defined
