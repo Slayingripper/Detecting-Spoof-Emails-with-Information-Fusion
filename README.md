@@ -61,14 +61,15 @@ python3 -W ignore start.py
 ## Options for Naive Bayes
 
 1. Show top 10 most informative Features
-2. Test a subject head and email address without filtering
-3. Test a subject head and email address with filtering
+2. Test a subject heading and email address without filtering
+3. Test a subject heading and email address with filtering
 
 ## Options for LSTM
 
-1. Test a subject head and email address without filtering
-2. Test a subject head and email address with filtering
+1. Test a subject heading and email address without filtering
+2. Test a subject heading and email address with filtering
 
 # Notes On training using your own dataset
-Place the files in the dataset folder and change the path in the respective files you wish to train with. The is no guarantie that your dataset will be read by the program as some datasets use different delimeters for spacing out the data. 
+Place the files in the dataset folder and change the path in the respective files you wish to train with. 
+There is no guarantie that your dataset will be read by the program, as some datasets use different delimeters for spacing out the data. 
 
