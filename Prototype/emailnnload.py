@@ -70,7 +70,7 @@ class emailnnloader:
         model.add(Dense(4, activation="relu"))
         model.add(Dropout(0.3))
         model.add(Dense(2, activation="sigmoid"))
-        # compile as rmsprop optimizer
+        # compile as adam optimizer
         # aswell as with recall metric
         model.compile(
             optimizer="adam", loss="categorical_crossentropy", metrics=["accuracy"],

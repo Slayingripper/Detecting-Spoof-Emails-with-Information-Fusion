@@ -1,4 +1,7 @@
 #!/usr/bin/env python3 -W ignore::DeprecationWarning
+#starts up when called by start.py 
+#loads the files that are hard coded in the main file
+#loads the pretrained NaiveBayesClassifier
 def mloader(path):
     import pickle, nltk
     from textblob import TextBlob

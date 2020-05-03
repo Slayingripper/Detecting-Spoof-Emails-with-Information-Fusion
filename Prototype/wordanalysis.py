@@ -1,6 +1,8 @@
 import os, nltk, re
 from collections import Counter
-
+#gets the file path from start.py
+#looks for the words
+#if they are found tally up a counter 
 
 class wordanalysis:
     def lexicon(self, path, sentence):

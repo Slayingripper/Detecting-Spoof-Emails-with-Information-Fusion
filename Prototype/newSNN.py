@@ -42,7 +42,7 @@ def load_data():
     """
     texts, labels = [], []
     with open(
-        "/home/blackfalcon/gitstuff/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/SMSSpamCollectionextra"
+        "/Detecting-Spoof-Emails-with-Information-Fusion/Dataset/SMSSpamCollectionextra"
     ) as f:
         for line in f:
             split = line.split()
@@ -177,10 +177,12 @@ def get_predictions(text):
     # one-hot encoded vector, revert using np.argmax
     return int2label[np.argmax(prediction)]
 
-
+#saved the model 
 model.save("NEURAL.h5")
 with open("tokenizer2.pickle", "wb") as handle:
     pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
+	
+#use to check if the model trained corrrectly 	
 text = "SEX SEX GIVE ME MORE SEX MONEY "
 print(get_predictions(text))
 text = "Hey man whats up"
